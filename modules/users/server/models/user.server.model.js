@@ -23,6 +23,11 @@ var validateLocalStrategyProperty = function (property) {
 var validateLocalStrategyEmail = function (email) {
   return ((this.provider !== 'local' && !this.updated) || validator.isEmail(email));
 };
+//Shift Schema
+
+var shiftSchema = new Schema({
+
+})
 
 /**
  * User Schema
@@ -51,6 +56,21 @@ var UserSchema = new Schema({
     trim: true,
     default: '',
     validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
+  },
+  availibility:{
+    mon:{type: [Number], default: [0,0,0], required: true},
+    tue:{type: [Number], default: [0,0,0], required: true},
+    wed:{type: [Number], default: [0,0,0], required: true},
+    thu:{type: [Number], default: [0,0,0], required: true},
+    fri:{type: [Number], default: [0,0,0], required: true},
+    sat:{type: [Number], default: [0,0,0], required: true},
+    sun:{type: [Number], default: [0,0,0], required: true}
+
+  },
+  role:{
+    //driver or kitchen
+    type: String,
+    lowercase: true
   },
   username: {
     type: String,
