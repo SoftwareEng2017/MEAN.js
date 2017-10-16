@@ -55,6 +55,7 @@ var UserSchema = new Schema({
     validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
   },
   availibility:{
+    //Investigate storing employee types in this array as well.
     mon:{type: [Number], default: [0,0,0], required: true},
     tue:{type: [Number], default: [0,0,0], required: true},
     wed:{type: [Number], default: [0,0,0], required: true},
@@ -65,7 +66,7 @@ var UserSchema = new Schema({
 
   },
   role:{
-    //driver or kitchen
+    //admin vs employee
     type: String,
     lowercase: true
   },
