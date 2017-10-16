@@ -4,10 +4,10 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://student:classcen3031@ds045465.mlab.com:45465/class' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-dev',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://cymbalmonkeys:Monkeygazm123@ds023435.mlab.com:23435' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/cookiegazm',
     options: {
-      user: '',
-      pass: ''
+      user: 'cymbalmonkeys',
+      pass: 'Monkeygazm123'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
