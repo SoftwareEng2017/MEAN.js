@@ -25,9 +25,6 @@ var validateLocalStrategyEmail = function (email) {
 };
 //Shift Schema
 
-var shiftSchema = new Schema({
-
-})
 
 /**
  * User Schema
