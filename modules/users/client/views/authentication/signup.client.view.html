@@ -5,21 +5,21 @@
       <fieldset>
         <div class="form-group" show-errors>
           <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" required>
+          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="employeeCredentials.firstName" placeholder="First Name" required>
           <div ng-messages="userForm.firstName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">First name is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
           <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="credentials.lastName" placeholder="Last Name" required>
+          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="employeeCredentials.lastName" placeholder="Last Name" required>
           <div ng-messages="userForm.lastName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Last name is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email" lowercase required>
+          <input type="email" id="email" name="email" class="form-control" ng-model="employeeCredentials.email" placeholder="Email" lowercase required>
           <div ng-messages="userForm.email.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Email address is required.</p>
             <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
@@ -27,20 +27,41 @@
         </div>
         <div class="form-group" show-errors>
           <label for="username">Username</label>
-          <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
+          <input type="text" id="username" name="username" class="form-control" ng-model="employeeCredentials.username" placeholder="Username" lowercase required>
           <div ng-messages="userForm.username.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
           <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
+            <input type="password" id="password" name="password" class="form-control" ng-model="employeeCredentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
           <div ng-messages="userForm.password.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Password is required.</p>
             <div ng-repeat="passwordError in passwordErrors">
               <p class="help-block error-text" ng-show="userForm.password.$error.requirements">{{passwordError}}</p>
             </div>
           </div>
+        </div>
+        <div class="form-group" >
+         <table>
+          <th>Availibility</th>
+          <th>Shift1</th>
+          <th>Shift2</th>
+          <th>Shift3</th>
+          <tr>
+          <th>Mon</th>
+          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.mon[0]"></th>
+          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.mon[1]"></th>
+          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.mon[2]"></th>
+          </tr>
+          <tr>
+            <th>Tue</th>
+          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.tue[0]"></th>
+          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.tue[1]"></th>
+          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.tue[2]"></th>
+          </tr>
+        </table>
+          
         </div>
         <div class="form-group" ng-show="!userForm.password.$error.required">
           <label>Password Requirements</label>
