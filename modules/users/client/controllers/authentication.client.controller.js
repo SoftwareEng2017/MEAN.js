@@ -10,17 +10,19 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     //I have now fucking clue where scope.credentials is declared so we're using our own scope, with blackjack and hookers
       //The idea is a create a blank JSON of the user model defined in MEAN.js\modules\users\server\models
         //and write to it using scope.employeeCredentials in the view.
+    $scope.days = ['mon','tue','wed','thu','fri','sat','sun'];
+    $scope.shifts = [0,1,2,3];
     $scope.employeeCredentials = {
       username: '',
       password: '',
       availibility: {
-        sun: [0,0,0],
-        sat: [0,0,0],
-        fri: [0,0,0],
-        thu: [0,0,0],
-        wed: [0,0,0],
-        tue: [0,0,0],
-        mon: [0,0,0],
+        sun: [0,0,0,0],
+        sat: [0,0,0,0],
+        fri: [0,0,0,0],
+        thu: [0,0,0,0],
+        wed: [0,0,0,0],
+        tue: [0,0,0,0],
+        mon: [0,0,0,0],
       },
       email: '',
       type: '',

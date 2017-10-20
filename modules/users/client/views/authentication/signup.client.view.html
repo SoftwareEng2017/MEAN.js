@@ -56,22 +56,25 @@
           </div>
         </div>
         <div class="form-group" >
-         <table>
+         <table ng-controller = "EditProfileController" border = "1" width = "500" height = "300">
           <th>Availibility</th>
-          <th>Shift1</th>
-          <th>Shift2</th>
-          <th>Shift3</th>
-          <tr>
-          <th>Mon</th>
-          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.mon[0]"></th>
-          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.mon[1]"></th>
-          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.mon[2]"></th>
-          </tr>
-          <tr>
-            <th>Tue</th>
-          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.tue[0]"></th>
-          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.tue[1]"></th>
-          <th><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.tue[2]"></th>
+          <th ng-repeat = "day in days"> {{day&nbsp;}} &nbsp;</th>
+          <tr ng-repeat = 'shift in shifts'>
+           <th >Sh{{shift}}</th>
+            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.mon[shift]">
+            </td>
+            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.tue[shift]">
+            </td>
+            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.wed[shift]">
+            </td>
+            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.thu[shift]">
+            </td>
+            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.fri[shift]">
+            </td>
+            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.sat[shift]">
+            </td>
+            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.sun[shift]">
+            </td>
           </tr>
         </table>
           

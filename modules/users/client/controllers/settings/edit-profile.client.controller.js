@@ -3,6 +3,8 @@
 angular.module('users').controller('EditProfileController', ['$scope', '$http', '$location', 'Users', 'Authentication',
   function ($scope, $http, $location, Users, Authentication) {
     $scope.user = Authentication.user;
+    $scope.days = ["mon","tue","wed","thu","fri","sat","sun"];
+    $scope.shifts = [0,1,2,3];
 
     // Update a user profile
     $scope.updateUserProfile = function (isValid) {
