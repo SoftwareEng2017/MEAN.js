@@ -69,7 +69,7 @@ var UserSchema = new Schema({
   type: {
     //admin vs employee
     type: String,
-    lowercase: true
+    
   },
   username: {
     type: String,

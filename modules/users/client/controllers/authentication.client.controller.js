@@ -23,6 +23,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         mon: [0,0,0],
       },
       email: '',
+      type: '',
       lastName: '',
       firstName: ''
     };
