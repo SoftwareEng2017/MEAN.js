@@ -58,13 +58,18 @@ a:hover .header-profile-image {
   padding-top: 100px;
 }
 
+.btn .btn-primary{
+  background-color: white !important;
+}
+
 .cookiebutton{
-    background-color: #662611;
+    background-color: #662611 !important;
     min-width: 50px;
     min-height: 50px;
     margin-top: 20px;
     border-radius: 15px;
     border-color: #662611;
+    color: white;
 }
 /*!important lets me have more priority over some bootstrap styles */
 .cookiebutton:hover   {
@@ -117,4 +122,8 @@ li.dropdown.open>a {
 
 .navbar-brand {
   height:100px;
+}
+
+.jumbotron{
+  background-color: #e1f3fa;
 }
