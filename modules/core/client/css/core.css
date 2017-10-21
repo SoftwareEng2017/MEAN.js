@@ -1,3 +1,11 @@
+
+
+/*Custom colors for Cookiegazm
+BROWN = #662611
+BLUE = #00aad7
+SPLAT WHITE = #e1f3fa
+*/
+
 .content {
   margin-top: 50px;
 }
@@ -34,4 +42,79 @@ a:hover .header-profile-image {
 }
 .has-error .help-inline.error-text {
   display: inline;
+}
+
+/*==========Jairo's Design========*/
+
+.white {
+  min-height: 100px;
+  background-color: white;
+  border-bottom-color: #662611;
+  border-bottom-width: 10px;
+  border-bottom-style: dotted;
+}
+
+.page {
+  padding-top: 100px;
+}
+
+.cookiebutton{
+    background-color: #662611;
+    min-width: 50px;
+    min-height: 50px;
+    margin-top: 20px;
+    border-radius: 15px;
+    border-color: #662611;
+}
+/*!important lets me have more priority over some bootstrap styles */
+.cookiebutton:hover   {
+  background-color: #00aad7 !important;
+  border-color: #00aad7 !important;
+}
+
+.cookiebutton:focus  {
+  background-color: #00aad7 !important;
+  border-color: #00aad7 !important;
+}
+
+.icon-bar{
+  min-width: 50px;
+  min-height:5px;
+}
+
+.cookiecollapse{
+  border: none;
+  border-radius: 15px;
+  background-color: white ;
+}
+.jumbotron{
+  font-family: 'Kalam', cursive;
+}
+.cookiefont {
+  font-family: 'Kalem', cursive;
+}
+
+.fontcolorbrown{
+  color: #662611 !important;
+  font-weight: bold;
+}
+
+.fontcolorbrown:hover {
+  color: #00aad7 !important;
+}
+
+li.dropdown.open>a {
+  background: white !important;
+}
+
+.navbar-header{
+  height: 100px;
+}
+
+.navbar-nav {
+  padding-top: 25px;
+}
+
+.navbar-brand {
+  height:100px;
 }
