@@ -12,5 +12,13 @@ angular.module('core').config(['$stateProvider',
           roles: ['user']
         }
       });
+      .state('user.schedule', {
+        abstract: true,
+        url: '/E_schedule',
+        template: //url to employee schedule view,
+        data: {
+          roles: ['user']
+        }
+      });
   }
 ]);

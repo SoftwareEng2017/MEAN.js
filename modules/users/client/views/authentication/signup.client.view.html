@@ -55,6 +55,10 @@
             </div>
           </div>
         </div>
+        <div class="form-group" ng-show="!userForm.password.$error.required">
+          <label>Password Requirements</label>
+          <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>
+        </div>
         <div class="form-group" >
          <table ng-controller = "EditProfileController" border = "1" width = "500" height = "300">
           <th>Availibility</th>
@@ -79,10 +83,7 @@
         </table>
           
         </div>
-        <div class="form-group" ng-show="!userForm.password.$error.required">
-          <label>Password Requirements</label>
-          <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>
-        </div>
+     
         <div class="text-center form-group">
           <button type="submit" class="btn btn-primary">Sign up</button>
           &nbsp; or&nbsp;

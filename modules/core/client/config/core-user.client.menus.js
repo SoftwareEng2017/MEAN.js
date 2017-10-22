@@ -8,5 +8,11 @@ angular.module('core').run(['Menus',
       type: 'dropdown',
       roles: ['user']
     });
+    Menus.addSubMenuItem('topbar', {
+    	title: 'View Schedule'
+    	state: 'user.schedule'
+    	roles:['user']
+
+    });
   }
 ]);
