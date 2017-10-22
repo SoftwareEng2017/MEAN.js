@@ -6,11 +6,8 @@
     <form name="vm.form.scheduleForm" class="form-horizontal" ng-submit="vm.save(vm.form.scheduleForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.schedule.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.scheduleForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Schedule name is required.</p>
-          </div>
+          <label class="control-label" for="weekName">Week of Month</label>
+          <input name="weekName" type="text" ng-model="vm.schedule.weekName" id="weekName" class="form-control" placeholder="Week of month" required>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.schedule._id ? 'Update' : 'Create'}}</button>

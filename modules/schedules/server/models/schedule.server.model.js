@@ -6,24 +6,47 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
+var shiftSchema = new Schema({
+  hours: [{
+    type: Number
+  }],
+  _id: Schema.Types.ObjectId,
+  employees: [{
+    type: String
+  }],
+  role: [{
+    type: Number
+  }]
+});
+
 /**
  * Schedule Schema
  */
-var ScheduleSchema = new Schema({
-  name: {
-    type: String,
-    default: '',
-    required: 'Please fill Schedule name',
-    trim: true
-  },
-  created: {
-    type: Date,
-    default: Date.now
-  },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
-  }
+var scheduleSchema = new Schema({
+  weekName: String,
+  mondays: [{
+    type: Schema.Types.ObjectId, ref: 'Shift'
+  }],
+  tuesday: [{
+    type: Schema.Types.ObjectId, ref: 'Shift'
+  }],
+  wednesday: [{
+    type: Schema.Types.ObjectId, ref: 'Shift'
+  }],
+  thursday: [{
+    type: Schema.Types.ObjectId, ref: 'Shift'
+  }],
+  friday: [{
+    type: Schema.Types.ObjectId, ref: 'Shift'
+  }],
+  saturday: [{
+    type: Schema.Types.ObjectId, ref: 'Shift'
+  }],
+  sunday: [{
+    type: Schema.Types.ObjectId, ref: 'Shift'
+  }]
+
 });
 
-mongoose.model('Schedule', ScheduleSchema);
+var Schedule = mongoose.model('Schedule', scheduleSchema);
+var Shift = mongoose.model('Shift', shiftSchema);

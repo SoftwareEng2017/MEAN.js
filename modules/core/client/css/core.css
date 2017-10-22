@@ -58,15 +58,16 @@ a:hover .header-profile-image {
   padding-top: 100px;
 }
 
+.margintop25{
+  margin-top: 25px;
+}
+
 .btn .btn-primary{
-  background-color: white !important;
+  background-color: #662611 !important;
 }
 
 .cookiebutton{
     background-color: #662611 !important;
-    min-width: 50px;
-    min-height: 50px;
-    margin-top: 20px;
     border-radius: 15px;
     border-color: #662611;
     color: white;
@@ -112,6 +113,19 @@ li.dropdown.open>a {
   background: white !important;
 }
 
+li.dropdown.active>a{
+  background: white !important;
+}
+li.active>a{
+  background: white !important;
+}
+a.ng-binding.ng-scope{
+  color: #662611 !important;
+  font-weight: bold;
+}
+a.ng-binding.ng-scope:hover{
+  color: #00aad7 !important;
+}
 .navbar-header{
   height: 100px;
 }
@@ -126,4 +140,8 @@ li.dropdown.open>a {
 
 .jumbotron{
   background-color: #e1f3fa;
+}
+
+.header-profile-image{
+  color: #662611 !important;
 }

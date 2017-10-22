@@ -11,11 +11,10 @@
     // Set top bar menu items
     menuService.addMenuItem('topbar', {
       title: 'Schedules',
-      state: 'schedules',
-      type: 'dropdown',
+      state: 'schedules.list',
       roles: ['*']
     });
-
+    /*
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'schedules', {
       title: 'List Schedules',
@@ -26,7 +25,8 @@
     menuService.addSubMenuItem('topbar', 'schedules', {
       title: 'Create Schedule',
       state: 'schedules.create',
-      roles: ['user']
+
     });
+    */
   }
 }());
