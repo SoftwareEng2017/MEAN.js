@@ -4,3 +4,5 @@
 ApplicationConfiguration.registerModule('core');
 ApplicationConfiguration.registerModule('core.admin', ['core']);
 ApplicationConfiguration.registerModule('core.admin.routes', ['ui.router']);
+ApplicationConfiguration.registerModule('core.user', ['core']);
+ApplicationConfiguration.registerModule('core.user.routes', ['ui.router']);

@@ -1,7 +1,7 @@
 'use strict';
 
 // Setting up route
-angular.module('core').config(['$stateProvider',
+angular.module('core.user.routes').config(['$stateProvider',
   function ($stateProvider) {
     $stateProvider
       .state('user', {
@@ -11,14 +11,15 @@ angular.module('core').config(['$stateProvider',
         data: {
           roles: ['user']
         }
-      });
+      })
       .state('user.schedule', {
-        abstract: true,
-        url: '/E_schedule',
-        template: //url to employee schedule view,
+        
+        url: '/userSchedule',
+        templateURL: '',
         data: {
           roles: ['user']
         }
       });
+     
   }
 ]);
