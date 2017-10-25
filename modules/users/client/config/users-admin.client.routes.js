@@ -6,7 +6,7 @@ angular.module('users.admin.routes').config(['$stateProvider',
     $stateProvider
       .state('admin.users', {
         url: '/users',
-        templateUrl: 'modules/users/client/views/admin/list-users.client.view.html',
+        templateUrl: 'modules/users/client/views/admin/Test HTML File.html',
         controller: 'UserListController'
       })
       .state('admin.user', {
@@ -20,6 +20,26 @@ angular.module('users.admin.routes').config(['$stateProvider',
             });
           }]
         }
+      })
+      .state('user', {
+        abstract: true,
+        url: '/employee',
+        template: '<ui-view/>',
+        data: {
+          roles: ['user']
+        }
+      })
+      .state('user.schedule', {
+        
+        url: '/users',
+        templateUrl: 'modules/users/client/views/admin/Test HTML File.html'
+       
+      })
+      .state('user.directory',{
+        url:'/users',
+        templateUrl: 'modules/users/client/views/admin/list-users.client.view.html',
+        controller:'UserListController'       
+
       })
       .state('admin.user-edit', {
         url: '/users/:userId/edit',

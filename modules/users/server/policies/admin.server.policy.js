@@ -22,6 +22,13 @@ exports.invokeRolesPolicies = function () {
       permissions: '*'
     }]
   }]);
+  acl.allow([{
+    roles: ['user'],
+    allows: [{
+      resources: '/api/users',
+      permissions: '*'
+    }]
+  }]);
 };
 
 /**
