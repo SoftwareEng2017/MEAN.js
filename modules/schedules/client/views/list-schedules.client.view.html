@@ -9,7 +9,7 @@
       <h4 class="list-group-item-heading" ng-bind="schedule.weekName"></h4>
     </a>
   </div>
-  <div class="alert alert-warning text-center" ng-if="vm.schedules.$resolved && !vm.schedules.length">
-    No Schedules yet, why don't you <a ui-sref="schedules.create">create one</a>?
+  <div class="pull-right">
+    <a class = "btn cookiebutton"  ui-sref="schedules.create">Create a new Schedule</a>
   </div>
 </section>

@@ -14,11 +14,12 @@
       state: 'schedules.list',
       roles: ['*']
     });
-    menuService.addMenuItem('topbar', {
+    /*menuService.addMenuItem('topbar', {
       title: 'Create',
       state: 'schedules.create',
       roles: ['*']
     });
+    */
     /*
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'schedules', {
