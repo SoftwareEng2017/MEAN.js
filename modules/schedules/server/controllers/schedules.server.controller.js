@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Schedule = mongoose.model('Schedule'),
+  Shift = mongoose.model('Shift'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
 
@@ -14,7 +15,47 @@ var path = require('path'),
  */
 exports.create = function(req, res) {
   var schedule = new Schedule(req.body);
+  var shift1 = new Shift(req.body);
+  var shift2 = new Shift(req.body);
+  var shift3 = new Shift(req.body);
+
+  shift1.hours.push(6);
+  shift1.hours.push(12);
+  shift2.hours.push(8);
+  shift2.hours.push(2);
+  shift3.hours.push(6);
+  shift3.hours.push(2);
+
+
+
   schedule.user = req.user;
+  schedule.monday.push(shift1);
+  schedule.monday.push(shift2);
+  schedule.monday.push(shift3);
+
+  schedule.tuesday.push(shift1);
+  schedule.tuesday.push(shift2);
+  schedule.tuesday.push(shift3);
+
+  schedule.wednesday.push(shift1);
+  schedule.wednesday.push(shift2);
+  schedule.wednesday.push(shift3);
+
+  schedule.thursday.push(shift1);
+  schedule.thursday.push(shift2);
+  schedule.thursday.push(shift3);
+
+  schedule.friday.push(shift1);
+  schedule.friday.push(shift2);
+  schedule.friday.push(shift3);
+
+  schedule.saturday.push(shift1);
+  schedule.saturday.push(shift2);
+  schedule.saturday.push(shift3);
+
+  schedule.sunday.push(shift1);
+  schedule.sunday.push(shift2);
+  schedule.sunday.push(shift3);
 
   schedule.save(function(err) {
     if (err) {

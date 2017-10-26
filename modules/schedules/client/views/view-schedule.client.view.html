@@ -1,32 +1,129 @@
 <section>
   <div class = "cookiefont">
-    <h1 ng-bind="vm.schedule.weekName"></h1>
-      <div class="pull-right">
-        <a class="btn cookiebutton"
-        ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-        <a class="btn cookiebutton" ng-click="vm.remove()">
-          <i class="glyphicon glyphicon-trash"></i>
-        </a>
-    </div>
+    <div class="pull-right">
+      <a class="btn cookiebutton"
+      ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn cookiebutton" ng-click="vm.remove()">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
   </div>
-  <div class = "container-fluid cookiefont">
-    <div class = "row">
-      <div class = "col">Monday
-
+    <h1 ng-bind="vm.schedule.weekName"></h1>
+  </div>
+  <div class = "cookiefont">
+    <div>
+      <div>Monday
+        <div class="list-group">
+          <div ng-repeat="monday in vm.schedule.monday" class="list-group-item">
+            <div class="pull-right" style = "padding-top : 5px">
+              <a class="btn cookiebutton"
+              ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn cookiebutton" ng-click="vm.remove()">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+          </div>
+            <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} p.m. to {{monday.hours[1]}} a.m. </h4>
+          </div>
+        </div>
       </div>
-      <div class = "col">Tuesday
+      <div>Tuesday
+        <div class="list-group">
+          <div ng-repeat="tuesday in vm.schedule.tuesday" class="list-group-item">
+            <div class="pull-right" style = "padding-top : 5px">
+              <a class="btn cookiebutton"
+              ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn cookiebutton" ng-click="vm.remove()">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+          </div>
+            <h4 class="list-group-item-heading"style = "padding : 10px">{{tuesday.hours[0]}} p.m. to {{tuesday.hours[1]}} a.m. </h4>
+          </div>
+        </div>
       </div>
-      <div class = "col">Wednesday
+      <div>Wednesday
+        <div class="list-group">
+          <div ng-repeat="wednesday in vm.schedule.wednesday" class="list-group-item">
+            <div class="pull-right" style = "padding-top : 5px">
+              <a class="btn cookiebutton"
+              ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn cookiebutton" ng-click="vm.remove()">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+          </div>
+            <h4 class="list-group-item-heading"style = "padding : 10px">{{wednesday.hours[0]}} p.m. to {{wednesday.hours[1]}} a.m. </h4>
+          </div>
+        </div>
       </div>
-      <div class = "col">Thursday
+      <div>Thursday
+        <div class="list-group">
+          <div ng-repeat="thursday in vm.schedule.thursday" class="list-group-item">
+            <div class="pull-right" style = "padding-top : 5px">
+              <a class="btn cookiebutton"
+              ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn cookiebutton" ng-click="vm.remove()">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+          </div>
+            <h4 class="list-group-item-heading"style = "padding : 10px">{{thursday.hours[0]}} p.m. to {{thursday.hours[1]}} a.m. </h4>
+          </div>
+        </div>
       </div>
-      <div class = "col">Friday
+      <div>Friday
+        <div class="list-group">
+          <div ng-repeat="friday in vm.schedule.friday" class="list-group-item">
+            <div class="pull-right" style = "padding-top : 5px">
+              <a class="btn cookiebutton"
+              ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn cookiebutton" ng-click="vm.remove()">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+          </div>
+            <h4 class="list-group-item-heading"style = "padding : 10px">{{friday.hours[0]}} p.m. to {{friday.hours[1]}} a.m. </h4>
+          </div>
+        </div>
       </div>
-      <div class = "col">Saturday
+      <div>Saturday
+        <div class="list-group">
+          <div ng-repeat="saturday in vm.schedule.saturday" class="list-group-item">
+            <div class="pull-right" style = "padding-top : 5px">
+              <a class="btn cookiebutton"
+              ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn cookiebutton" ng-click="vm.remove()">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+          </div>
+            <h4 class="list-group-item-heading"style = "padding : 10px">{{saturday.hours[0]}} p.m. to {{saturday.hours[1]}} a.m. </h4>
+          </div>
+        </div>
       </div>
-      <div class = "col">Sunday
+      <div>Sunday
+        <div class="list-group">
+          <div ng-repeat="sunday in vm.schedule.sunday" class="list-group-item">
+            <div class="pull-right" style = "padding-top : 5px">
+              <a class="btn cookiebutton"
+              ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn cookiebutton" ng-click="vm.remove()">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+          </div>
+            <h4 class="list-group-item-heading"style = "padding : 10px">{{sunday.hours[0]}} p.m. to {{sunday.hours[1]}} a.m. </h4>
+          </div>
+        </div>
       </div>
     </div>
   </div>
