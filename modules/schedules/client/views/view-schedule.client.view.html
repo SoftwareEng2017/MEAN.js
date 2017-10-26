@@ -1,0 +1,34 @@
+<section>
+  <div class = "cookiefont">
+    <h1 ng-bind="vm.schedule.weekName"></h1>
+      <div class="pull-right">
+        <a class="btn cookiebutton"
+        ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn cookiebutton" ng-click="vm.remove()">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+  </div>
+  <div class = "container-fluid cookiefont">
+    <div class = "row">
+      <div class = "col">Monday
+
+      </div>
+      <div class = "col">Tuesday
+      </div>
+      <div class = "col">Wednesday
+      </div>
+      <div class = "col">Thursday
+      </div>
+      <div class = "col">Friday
+      </div>
+      <div class = "col">Saturday
+      </div>
+      <div class = "col">Sunday
+      </div>
+    </div>
+  </div>
+  <p class="lead" ng-bind="vm.schedule.content"></p>
+</section>

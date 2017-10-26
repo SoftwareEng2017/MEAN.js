@@ -1,0 +1,15 @@
+<section>
+  <div class="page-header">
+    <h1>Schedules</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="schedule in vm.schedules"
+       ui-sref="schedules.view({ scheduleId: schedule._id })"
+       class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="schedule.weekName"></h4>
+    </a>
+  </div>
+  <div class="pull-right">
+    <a class = "btn cookiebutton"  ui-sref="schedules.create">Create a new Schedule</a>
+  </div>
+</section>
