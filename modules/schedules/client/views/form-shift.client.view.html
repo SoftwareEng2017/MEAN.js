@@ -1,14 +1,14 @@
 <section>
   <div class="page-header">
-    <h1>{{vm.schedule._id ? 'Edit Schedule' : 'New Schedule'}}</h1>
-    <h2>{{vm.shiftName}}</h2>
+    <h1>{{vm.schedule.monday[$index].hours[0]}} p.m. to  {{vm.schedule.monday[0].hours[1]}} p.m</h1>
   </div>
+
   <div class="col-md-12">
     <form name="vm.form.scheduleForm" class="form-horizontal" ng-submit="vm.save(vm.form.scheduleForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="weekName">Week of Month</label>
-          <input name="weekName" type="text" ng-model="vm.schedule.weekName" id="weekName" class="form-control" placeholder="Week of month" required>
+          <label class="control-label" for="hours[0]">Start Time</label>
+          <input name="hours[0]" type="text" ng-model="vm.schedule.monday" id="weekName" class="form-control" placeholder="Week of month" required>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.schedule._id ? 'Update' : 'Create'}}</button>

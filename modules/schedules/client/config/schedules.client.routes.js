@@ -14,6 +14,11 @@
         url: '/schedules',
         template: '<ui-view/>'
       })
+      .state('shift', {
+        abstract: true,
+        url: '/shift',
+        template: '<ui-view/>'
+      })
       .state('schedules.list', {
         url: '',
         templateUrl: 'modules/schedules/client/views/list-schedules.client.view.html',
@@ -47,6 +52,20 @@
         data: {
           roles: ['user', 'admin'],
           pageTitle: 'Edit Schedule {{ scheduleResolve.name }}'
+        }
+      })
+      .state('shift.edit', {
+        url: '/:scheduleId/:shiftId/:index/edit',
+        templateUrl: 'modules/schedules/client/views/form-shift.client.view.html',
+        controller: 'SchedulesController',
+        controllerAs: 'vm',
+        resolve: {
+          scheduleResolve: getSchedule
+        },
+
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Edit Shift',
         }
       })
       .state('schedules.view', {

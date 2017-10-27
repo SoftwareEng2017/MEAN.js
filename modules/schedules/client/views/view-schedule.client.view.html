@@ -18,10 +18,10 @@
           <div ng-repeat="monday in vm.schedule.monday" class="list-group-item">
             <div class="pull-right" style = "padding-top : 5px">
               <a class="btn cookiebutton"
-              ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+              ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
                 <i class="glyphicon glyphicon-edit"></i>
               </a>
-              <a class="btn cookiebutton" ng-click="vm.remove()">
+              <a class="btn cookiebutton" ng-click="monday.remove()">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
           </div>

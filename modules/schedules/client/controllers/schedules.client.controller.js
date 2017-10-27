@@ -6,13 +6,15 @@
     .module('schedules')
     .controller('SchedulesController', SchedulesController);
 
-  SchedulesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'scheduleResolve'];
+  SchedulesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'scheduleResolve', '$stateParams'];
 
-  function SchedulesController ($scope, $state, $window, Authentication, schedule) {
+  function SchedulesController ($scope, $state, $window, Authentication, schedule, $stateParams) {
     var vm = this;
 
     vm.authentication = Authentication;
     vm.schedule = schedule;
+    vm.shift = undefined;
+    vm.test = "poop";
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
@@ -24,7 +26,10 @@
         vm.schedule.$remove($state.go('schedules.list'));
       }
     }
-
+    $scope.setShift = function(day, test){
+      vm.shift = day;
+      vm.test = test;
+    };
     // Save Schedule
     function save(isValid) {
       if (!isValid) {
