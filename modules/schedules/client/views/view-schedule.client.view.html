@@ -17,7 +17,11 @@
         <div class="list-group">
           <div ng-repeat="monday in vm.schedule.monday" class="list-group-item">
             <div class="pull-right" style = "padding-top : 5px">
-              <a class="btn cookiebutton"
+              <a class="btn cookiebutton"  ng-click = "setShift($index)"
+              ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn cookiebutton"  ng-click = "setShift($index)"
               ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
                 <i class="glyphicon glyphicon-edit"></i>
               </a>
@@ -26,6 +30,9 @@
               </a>
           </div>
             <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} p.m. to {{monday.hours[1]}} a.m. </h4>
+            <div ng-repeat = "employee in monday.employees">
+              {{employee}}
+            </div>
           </div>
         </div>
       </div>

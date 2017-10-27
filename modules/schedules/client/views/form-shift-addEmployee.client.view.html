@@ -1,0 +1,15 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.schedule.monday[vm.index].hours[0]}} p.m. to  {{vm.schedule.monday[vm.index].hours[1]}} a.m</h1>
+  </div>
+  <h4>Employees Assigned</h4>
+  <div ng-repeat = "employee in vm.schedule.monday[vm.index].employees">
+    {{employee}}
+  </div>
+
+  <div class="col-md-12 margintop25">
+      <input type="text" class="form-control" placeholder="Employee Name" ng-model="employee">
+      <button class = "btn cookiebutton margintop25" ng-click = "addEmployee(vm.schedule.monday[vm.index], employee)"> Add Employee
+      </button>
+  </div>
+</section>

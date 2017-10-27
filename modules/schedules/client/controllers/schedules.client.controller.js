@@ -14,7 +14,7 @@
     vm.authentication = Authentication;
     vm.schedule = schedule;
     vm.shift = undefined;
-    vm.test = "poop";
+    vm.index= $stateParams.index;
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
@@ -26,9 +26,8 @@
         vm.schedule.$remove($state.go('schedules.list'));
       }
     }
-    $scope.setShift = function(day, test){
-      vm.shift = day;
-      vm.test = test;
+    $scope.setShift = function(index){
+      $stateParams.index = index; 
     };
     // Save Schedule
     function save(isValid) {

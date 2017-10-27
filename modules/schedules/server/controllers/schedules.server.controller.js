@@ -21,6 +21,7 @@ exports.create = function(req, res) {
 
   shift1.hours.push(6);
   shift1.hours.push(12);
+  shift1.employees.push("Anthony");
   shift2.hours.push(8);
   shift2.hours.push(2);
   shift3.hours.push(6);
@@ -68,6 +69,22 @@ exports.create = function(req, res) {
   });
 };
 
+exports.addEmployee= function(req, res, shift, employee) {
+  var schedule = req.schedule;
+
+    schedule = _.extend(schedule, req.body);
+    schedule.shift.employees.push(employee);
+
+  schedule.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(schedule);
+    }
+  });
+};
 /**
  * Show the current Schedule
  */
