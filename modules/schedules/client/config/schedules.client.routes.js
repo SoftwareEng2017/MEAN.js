@@ -69,6 +69,23 @@
         }
 
       })
+
+      .state('shift.create', {
+        url: '/:scheduleId/createShift',
+        templateUrl: 'modules/schedules/client/views/form-shift.client.view.html',
+        controller: 'SchedulesController',
+        controllerAs: 'vm',
+        resolve: {
+          scheduleResolve: getSchedule
+        },
+
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Add Shift',
+        }
+
+      })
+
       .state('shift.addEmployee', {
         url: '/:scheduleId/:shiftId/:index/addEmployee',
         templateUrl: 'modules/schedules/client/views/form-shift-addEmployee.client.view.html',

@@ -13,7 +13,7 @@
 
     vm.authentication = Authentication;
     vm.schedule = schedule;
-    vm.shift = undefined;
+    vm.shift=undefined;
     vm.index= $stateParams.index;
     vm.error = null;
     vm.form = {};
@@ -27,8 +27,21 @@
       }
     }
     $scope.setShift = function(index){
-      $stateParams.index = index; 
+      $stateParams.index = index;
     };
+
+    $scope.addEmployee = function(shift){
+      shift.employees.push($scope.employee);
+      vm.save(true);
+
+
+    };
+
+    $scope.addShift = function(shiftArray, shift){
+      shiftArray.push(shift);
+      vm.save(true);
+    };
+
     // Save Schedule
     function save(isValid) {
       if (!isValid) {

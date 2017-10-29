@@ -9,7 +9,12 @@ var path = require('path'),
   Shift = mongoose.model('Shift'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
+/*
+  exports.createShift = function (req, res){
+    var shift = new Shift(req.body);
 
+  }
+*/
 /**
  * Create a Schedule
  */
@@ -69,11 +74,14 @@ exports.create = function(req, res) {
   });
 };
 
-exports.addEmployee= function(req, res, shift, employee) {
+exports.addEmployeeServer= function(req, res, shift, employee) {
+  console.log(shift);
+  console.log(employee);
   var schedule = req.schedule;
 
-    schedule = _.extend(schedule, req.body);
-    schedule.shift.employees.push(employee);
+  schedule = _.extend(schedule, req.body);
+  console.log(shift);
+  schedule.shift.employees.push(employee);
 
   schedule.save(function(err) {
     if (err) {

@@ -19,21 +19,23 @@
             <div class="pull-right" style = "padding-top : 5px">
               <a class="btn cookiebutton"  ng-click = "setShift($index)"
               ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-                <i class="glyphicon glyphicon-edit"></i>
+                Add Employee
               </a>
               <a class="btn cookiebutton"  ng-click = "setShift($index)"
               ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-                <i class="glyphicon glyphicon-edit"></i>
+                Change Shift Hours
               </a>
               <a class="btn cookiebutton" ng-click="monday.remove()">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
-          </div>
+            </div>
             <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} p.m. to {{monday.hours[1]}} a.m. </h4>
             <div ng-repeat = "employee in monday.employees">
               {{employee}}
             </div>
           </div>
+          <a class = "btn cookiebutton" ui-sref="shift.create({scheduleId: vm.schedule._id})">
+            Add shift </a>
         </div>
       </div>
       <div>Tuesday
