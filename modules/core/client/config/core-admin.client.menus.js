@@ -3,7 +3,7 @@
 angular.module('core.admin').run(['Menus',
   function (Menus) {
     Menus.addMenuItem('topbar', {
-      title: 'Admin',
+      title: 'Manager',
       state: 'admin',
       type: 'dropdown',
       roles: ['admin']
