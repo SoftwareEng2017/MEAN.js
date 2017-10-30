@@ -1,10 +1,13 @@
 'use strict';
 
-angular.module('users').controller('EditProfileController', ['$scope', '$http', '$location', 'Users', 'Authentication',
-  function ($scope, $http, $location, Users, Authentication) {
+angular.module('users').controller('EditProfileController', ['$scope', '$http', '$location', 'Users', 'Authentication', 'SchedulesService',
+  function ($scope, $http, $location, Users, Authentication, SchedulesService) {
     $scope.user = Authentication.user;
-    $scope.days = ["mon","tue","wed","thu","fri","sat","sun"];
-    $scope.shifts = [0,1,2,3];
+    $scope.days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+    $scope.shifts = [1,2,3,4]
+    $scope.schedules = undefined;
+    $scope.mon = [];
+    
 
     // Update a user profile
     $scope.updateUserProfile = function (isValid) {
@@ -27,5 +30,14 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
         $scope.error = response.data.message;
       });
     };
+    $scope.getSchedules = function(){
+      $scope.schedules = SchedulesService.query();
+      $scope.schedules.$promise.then(function(result){
+        $scope.schedules = result;
+        $scope.mon = $scope.schedules[0].monday;
+      });
+      
+    };
   }
+
 ]);
