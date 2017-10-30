@@ -1,5 +1,5 @@
 <section class="row" ng-controller="EditProfileController">
-  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
+  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4" ng-init = "getSchedules()">
     <form name="userForm" ng-submit="updateUserProfile(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
        
@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="form-group" >
-        <table ng-controller = "EditProfileController" border = "1" width = "500" height = "300">
+        <table  border = "1" width = "500" height = "300">
           <th>Availibility </th>
           <th ng-repeat = "day in days"> {{day&nbsp;}} &nbsp;</th>
           <tr ng-repeat = 'shift in shifts'>
@@ -75,6 +75,30 @@
           </tr>
 
          
+        </table>
+        <table border = "1" width = "500" height = "300">
+        
+          <th>Mon
+          <tr >
+            
+           <td ng-repeat = "shift in schedules[0].monday"> {{shift.hours[0]}} to {{shift.hours[1]}}
+
+           <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.mon[$index]">
+            
+           </td>
+           
+            
+          </tr> </th>
+          <th>Tues
+          <tr >
+            
+           <td ng-repeat = "shift in schedules[0].tuesday"> {{shift.hours[0]}} to {{shift.hours[1]}}
+            <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.tue[$index]">
+
+           </td>
+          </tr>
+
+          </th>
         </table>
           
         </div>
