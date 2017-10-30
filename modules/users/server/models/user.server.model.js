@@ -23,6 +23,8 @@ var validateLocalStrategyProperty = function (property) {
 var validateLocalStrategyEmail = function (email) {
   return ((this.provider !== 'local' && !this.updated) || validator.isEmail(email));
 };
+//Shift Schema
+
 
 /**
  * User Schema
@@ -51,6 +53,23 @@ var UserSchema = new Schema({
     trim: true,
     default: '',
     validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
+  },
+  availibility: {
+    //Investigate storing employee types in this array as well.
+    //
+    mon: { type: [Number], default: [0,0,0,0], required: true },
+    tue: { type: [Number], default: [0,0,0,0], required: true },
+    wed: { type: [Number], default: [0,0,0,0], required: true },
+    thu: { type: [Number], default: [0,0,0,0], required: true },
+    fri: { type: [Number], default: [0,0,0,0], required: true },
+    sat: { type: [Number], default: [0,0,0,0], required: true },
+    sun: { type: [Number], default: [0,0,0,0], required: true }
+
+  },
+  type: {
+    //admin vs employee
+    type: String,
+
   },
   username: {
     type: String,
@@ -177,7 +196,7 @@ UserSchema.statics.generateRandomPassphrase = function () {
     var password = '';
     var repeatingCharacters = new RegExp('(.)\\1{2,}', 'g');
 
-    // iterate until the we have a valid passphrase. 
+    // iterate until the we have a valid passphrase.
     // NOTE: Should rarely iterate more than once, but we need this to ensure no repeating characters are present.
     while (password.length < 20 || repeatingCharacters.test(password)) {
       // build the random password
