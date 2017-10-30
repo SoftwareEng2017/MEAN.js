@@ -33,15 +33,18 @@
     $scope.addEmployee = function(shift){
       shift.employees.push($scope.employee);
       vm.save(true);
-
-
     };
 
+    $scope.removeEmployee = function (shift, index){
+      shift.employees.splice(index , 1);
+      vm.save(true);
+    };
+    /*
     $scope.addShift = function(shiftArray, shift){
       shiftArray.push(shift);
       vm.save(true);
     };
-
+    */
     // Save Schedule
     function save(isValid) {
       if (!isValid) {

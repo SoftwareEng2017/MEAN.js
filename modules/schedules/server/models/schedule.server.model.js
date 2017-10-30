@@ -1,15 +1,16 @@
 'use strict';
-
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var Employee = require('../../../users/server/models/user.server.model.js');
+var EmployeeSchema= mongoose.model('User').schema;
 
 var shiftSchema = new Schema({
 
   hours: [{
-    type: Number
+    type: String
   }],
   employees: [{
     type: String
