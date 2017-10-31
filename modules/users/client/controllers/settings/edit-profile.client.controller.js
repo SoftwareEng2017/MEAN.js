@@ -8,8 +8,8 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
     $scope.schedules = undefined;
     $scope.mon = [];
 
-    $scope.compareArray= function(array1, array2){
-      return (JSON.stringify(array1) === JSON.stringify(array2) );
+    $scope.compareArray= function(array1,array2){
+      return (JSON.stringify(array1) === JSON.stringify(array2));
     };
 
     // Update a user profile
