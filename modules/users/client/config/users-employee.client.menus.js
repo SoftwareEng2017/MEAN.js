@@ -9,7 +9,7 @@ angular.module('users.employees').run(['Menus',
       roles: ['user']
     });
     Menus.addSubMenuItem('topbar', 'employees', {
-      title: 'List Articles',
+      title: 'View Employees',
       state: 'employees.users'
     });
 
