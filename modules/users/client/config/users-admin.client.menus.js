@@ -4,11 +4,11 @@
 angular.module('users.admin').run(['Menus',
   function (Menus) {
     Menus.addSubMenuItem('topbar', 'admin', {
-      title: 'Manage Users',
+      title: 'List Employees',
       state: 'admin.users'
     });
     Menus.addSubMenuItem('topbar', 'admin', {
-      title: 'Add User',
+      title: 'Add Employee',
       state: 'authentication.signup'
     });
   }
