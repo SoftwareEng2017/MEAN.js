@@ -12,7 +12,7 @@
     menuService.addMenuItem('topbar', {
       title: 'Schedules',
       state: 'schedules.list',
-      roles: ['*']
+      roles: ['user', 'admin']
     });
     /*menuService.addMenuItem('topbar', {
       title: 'Create',
