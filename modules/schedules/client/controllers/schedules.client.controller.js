@@ -24,6 +24,18 @@
     vm.remove = remove;
     vm.save = save;
 
+    function hasDuplicates(array) {
+      var valuesSoFar = Object.create(null);
+      for (var i = 0; i < array.length; ++i) {
+        var value = array[i];
+        if (value in valuesSoFar) {
+          return true;
+        }
+        valuesSoFar[value] = true;
+      }
+      return false;
+    }
+
     // Remove existing Schedule
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
@@ -34,8 +46,13 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift){
-      shift.employees.push($scope.employee);
+    $scope.addEmployee = function(shift, employeeFirstName,employeeLastName){
+
+      var employeeName = employeeFirstName + employeeLastName;
+      shift.employees.push(employeeName);
+      if(hasDuplicates(shift.employees)){
+        shift.employees.pop();
+      }
       vm.save(true);
     };
 

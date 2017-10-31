@@ -20,10 +20,21 @@
         <div ng-repeat="monday in vm.schedule.monday"
         ng-show = "monday.role[0]" class="list-group-item">
           <div class="pull-right" style = "padding-top : 5px">
-            <a class="btn cookiebutton"  ng-click = "setShift($index)"
+
+            <!--Printing all employees in employees array-->
+
+            <div ng-repeat="employee in monday.employees">
+              {{employee}}
+              <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+            </div>
+            <!--Button to add employee names manually to shift-->
+
+            <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
             ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
               Add Employee
-            </a>
+            </a>-->
             <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
             ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
               Change Shift Hours
@@ -33,12 +44,9 @@
             </a>-->
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
-          <div ng-repeat="employee in monday.employees">
-            {{employee}}
-            <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>
-          </div>
+          <a class = "btn" ng-repeat = "employee in users" ng-show = employee.type[0] ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
+            {{employee.firstName}} {{employee.lastName}}
+          </a>
         </div>
       </div>
       <!--Kitchen-->
@@ -46,11 +54,22 @@
         <h4 class="margintop25">Kitchen</h2>
         <div ng-repeat="monday in vm.schedule.monday"
         ng-show = "monday.role[1]" class="list-group-item">
-          <div class="pull-right" style = "padding-top : 5px">
-            <a class="btn cookiebutton"  ng-click = "setShift($index)"
-              ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-                Add Employee
+        <div class="pull-right" style = "padding-top : 5px">
+
+          <!--Printing all employees in employees array-->
+
+          <div ng-repeat="employee in monday.employees">
+            {{employee}}
+            <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
+              <i class="glyphicon glyphicon-trash"></i>
             </a>
+          </div>
+          <!--Button to add employee names manually to shift-->
+
+          <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
+          ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
+            Add Employee
+          </a>-->
           <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
           ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
             Change Shift Hours
@@ -58,14 +77,11 @@
           <!--<a class="btn cookiebutton" ng-click="monday.remove()">
             <i class="glyphicon glyphicon-trash"></i>
           </a>-->
-          </div>
-          <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
-          <div ng-repeat="employee in monday.employees">
-            {{employee}}
-            <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>
-          </div>
+        </div>
+        <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
+        <a class = "btn" ng-repeat = "employee in users" ng-show = employee.type[1] ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
+          {{employee.firstName}} {{employee.lastName}}
+        </a>
         </div>
       </div>
 
@@ -74,31 +90,38 @@
         <h4 class="margintop25">Front</h2>
         <div ng-repeat="monday in vm.schedule.monday"
         ng-show = "monday.role[2]" class="list-group-item">
-          <div class="pull-right" style = "padding-top : 5px">
-            <a class="btn cookiebutton"  ng-click = "setShift($index)"
-            ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-              Add Employee
-            </a>
-            <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
-            ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-              Change Shift Hours
-            </a>-->
-            <!--<a class="btn cookiebutton" ng-click="monday.remove()">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>-->
-          </div>
-          <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
+        <div class="pull-right" style = "padding-top : 5px">
+
+          <!--Printing all employees in employees array-->
+
           <div ng-repeat="employee in monday.employees">
             {{employee}}
             <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
               <i class="glyphicon glyphicon-trash"></i>
             </a>
           </div>
+          <!--Button to add employee names manually to shift-->
+
+          <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
+          ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
+            Add Employee
+          </a>-->
+          <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
+          ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
+            Change Shift Hours
+          </a>-->
+          <!--<a class="btn cookiebutton" ng-click="monday.remove()">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>-->
+        </div>
+        <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
+        <a class = "btn" ng-repeat = "employee in users" ng-show = employee.type[2] ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
+          {{employee.firstName}} {{employee.lastName}}
+        </a>
         </div>
       </div>
-  <!--<a class = "btn cookiebutton" ui-sref="shift.create({scheduleId: vm.schedule._id})">
-          Add shift </a>
-      </div>-->
+      <!--<a class = "btn cookiebutton" ui-sref="shift.create({scheduleId: vm.schedule._id})">
+          Add shift </a>-->
     </div>
   </div>
   <p class="lead" ng-bind="vm.schedule.content"></p>
