@@ -28,16 +28,11 @@
             </div>
           </div>
         </div> -->
-          <div class="form-group" show-errors>
-          <label for="type" for="category"> Employee Type</label>
-          <select name="type" ng-model="user.type" id="type" class="form-control" required>
-          <option value="">--- Please select ---</option>
-          <option value="Driver">Driver</option>
-          <option value="Register">Register</option>
-          <option value="Kitchen">Kitchen</option>
-          <option value="Manager">Manager</option>
-          </select>
-        </div>
+
+
+        <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[0]'>Driver</div>
+        <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[1]'>Kitchen</div>
+        <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[2]'>Front</div>
 
           <div class="form-group" show-errors>
           <label for="type" for="roles"> Account Type </label>

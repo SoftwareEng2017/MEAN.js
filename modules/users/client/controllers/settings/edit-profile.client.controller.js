@@ -4,10 +4,13 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
   function ($scope, $http, $location, Users, Authentication, SchedulesService) {
     $scope.user = Authentication.user;
     $scope.days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
-    $scope.shifts = [1,2,3,4]
+    $scope.shifts = [1,2,3,4];
     $scope.schedules = undefined;
     $scope.mon = [];
-    
+
+    $scope.compareArray= function(array1, array2){
+      return (JSON.stringify(array1) === JSON.stringify(array2) );
+    };
 
     // Update a user profile
     $scope.updateUserProfile = function (isValid) {
@@ -36,7 +39,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
         $scope.schedules = result;
         $scope.mon = $scope.schedules[0].monday;
       });
-      
+
     };
   }
 

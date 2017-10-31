@@ -66,11 +66,9 @@ var UserSchema = new Schema({
     sun: { type: [Number], default: [0,0,0,0], required: true }
 
   },
-  type: {
-    //admin vs employee
-    type: String,
+  //Type of employee
+  type: {type: [Number] , default: [0,0,0], required: true},
 
-  },
   username: {
     type: String,
     unique: 'Username already exists',
