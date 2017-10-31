@@ -10,7 +10,7 @@ angular.module('users.employees.routes').config(['$stateProvider',
       emplate: '<ui-view/>'
     })
     .state('employees.users', {
-      url: '/employees/users',
+      url: '/users',
       templateUrl: 'modules/users/client/views/admin/list-users.client.view.html',
       controller: 'UserListController'
     });

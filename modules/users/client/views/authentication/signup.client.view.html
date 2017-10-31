@@ -50,30 +50,6 @@
             </div>
           </div>
         </div>
-        <div class="form-group" >
-         <table ng-controller = "EditProfileController" border = "1" width = "500" height = "300">
-          <th>Availibility</th>
-          <th ng-repeat = "day in days"> {{day&nbsp;}} &nbsp;</th>
-          <tr ng-repeat = 'shift in shifts'>
-           <th >Sh{{shift}}</th>
-            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.mon[shift]">
-            </td>
-            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.tue[shift]">
-            </td>
-            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.wed[shift]">
-            </td>
-            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.thu[shift]">
-            </td>
-            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.fri[shift]">
-            </td>
-            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.sat[shift]">
-            </td>
-            <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="employeeCredentials.availibility.sun[shift]">
-            </td>
-          </tr>
-        </table>
-
-        </div>
         <div class="form-group" ng-show="!userForm.password.$error.required">
           <label>Password Requirements</label>
           <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>
