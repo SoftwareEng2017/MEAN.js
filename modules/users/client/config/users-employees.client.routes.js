@@ -4,11 +4,16 @@
 angular.module('users.employees.routes').config(['$stateProvider',
   function ($stateProvider) {
     $stateProvider
-      .state('employees.users', {
+    .state('employees', {
+        abstract: true,
         url: '/employees',
-        templateUrl: 'modules/users/client/views/admin/list-users.client.view.html',
-        controller: 'UserListController'
-      });
+        template: '<ui-view/>'
+      })
+    .state('employees.users', {
+      url: '/employees/users',
+      templateUrl: 'modules/users/client/views/admin/list-users.client.view.html',
+      controller: 'UserListController'
+    });
    
   }
 ]);
