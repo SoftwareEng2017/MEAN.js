@@ -14,6 +14,11 @@
         url: '/schedules',
         template: '<ui-view/>'
       })
+      .state('shift', {
+        abstract: true,
+        url: '/shift',
+        template: '<ui-view/>'
+      })
       .state('schedules.list', {
         url: '',
         templateUrl: 'modules/schedules/client/views/list-schedules.client.view.html',
@@ -49,6 +54,53 @@
           pageTitle: 'Edit Schedule {{ scheduleResolve.name }}'
         }
       })
+      .state('shift.edit', {
+        url: '/:scheduleId/:shiftId/:index/edit',
+        templateUrl: 'modules/schedules/client/views/form-shift.client.view.html',
+        controller: 'SchedulesController',
+        controllerAs: 'vm',
+        resolve: {
+          scheduleResolve: getSchedule
+        },
+
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Edit Shift',
+        }
+
+      })
+
+      .state('shift.create', {
+        url: '/:scheduleId/createShift',
+        templateUrl: 'modules/schedules/client/views/form-shift.client.view.html',
+        controller: 'SchedulesController',
+        controllerAs: 'vm',
+        resolve: {
+          scheduleResolve: getSchedule
+        },
+
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Add Shift',
+        }
+
+      })
+
+      .state('shift.addEmployee', {
+        url: '/:scheduleId/:shiftId/:index/addEmployee',
+        templateUrl: 'modules/schedules/client/views/form-shift-addEmployee.client.view.html',
+        controller: 'SchedulesController',
+        controllerAs: 'vm',
+        resolve: {
+          scheduleResolve: getSchedule
+        },
+
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Add Employee',
+        }
+      })
+
       .state('schedules.view', {
         url: '/:scheduleId',
         templateUrl: 'modules/schedules/client/views/view-schedule.client.view.html',

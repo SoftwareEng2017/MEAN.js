@@ -1,16 +1,17 @@
 'use strict';
-
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var Employee = require('../../../users/server/models/user.server.model.js');
+var EmployeeSchema= mongoose.model('User').schema;
 
 var shiftSchema = new Schema({
+
   hours: [{
-    type: Number
+    type: String
   }],
-  _id: Schema.Types.ObjectId,
   employees: [{
     type: String
   }],
@@ -24,27 +25,13 @@ var shiftSchema = new Schema({
  */
 var scheduleSchema = new Schema({
   weekName: String,
-  mondays: [{
-    type: Schema.Types.ObjectId, ref: 'Shift'
-  }],
-  tuesday: [{
-    type: Schema.Types.ObjectId, ref: 'Shift'
-  }],
-  wednesday: [{
-    type: Schema.Types.ObjectId, ref: 'Shift'
-  }],
-  thursday: [{
-    type: Schema.Types.ObjectId, ref: 'Shift'
-  }],
-  friday: [{
-    type: Schema.Types.ObjectId, ref: 'Shift'
-  }],
-  saturday: [{
-    type: Schema.Types.ObjectId, ref: 'Shift'
-  }],
-  sunday: [{
-    type: Schema.Types.ObjectId, ref: 'Shift'
-  }]
+  monday: [shiftSchema],
+  tuesday: [shiftSchema],
+  wednesday: [shiftSchema],
+  thursday: [shiftSchema],
+  friday: [shiftSchema],
+  saturday: [shiftSchema],
+  sunday: [shiftSchema]
 
 });
 

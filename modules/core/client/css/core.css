@@ -145,3 +145,16 @@ a.ng-binding.ng-scope:hover{
 .header-profile-image{
   color: #662611 !important;
 }
+
+
+/*------------Layout Classes--------------*/
+
+.cookierow {
+  display: inline-flex;
+  min-width: 100%;
+}
+
+.cookiecol {
+  width: 33%;
+  height: 100%;
+}

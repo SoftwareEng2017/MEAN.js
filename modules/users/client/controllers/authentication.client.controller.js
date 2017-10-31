@@ -7,7 +7,6 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
-    //I have now fucking clue where scope.credentials is declared so we're using our own scope, with blackjack and hookers
       //The idea is a create a blank JSON of the user model defined in MEAN.js\modules\users\server\models
         //and write to it using scope.employeeCredentials in the view.
     $scope.days = ['mon','tue','wed','thu','fri','sat','sun'];
@@ -25,7 +24,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         mon: [0,0,0,0],
       },
       email: '',
-      type: '',
+      type: [0,0,0],
       lastName: '',
       firstName: ''
     };
@@ -34,6 +33,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     if ($scope.authentication.user) {
       //$location.path('/');
     }
+
+    $scope.setType= function(index){
+      $scope.employeeCredentials.type = [0,0,0];
+      $scope.employeeCredentials.type[index]= 1;
+    };
 
     $scope.signup = function (isValid) {
       $scope.error = null;
