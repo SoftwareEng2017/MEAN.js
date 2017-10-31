@@ -67,7 +67,7 @@ var UserSchema = new Schema({
 
   },
   //Type of employee
-  type: {type: [Number] , default: [0,0,0], required: true},
+  type: { type: [Number] , default: [0,0,0], required: true },
 
   username: {
     type: String,
