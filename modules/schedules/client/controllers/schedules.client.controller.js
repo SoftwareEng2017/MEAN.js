@@ -24,14 +24,12 @@
     vm.remove = remove;
     vm.save = save;
 
-    function hasDuplicates(array) {
-      var valuesSoFar = Object.create(null);
+    function hasDuplicates(input , array) {
       for (var i = 0; i < array.length; ++i) {
         var value = array[i];
-        if (value in valuesSoFar) {
+        if (input === value) {
           return true;
         }
-        valuesSoFar[value] = true;
       }
       return false;
     }
@@ -49,9 +47,8 @@
     $scope.addEmployee = function(shift, employeeFirstName,employeeLastName){
 
       var employeeName = employeeFirstName + employeeLastName;
-      shift.employees.push(employeeName);
-      if(hasDuplicates(shift.employees)){
-        shift.employees.pop();
+      if(!hasDuplicates(employeeName,shift.employees)){
+        shift.employees.push(employeeName);
       }
       vm.save(true);
     };
