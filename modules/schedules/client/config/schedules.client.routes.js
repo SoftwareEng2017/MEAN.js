@@ -37,7 +37,7 @@
           scheduleResolve: newSchedule
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['admin'],
           pageTitle: 'Schedules Create'
         }
       })
@@ -50,7 +50,7 @@
           scheduleResolve: getSchedule
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['admin'],
           pageTitle: 'Edit Schedule {{ scheduleResolve.name }}'
         }
       })
