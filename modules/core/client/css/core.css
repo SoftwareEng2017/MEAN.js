@@ -158,3 +158,8 @@ a.ng-binding.ng-scope:hover{
   width: 33%;
   height: 100%;
 }
+.cookiecol-2 {
+  display:inline;
+  width: 50%;
+  height: 100%;
+}
