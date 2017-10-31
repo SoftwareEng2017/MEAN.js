@@ -1,0 +1,968 @@
+{
+    "_id": {
+        "$oid": "59f7add661d12eec3578ec57"
+    },
+    "weekName": "Anthony is weird!",
+    "sunday": [
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec58"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec59"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "7:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5a"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5b"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m.",
+                "11:00 p.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5c"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "7:30 p.m",
+                "1:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5d"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:30 p.m",
+                "1:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5e"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5e"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5e"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        }
+    ],
+    "saturday": [
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec61"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec62"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "9:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec63"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec64"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m.",
+                "11:00 p.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec65"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "9:30 p.m",
+                "3:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec66"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m",
+                "3:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec67"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec68"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "9:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec69"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "3.00 a.m"
+            ]
+        }
+    ],
+    "friday": [
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec61"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec62"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "9:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec63"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec64"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m.",
+                "11:00 p.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec65"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "9:30 p.m",
+                "3:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec66"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m",
+                "3:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec67"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec68"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "9:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec69"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "3.00 a.m"
+            ]
+        }
+    ],
+    "thursday": [
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec61"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec62"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "9:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec63"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec64"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m.",
+                "11:00 p.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec65"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "9:30 p.m",
+                "3:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec66"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m",
+                "3:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec67"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec68"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "9:00 p.m",
+                "3.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec69"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "3.00 a.m"
+            ]
+        }
+    ],
+    "wednesday": [
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec58"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec59"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "7:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5a"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5b"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m.",
+                "11:00 p.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5c"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "7:30 p.m",
+                "1:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5d"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:30 p.m",
+                "1:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5e"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5f"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "7:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec60"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "1.00 a.m"
+            ]
+        }
+    ],
+    "tuesday": [
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec58"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec59"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "7:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5a"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5b"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m.",
+                "11:00 p.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5c"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "7:30 p.m",
+                "1:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5d"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:30 p.m",
+                "1:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5e"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5f"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "7:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec60"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "1.00 a.m"
+            ]
+        }
+    ],
+    "monday": [
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec58"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [
+                "dope"
+            ],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec59"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "7:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5a"
+            },
+            "role": [
+                1,
+                0,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5b"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:00 p.m.",
+                "11:00 p.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5c"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "7:30 p.m",
+                "1:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5d"
+            },
+            "role": [
+                0,
+                1,
+                0
+            ],
+            "employees": [],
+            "hours": [
+                "5:30 p.m",
+                "1:30 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5e"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m.",
+                "12:00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec5f"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "7:00 p.m",
+                "1.00 a.m"
+            ]
+        },
+        {
+            "_id": {
+                "$oid": "59f7add661d12eec3578ec60"
+            },
+            "role": [
+                0,
+                0,
+                1
+            ],
+            "employees": [],
+            "hours": [
+                "6:00 p.m",
+                "1.00 a.m"
+            ]
+        }
+    ],
+    "__v": 1
+}
