@@ -4,9 +4,9 @@
  */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Employee = require('../../../users/server/models/user.server.model.js');
+/*var Employee = require('../../../users/server/models/user.server.model.js');
 var EmployeeSchema= mongoose.model('User').schema;
-
+*/
 var shiftSchema = new Schema({
 
   hours: [{
