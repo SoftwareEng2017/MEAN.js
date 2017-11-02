@@ -45,50 +45,72 @@ exports.create = function(req, res) {
   /*Sunday thru Wednesday*/
   Adriver1.hours.push('6:00 p.m.');
   Adriver1.hours.push('12:00 a.m');
+  Adriver1.whichShift = [1,0,0];
   Adriver2.hours.push('7:00 p.m');
   Adriver2.hours.push('1.00 a.m');
+  Adriver2.whichShift = [0,1,0];
   Adriver3.hours.push('6:00 p.m');
   Adriver3.hours.push('1.00 a.m');
+  Adriver3.whichShift = [0,0,1];
+
 
   /*Thursday thru Saturday*/
   Bdriver1.hours.push('6:00 p.m.');
   Bdriver1.hours.push('12:00 a.m');
+  Bdriver1.whichShift = [1,0,0];
   Bdriver2.hours.push('9:00 p.m');
   Bdriver2.hours.push('3.00 a.m');
+  Bdriver2.whichShift = [0,1,0];
   Bdriver3.hours.push('6:00 p.m');
   Bdriver3.hours.push('3.00 a.m');
+  Bdriver3.whichShift = [0,0,1];
+
 
   /*Sunday thru Wednesday*/
   Afront1.hours.push('6:00 p.m.');
   Afront1.hours.push('12:00 a.m');
+  Afront1.whichShift = [1,0,0];
   Afront2.hours.push('7:00 p.m');
   Afront2.hours.push('1.00 a.m');
+  Afront2.whichShift = [0,1,0];
   Afront3.hours.push('6:00 p.m');
   Afront3.hours.push('1.00 a.m');
+  Afront3.whichShift = [0,0,1];
+
 
   /*Thursday thru Saturday*/
   Bfront1.hours.push('6:00 p.m.');
   Bfront1.hours.push('12:00 a.m');
+  Afront1.whichShift = [1,0,0];
   Bfront2.hours.push('9:00 p.m');
   Bfront2.hours.push('3.00 a.m');
+  Afront2.whichShift = [0,1,0];
   Bfront3.hours.push('6:00 p.m');
   Bfront3.hours.push('3.00 a.m');
+  Afront3.whichShift = [0,0,1];
 
   /*Sunday thru Wednesday*/
   Akitchen1.hours.push('5:00 p.m.');
   Akitchen1.hours.push('11:00 p.m');
+  Akitchen1.whichShift = [1,0,0];
   Akitchen2.hours.push('7:30 p.m');
   Akitchen2.hours.push('1:30 a.m');
+  Akitchen2.whichShift = [0,1,0];
   Akitchen3.hours.push('5:30 p.m');
   Akitchen3.hours.push('1:30 a.m');
+  Akitchen3.whichShift = [0,0,1];
+
 
   /*Thursday thru Saturday*/
   Bkitchen1.hours.push('5:00 p.m.');
   Bkitchen1.hours.push('11:00 p.m');
+  Bkitchen1.whichShift = [1,0,0];
   Bkitchen2.hours.push('9:30 p.m');
   Bkitchen2.hours.push('3:30 a.m');
+  Bkitchen2.whichShift = [0,1,0];
   Bkitchen3.hours.push('5:00 p.m');
   Bkitchen3.hours.push('3:30 a.m');
+  Bkitchen3.whichShift = [0,0,1];
 
   /*Assigning shift roles*/
 

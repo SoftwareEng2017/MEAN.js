@@ -17,6 +17,9 @@ var shiftSchema = new Schema({
   }],
   role: [{
     type: Number
+  }],
+  whichShift:[{
+    type: Number
   }]
 });
 

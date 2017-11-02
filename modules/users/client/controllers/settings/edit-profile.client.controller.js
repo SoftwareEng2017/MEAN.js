@@ -12,6 +12,17 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
       return (JSON.stringify(array1) === JSON.stringify(array2));
     };
 
+    $scope.returnRole = function(roleArray){
+      if(roleArray[0] === 1){
+        return "Driver";
+      }
+      else if(roleArray[1] === 1){
+        return "Kitchen";
+      }
+      else if(roleArray[2] === 1){
+        return "Front";
+      }
+    }
     // Update a user profile
     $scope.updateUserProfile = function (isValid) {
       $scope.success = $scope.error = null;

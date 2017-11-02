@@ -1,4 +1,5 @@
 <section>
+  <!----------- Edit Schedule and Delete Schedule Buttons--------->
   <div class="cookiefont">
     <div class="pull-right">
       <a class="btn cookiebutton" ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
@@ -10,119 +11,94 @@
     </div>
     <h1 ng-bind="vm.schedule.weekName"></h1>
   </div>
+
+<!------Printing out shifts for each day------->
+
   <div class="cookiefont">
+
+    <!---------Monday--------->
+
     <h2>Monday</h2>
     <div class="cookierow">
-      <!--Monday-->
+      <!--------- Drivers --------->
       <div class="cookiecol">
-        <!-- Drivers -->
-        <h4 class="margintop25">Drivers</h2>
+        <h4 class="margintop25">Driver</h2>
+
+        <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
         ng-show = "monday.role[0]" class="list-group-item">
           <div class="pull-right" style = "padding-top : 5px">
-
-            <!--Printing all employees in employees array-->
-
+            {{monday.whichShift}}
+            <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
               {{employee}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
             </div>
-            <!--Button to add employee names manually to shift-->
-
-            <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
-            ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-              Add Employee
-            </a>-->
-            <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
-            ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-              Change Shift Hours
-            </a>-->
-            <!--<a class="btn cookiebutton" ng-click="monday.remove()">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>-->
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
-          <a class = "btn" ng-repeat = "employee in users" ng-show = employee.type[0] ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
+          <!------Print out available employee ---->
+          <a class = "btn" ng-repeat = "employee in users" ng-show = "areEqual(employee.availibility.mon.slice(0,3),monday.whichShift)" ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
             {{employee.firstName}} {{employee.lastName}}
           </a>
         </div>
       </div>
-      <!--Kitchen-->
+
+      <!--------- Kitchen --------->
       <div class="cookiecol">
         <h4 class="margintop25">Kitchen</h2>
+
+        <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
         ng-show = "monday.role[1]" class="list-group-item">
-        <div class="pull-right" style = "padding-top : 5px">
-
-          <!--Printing all employees in employees array-->
-
-          <div ng-repeat="employee in monday.employees">
-            {{employee}}
-            <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>
+          <div class="pull-right" style = "padding-top : 5px">
+            {{monday.whichShift}}
+            <!--Printing all employees assigned to shift-->
+            <div ng-repeat="employee in monday.employees">
+              {{employee}}
+              <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+            </div>
           </div>
-          <!--Button to add employee names manually to shift-->
-
-          <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
-          ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-            Add Employee
-          </a>-->
-          <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
-          ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-            Change Shift Hours
-          </a>-->
-          <!--<a class="btn cookiebutton" ng-click="monday.remove()">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>-->
-        </div>
-        <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
-        <a class = "btn" ng-repeat = "employee in users" ng-show = employee.type[1] ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
-          {{employee.firstName}} {{employee.lastName}}
-        </a>
+          <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
+          <!------Print out available employee ---->
+          <a class = "btn" ng-repeat = "employee in users" ng-show = "areEqual(employee.availibility.mon.slice(3,6),monday.whichShift)" ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
+            {{employee.firstName}} {{employee.lastName}}
+          </a>
         </div>
       </div>
 
-      <!--Front-->
+      <!--------- Front --------->
       <div class="cookiecol">
         <h4 class="margintop25">Front</h2>
+
+        <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
         ng-show = "monday.role[2]" class="list-group-item">
-        <div class="pull-right" style = "padding-top : 5px">
-
-          <!--Printing all employees in employees array-->
-
-          <div ng-repeat="employee in monday.employees">
-            {{employee}}
-            <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
-              <i class="glyphicon glyphicon-trash"></i>
-            </a>
+          <div class="pull-right" style = "padding-top : 5px">
+            {{monday.whichShift}}
+            <!--Printing all employees assigned to shift-->
+            <div ng-repeat="employee in monday.employees">
+              {{employee}}
+              <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+            </div>
           </div>
-          <!--Button to add employee names manually to shift-->
-
-          <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
-          ui-sref="shift.addEmployee({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-            Add Employee
-          </a>-->
-          <!--<a class="btn cookiebutton"  ng-click = "setShift($index)"
-          ui-sref="shift.edit({scheduleId: vm.schedule._id, shiftId: monday._id , index: $index })">
-            Change Shift Hours
-          </a>-->
-          <!--<a class="btn cookiebutton" ng-click="monday.remove()">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>-->
-        </div>
-        <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
-        <a class = "btn" ng-repeat = "employee in users" ng-show = employee.type[2] ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
-          {{employee.firstName}} {{employee.lastName}}
-        </a>
+          <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
+          <!------Print out available employee ---->
+          <a class = "btn" ng-repeat = "employee in users" ng-show = "areEqual(employee.availibility.mon.slice(6,9),monday.whichShift)" ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
+            {{employee.firstName}} {{employee.lastName}}
+          </a>
         </div>
       </div>
-      <!--<a class = "btn cookiebutton" ui-sref="shift.create({scheduleId: vm.schedule._id})">
-          Add shift </a>-->
+
     </div>
+
+  <!----------REST OF DAYS GO HEAR------->
+
   </div>
   <p class="lead" ng-bind="vm.schedule.content"></p>
 </section>

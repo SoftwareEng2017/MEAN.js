@@ -34,6 +34,18 @@
       return false;
     }
 
+    /*check if two arrays are equal*/
+    $scope.areEqual = function(array1, array2) {
+      for(var i =0; i < array1.length; i++){
+        if(array1[i] === array2[i]){
+        }
+        else{
+          return false;
+        }
+      }
+      return true;
+    };
+
     // Remove existing Schedule
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
