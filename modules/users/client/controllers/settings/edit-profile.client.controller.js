@@ -22,7 +22,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
       else if(roleArray[2] === 1){
         return "Front";
       }
-    }
+    };
     // Update a user profile
     $scope.updateUserProfile = function (isValid) {
       $scope.success = $scope.error = null;

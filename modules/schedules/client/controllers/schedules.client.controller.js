@@ -46,6 +46,17 @@
       return true;
     };
 
+    $scope.isNotAssigned = function(array1, array2) {
+      for(var i =0; i < array1.length; i++){
+        if(array1[i] === array2[i]){
+        }
+        else{
+          return true;
+        }
+      }
+      return false;
+    };
+
     // Remove existing Schedule
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
@@ -56,11 +67,16 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employeeFirstName,employeeLastName){
+    $scope.addEmployee = function(shift, employee, assignedShifts, whichShift,startNum){
 
-      var employeeName = employeeFirstName + employeeLastName;
+      var employeeName = employee.firstName + " " + employee.lastName;
       if(!hasDuplicates(employeeName,shift.employees)){
         shift.employees.push(employeeName);
+        for(var i=0; i<assignedShifts.length;++i){
+          if(whichShift[i] === 1){
+            assignedShifts[i+startNum] = 1;
+          }
+        }
       }
       vm.save(true);
     };
@@ -68,6 +84,7 @@
     $scope.removeEmployee = function (shift, index){
       shift.employees.splice(index , 1);
       vm.save(true);
+      $state.reload();
     };
     /*
     $scope.addShift = function(shiftArray, shift){
