@@ -5,10 +5,11 @@
       <fieldset>
 
 
-
+      <div class="form-group" required>
         <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[0]'>Driver</div>
         <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[1]'>Kitchen</div>
         <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[2]'>Front</div>
+      </div>
 
 
         <div class="form-group" show-errors>
@@ -57,7 +58,6 @@
         <div class="text-center form-group">
           <button type="submit" class="btn btn-primary">Sign up</button>
           &nbsp; or&nbsp;
-          <a ui-sref="authentication.signin" class="show-signup">Sign in</a>
         </div>
         <div ng-show="error" class="text-center text-danger">
           <strong ng-bind="error"></strong>

@@ -49,7 +49,9 @@
     // Remove existing Schedule
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
-        vm.schedule.$remove($state.go('schedules.list'));
+        vm.schedule.$remove();
+        window.location.reload(true, $state.go('schedules.list'));
+        
       }
     }
     $scope.setShift = function(index){

@@ -14,6 +14,20 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
       $scope.figureOutItemsToDisplay();
     };
 
+    $scope.returnRole = function(roleArray){
+      var Roles = '';
+      if(roleArray[0] === 1){
+        Roles += ("Driver" + ' ');
+      }
+      if(roleArray[1] === 1){
+        Roles += ("Kitchen" + ' ');
+      }
+      if(roleArray[2] === 1){
+        Roles += ("Front" + ' ');
+      }
+      return Roles;
+    };
+
     $scope.figureOutItemsToDisplay = function () {
       $scope.filteredItems = $filter('filter')($scope.users, {
         $: $scope.search

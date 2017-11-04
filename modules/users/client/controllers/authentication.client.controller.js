@@ -4,6 +4,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
   function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
     $scope.authentication = Authentication;
     $scope.popoverMsg = PasswordValidator.getPopoverMsg();
+    $scope.previousUser = undefined;
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
@@ -41,6 +42,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     $scope.signup = function (isValid) {
       $scope.error = null;
+      $scope.previousUser = $scope.authentication.user;
 
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'userForm');
@@ -50,10 +52,10 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       $http.post('/api/auth/signup', $scope.employeeCredentials).success(function (response) {
         // If successful we assign the response to the global user model
-        //$scope.authentication.user = response;
+        $scope.authentication.user = $scope.previousUser;
 
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.params);
+        $state.go('home', $state.params);
       }).error(function (response) {
         $scope.error = response.message;
       });

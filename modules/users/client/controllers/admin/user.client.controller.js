@@ -19,6 +19,20 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
       }
     };
 
+    $scope.returnRole = function(roleArray){
+      var Roles = '';
+      if(roleArray[0] === 1){
+        Roles += ("Driver" + ' ');
+      }
+      if(roleArray[1] === 1){
+        Roles += ("Kitchen" + ' ');
+      }
+      if(roleArray[2] === 1){
+        Roles += ("Front" + ' ');
+      }
+      return Roles;
+    };
+
     $scope.update = function (isValid) {
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'userForm');
@@ -26,15 +40,18 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
         return false;
       }
 
+
       var user = $scope.user;
 
       user.$update(function () {
-        $state.go('admin.user', {
+        window.location.reload(true, $state.go('admin.user', {
           userId: user._id
-        });
+
+        }));
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
+    
     };
   }
 ]);

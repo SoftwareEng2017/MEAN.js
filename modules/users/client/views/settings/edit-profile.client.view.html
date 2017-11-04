@@ -54,13 +54,20 @@
         </div>
         <div class="form-group" >
 
-        <table border = "1" width = "500" height = "300">
+        <p ng-show = "compareArray(user.type, [0,0,0])">
+          This employee doesn't have any roles! Ask your manager to update your role.
+        </p>
+        <p ng-show ="schedules.length == 0">
+          No schedules available at this time.
+        </p>
+        <div ng-hide ="schedules.length == 0">
+        <table border = "1" width = "500" height = "300" ng-show ="!compareArray(user.type, [0,0,0])" >
 
 
           <tr>
 
           <th>Mon</th>
-           <td ng-repeat = "shift in schedules[0].monday" ng-show = "compareArray(shift.role,user.type)">
+           <td ng-repeat = "shift in schedules[0].monday" ng-show = "findShift(shift.role, user.type)">
              <h4>{{returnRole(shift.role)}}:</h4>
                 {{shift.hours[0]}} to {{shift.hours[1]}}
            <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.mon[$index]">
@@ -69,7 +76,7 @@
            </tr>
           <tr >
           <th>Tue</th>
-           <td ng-repeat = "shift in schedules[0].tuesday" ng-show = "compareArray(shift.role,user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
+           <td ng-repeat = "shift in schedules[0].tuesday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
               {{shift.hours[0]}} to {{shift.hours[1]}}
             <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.tue[$index]">
 
@@ -77,7 +84,7 @@
           </tr>
           <tr >
           <th>Wed</th>
-           <td ng-repeat = "shift in schedules[0].wednesday" ng-show = "compareArray(shift.role,user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
+           <td ng-repeat = "shift in schedules[0].wednesday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
               {{shift.hours[0]}} to {{shift.hours[1]}}
             <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.wed[$index]">
 
@@ -85,7 +92,7 @@
           </tr>
           <tr >
           <th>Thu</th>
-           <td ng-repeat = "shift in schedules[0].thursday" ng-show = "compareArray(shift.role,user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
+           <td ng-repeat = "shift in schedules[0].thursday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
               {{shift.hours[0]}} to {{shift.hours[1]}}
             <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.thu[$index]">
 
@@ -93,14 +100,14 @@
           </tr>
           <tr >
           <th>Fri</th>
-           <td ng-repeat = "shift in schedules[0].friday" ng-show = "compareArray(shift.role,user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
+           <td ng-repeat = "shift in schedules[0].friday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
               {{shift.hours[0]}} to {{shift.hours[1]}}
             <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.fri[$index]">
 
            </td>
           </tr><tr >
           <th>Sat</th>
-           <td ng-repeat = "shift in schedules[0].saturday" ng-show = "compareArray(shift.role,user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
+           <td ng-repeat = "shift in schedules[0].saturday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
               {{shift.hours[0]}} to {{shift.hours[1]}}
             <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sat[$index]">
 
@@ -108,13 +115,14 @@
           </tr>
           <tr >
           <th>Sun</th>
-           <td ng-repeat = "shift in schedules[0].sunday" ng-show = "compareArray(shift.role,user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
+           <td ng-repeat = "shift in schedules[0].sunday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
               {{shift.hours[0]}} to {{shift.hours[1]}}
             <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sun[$index]">
 
            </td>
           </tr>
         </table>
+        </div>
 
         </div>
 
