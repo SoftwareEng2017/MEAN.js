@@ -1,22 +1,79 @@
+<!--<section >-->
+  <!--<div class="page-header">-->
+    <!--<h1>Profilepages</h1>-->
+  <!--</div>-->
+  <!--<div class="list-profilepages-red">-->
+
+  <!--<img src="{{vm.authentication.user.profileImageURL}}"/>-->
+
+    <!--<h1> Username: {{vm.authentication.user.username}} </h1>-->
+    <!--<h1> First Name: {{vm.authentication.user.firstName}} </h1>-->
+    <!--<h1> Last Name: {{vm.authentication.user.lastName}} </h1>-->
+    <!--<h1> Email: {{vm.authentication.user.email}} </h1>-->
+    <!--{{vm.test}}-->
+  <!--</div>-->
+
+<!--</section>-->
+
 <section>
-  <div class="page-header">
-    <h1>Profilepages</h1>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="profilepage in vm.profilepages"
-       ui-sref="profilepages.view({ profilepageId: profilepage._id })"
-       class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="profilepage.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="profilepage.user" ng-bind="profilepage.user.displayName"></span>
-        <span ng-if="!profilepage.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="profilepage.name"></h4>
-    </a>
-  </div>
-  <div class="alert alert-warning text-center" ng-if="vm.profilepages.$resolved && !vm.profilepages.length">
-    No Profilepages yet, why don't you <a ui-sref="profilepages.create">create one</a>?
-  </div>
+  <tabset justified="true">
+    <tab heading="Justified">Justified content</tab>
+    <tab heading="SJ">Short Labeled Justified content</tab>
+    <tab heading="Long Justified">Long Labeled Justified content</tab>
+  </tabset>
 </section>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-4 col-md-4 user-details">
+      <div class="user-image">
+        <img src="{{vm.authentication.user.profileImageURL}}" class="img-circle">
+      </div>
+      <div class="user-info-block">
+        <div class="user-heading">
+          <h3>{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}} </h3>
+          <span class="help-block">Role(s)</span>
+        </div>
+
+
+
+
+        <ul class="navigation">
+          <li class="active" ng-repeat="tab in tabTagsInfo" style="color:red" ng-click="setIndex(tabTagsInfo.indexOf(tab))">
+            <a data-toggle="tab" href="#information" style="color:red">
+                {{tab.tagName}}
+              <span class="glyphicon glyphicon-user"></span>
+            </a>
+          </li>
+        </ul>
+
+
+
+
+
+        <div class="user-body">
+          <div ng-include="tabTagsInfo[tabIndex].url">
+
+
+          <div class="tab-content">
+            <div id="information" class="tab-pane active">
+              <div ng-include="modules/profilepages/client/views/list-profilepages.client.view.html">
+              </div>
+
+            </div>
+            <div id="settings" class="tab-pane">
+              <h4>Settings</h4>
+            </div>
+            <div id="email" class="tab-pane">
+              <h4>Send Message</h4>
+            </div>
+            <div id="events" class="tab-pane">
+              <h4>Events</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

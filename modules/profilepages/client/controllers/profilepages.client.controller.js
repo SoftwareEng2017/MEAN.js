@@ -6,48 +6,73 @@
     .module('profilepages')
     .controller('ProfilepagesController', ProfilepagesController);
 
-  ProfilepagesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'profilepageResolve'];
+  ProfilepagesController.$inject = ['$scope', '$state', '$window', 'Authentication'];//, 'profilepageResolve'];
 
-  function ProfilepagesController ($scope, $state, $window, Authentication, profilepage) {
+  function ProfilepagesController ($scope, $state, $window, Authentication){//, profilepage) {
+
     var vm = this;
 
     vm.authentication = Authentication;
-    vm.profilepage = profilepage;
+    vm.profilepage ={}// profilepage;
     vm.error = null;
     vm.form = {};
-    vm.remove = remove;
-    vm.save = save;
+    //vm.remove = remove;
+    //vm.save = save;
+    vm.test = "string";
+    console.log(vm.authentication.user);
 
-    // Remove existing Profilepage
-    function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
-        vm.profilepage.$remove($state.go('profilepages.list'));
-      }
-    }
+      $scope.tabTagsInfo= [
+          {
+              url: "modules/profilepages/client/views/userInfo.html",
+              tagName: "Info"
+          },
+          {
+              url: "modules/profilepages/client/views/scheduleView.html",
+              tagName: "Schedule"
+          },
+          {
+              url: "modules/profilepages/client/views/userInfo.html",
+              tagName: "Person"
+          }
+      ]
 
-    // Save Profilepage
-    function save(isValid) {
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.form.profilepageForm');
-        return false;
-      }
+      $scope.tabIndex= 0;
 
-      // TODO: move create/update logic to service
-      if (vm.profilepage._id) {
-        vm.profilepage.$update(successCallback, errorCallback);
-      } else {
-        vm.profilepage.$save(successCallback, errorCallback);
-      }
+      $scope.setIndex = function(index){
+        $scope.tabIndex = index;
 
-      function successCallback(res) {
-        $state.go('profilepages.view', {
-          profilepageId: res._id
-        });
       }
 
-      function errorCallback(res) {
-        vm.error = res.data.message;
-      }
-    }
+    // // Remove existing Profilepage
+    // function remove() {
+    //   if ($window.confirm('Are you sure you want to delete?')) {
+    //     vm.profilepage.$remove($state.go('profilepages.list'));
+    //   }
+    // }
+    //
+    // // Save Profilepage
+    // function save(isValid) {
+    //   if (!isValid) {
+    //     $scope.$broadcast('show-errors-check-validity', 'vm.form.profilepageForm');
+    //     return false;
+    //   }
+    //
+    //   // TODO: move create/update logic to service
+    //   if (vm.profilepage._id) {
+    //     vm.profilepage.$update(successCallback, errorCallback);
+    //   } else {
+    //     vm.profilepage.$save(successCallback, errorCallback);
+    //   }
+    //
+    //   function successCallback(res) {
+    //     $state.go('profilepages.view', {
+    //       profilepageId: res._id
+    //     });
+    //   }
+    //
+    //   function errorCallback(res) {
+    //     vm.error = res.data.message;
+    //   }
+    // }
   }
 }());

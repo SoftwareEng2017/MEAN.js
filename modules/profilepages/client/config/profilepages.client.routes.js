@@ -17,7 +17,7 @@
       .state('profilepages.list', {
         url: '',
         templateUrl: 'modules/profilepages/client/views/list-profilepages.client.view.html',
-        controller: 'ProfilepagesListController',
+        controller: 'ProfilepagesController',
         controllerAs: 'vm',
         data: {
           pageTitle: 'Profilepages List'
