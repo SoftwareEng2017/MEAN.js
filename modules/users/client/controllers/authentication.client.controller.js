@@ -52,13 +52,14 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       $http.post('/api/auth/signup', $scope.employeeCredentials).success(function (response) {
         // If successful we assign the response to the global user model
-        $scope.authentication.user = $scope.previousUser;
+        
 
         // And redirect to the previous or home page
         $state.go('home', $state.params);
       }).error(function (response) {
         $scope.error = response.message;
       });
+      
     };
 
     $scope.signin = function (isValid) {
