@@ -4,17 +4,20 @@
  */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-/*var Employee = require('../../../users/server/models/user.server.model.js');
-var EmployeeSchema= mongoose.model('User').schema;
-*/
+var Employee = require('../../../users/server/models/user.server.model.js');
+var EmployeeSchema = mongoose.model('User').schema;
+
 var shiftSchema = new Schema({
 
   hours: [{
     type: String
   }],
-  employees: [{
-    type: String
+  employees: [{ 
+    names: { type: String },
+
+    id: { type: Number } 
   }],
+
   role: [{
     type: Number
   }],

@@ -27,7 +27,7 @@
     function hasDuplicates(input , array) {
       for (var i = 0; i < array.length; ++i) {
         var value = array[i];
-        if (input === value) {
+        if (input === value._id) {
           return true;
         }
       }
@@ -58,11 +58,11 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employeeFirstName,employeeLastName){
+    $scope.addEmployee = function(shift, employee){
 
-      var employeeName = employeeFirstName + employeeLastName;
-      if(!hasDuplicates(employeeName,shift.employees)){
-        shift.employees.push(employeeName);
+      
+      if(!hasDuplicates(employee._id , shift.employees)){
+        shift.employees.push(employee);
       }
       vm.save(true);
     };
