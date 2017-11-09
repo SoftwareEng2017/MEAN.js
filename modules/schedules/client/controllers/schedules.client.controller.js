@@ -58,8 +58,9 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, firstname, lastname, _id){
+    $scope.addEmployee = function(shift, firstname, lastname, _id, assigned){
       var employeeName = firstname + " " + lastname;
+      var newAssigned = assigned;
       var newEmployee = {
         name: employeeName,
         id: _id
