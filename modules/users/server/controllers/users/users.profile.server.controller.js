@@ -101,7 +101,18 @@ exports.changeProfilePicture = function (req, res) {
 exports.me = function (req, res) {
   res.json(req.user || null);
 };
+//make server route and http request in controller to route.
+exports.changeAssigned = function(req, res){
+  User.findOne({
+    _id: id
+  }).exec(function (err, user) {
+    if (err) {
+      return err;
+    } else if (!user) {
+      return new Error('Failed to load User ' + id);
+    }
 
-exports.changeAssigned = function(req, res, id){
+
+  });
 
 };

@@ -67,6 +67,8 @@
       };
 
       
+
+      
       if(!hasDuplicates(_id , shift.employees)){
         shift.employees.push(newEmployee);
       }
