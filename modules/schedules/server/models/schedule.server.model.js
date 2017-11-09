@@ -13,7 +13,7 @@ var shiftSchema = new Schema({
     type: String
   }],
   employees: [{ 
-    names: { type: String },
+    name: { type: String },
 
     id: { type: Number } 
   }],

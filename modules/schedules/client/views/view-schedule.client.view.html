@@ -31,7 +31,7 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee.firstName}}
+              {{employee.name}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
@@ -56,7 +56,7 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee}}
+              {{employee.name}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
@@ -64,7 +64,7 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-          <a class = "btn" ng-repeat = "employee in users" ng-show = "areEqual(employee.availibility.mon.slice(3,6),monday.whichShift)" ng-click= "addEmployee(monday, employee.firstName, employee.lastName)">
+          <a class = "btn" ng-repeat = "employee in users" ng-show = "areEqual(employee.availibility.mon.slice(3,6),monday.whichShift)" ng-click= "addEmployee(monday, employee.firstName, employee.lastName, employee._id)">
             {{employee.firstName}} {{employee.lastName}}
           </a>
         </div>
@@ -81,7 +81,7 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee}}
+              {{employee.name}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index)">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>

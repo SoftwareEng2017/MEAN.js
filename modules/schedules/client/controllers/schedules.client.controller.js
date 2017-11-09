@@ -58,11 +58,16 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee){
+    $scope.addEmployee = function(shift, firstname, lastname, _id){
+      var employeeName = firstname + " " + lastname;
+      var newEmployee = {
+        name: employeeName,
+        id: _id
+      };
 
       
-      if(!hasDuplicates(employee._id , shift.employees)){
-        shift.employees.push(employee);
+      if(!hasDuplicates(_id , shift.employees)){
+        shift.employees.push(newEmployee);
       }
       vm.save(true);
     };
