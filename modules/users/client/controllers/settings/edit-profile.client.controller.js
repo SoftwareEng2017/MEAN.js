@@ -42,6 +42,7 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
       }
       
     };
+    
     // Update a user profile
     $scope.updateUserProfile = function (isValid) {
       $scope.success = $scope.error = null;

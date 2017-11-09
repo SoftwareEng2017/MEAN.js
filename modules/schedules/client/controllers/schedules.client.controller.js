@@ -6,9 +6,9 @@
     .module('schedules')
     .controller('SchedulesController', SchedulesController);
 
-  SchedulesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'scheduleResolve', '$stateParams', 'Admin'];
+  SchedulesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'scheduleResolve', '$stateParams', 'Admin', '$http'];
 
-  function SchedulesController ($scope, $state, $window, Authentication, schedule, $stateParams, Admin) {
+  function SchedulesController ($scope, $state, $window, Authentication, schedule, $stateParams, Admin, $http) {
     var vm = this;
     //this queries the admin.users service for a list of users, you should be able to reference users in any page that uses this controller
     //cheers
@@ -73,7 +73,7 @@
       vm.save(true);
     };
 
-    $scope.removeEmployee = function (shift, index){
+    $scope.removeEmployee = function (shift, index, id){
       shift.employees.splice(index , 1);
       vm.save(true);
     };
