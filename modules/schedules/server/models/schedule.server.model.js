@@ -12,10 +12,10 @@ var shiftSchema = new Schema({
   hours: [{
     type: String
   }],
-  employees: [{ 
+  employees: [{
     name: { type: String },
 
-    id: { type: Number } 
+    id: { type: String }
   }],
 
   role: [{

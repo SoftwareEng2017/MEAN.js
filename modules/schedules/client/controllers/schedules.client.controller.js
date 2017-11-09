@@ -51,25 +51,32 @@
       if ($window.confirm('Are you sure you want to delete?')) {
         vm.schedule.$remove();
         window.location.reload(true, $state.go('schedules.list'));
-        
+
       }
     }
     $scope.setShift = function(index){
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, firstname, lastname, _id, assigned){
-      var employeeName = firstname + " " + lastname;
+    $scope.addEmployee = function(shift, employee, assigned, start){
+      var employeeName = employee.firstName + " " + employee.lastName;
       var newAssigned = assigned;
       var newEmployee = {
         name: employeeName,
-        id: _id
+        id: employee._id
       };
 
-      
-      if(!hasDuplicates(_id , shift.employees)){
+
+
+      if(!hasDuplicates(employee._id , shift.employees)){
         shift.employees.push(newEmployee);
+        for(var i = 0; i<3; i++){
+          if(shift.whichShift[i] === 1){
+            /*assigned[start + i] = 1;*/
+          }
+        }
       }
+      console.log(assigned);
       vm.save(true);
     };
 
