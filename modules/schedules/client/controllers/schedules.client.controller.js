@@ -60,10 +60,15 @@
 
     $scope.addEmployee = function(shift, employee, assigned, start){
       var employeeName = employee.firstName + " " + employee.lastName;
-      var newAssigned = assigned;
+      //set new assigned to current employee assigned.
+      var newAssigned = employee.assigned;
+      //update newAssigned based on the shift they were just assigned to.
+
+      //prep request.
       var newEmployee = {
         name: employeeName,
-        id: employee._id
+        id: employee._id,
+        assigned: newAssigned
       };
 
 
@@ -75,6 +80,7 @@
             /*assigned[start + i] = 1;*/
           }
         }
+        //make http request to server route defined in users.server.routes
       }
       console.log(assigned);
       vm.save(true);
