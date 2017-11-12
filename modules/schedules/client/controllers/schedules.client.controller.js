@@ -6,9 +6,9 @@
     .module('schedules')
     .controller('SchedulesController', SchedulesController);
 
-  SchedulesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'scheduleResolve', '$stateParams', 'Admin'];
+  SchedulesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'scheduleResolve', '$stateParams', 'Admin', '$http'];
 
-  function SchedulesController ($scope, $state, $window, Authentication, schedule, $stateParams, Admin) {
+  function SchedulesController ($scope, $state, $window, Authentication, schedule, $stateParams, Admin, $http) {
     var vm = this;
     //this queries the admin.users service for a list of users, you should be able to reference users in any page that uses this controller
     //cheers
@@ -63,14 +63,14 @@
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       //update newAssigned based on the shift they were just assigned to.
-
+      newAssigned.sun[0] = 1;
       //prep request.
       var newEmployee = {
         name: employeeName,
         id: employee._id,
         assigned: newAssigned
       };
-
+      console.log(newEmployee);
 
 
       if(!hasDuplicates(employee._id , shift.employees)){
@@ -81,6 +81,15 @@
           }
         }
         //make http request to server route defined in users.server.routes
+        $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
+        // If successful we assign the response to the global user model
+        
+          console.log(response.message);
+        // And redirect to the previous or home page
+        
+        }).error(function (response) {
+          $scope.error = response.message;
+        });
       }
       console.log(assigned);
       vm.save(true);
