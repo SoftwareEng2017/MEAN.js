@@ -14,66 +14,23 @@
   <!--</div>-->
 
 <!--</section>-->
+<section>
+  <div style="text-align: center" class="user-image">
+    <img src="{{vm.authentication.user.profileImageURL}}" class="img-circle">
+  </div>
+</section>
 
 <section>
   <tabset justified="true">
-    <tab heading="Justified">Justified content</tab>
-    <tab heading="SJ">Short Labeled Justified content</tab>
-    <tab heading="Long Justified">Long Labeled Justified content</tab>
+    <tab heading="User Info">
+      <h3 style="text-align: center">{{"Name: "}}{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}} </h3>
+      <h3 style="text-align: center">{{"Email: "}} {{vm.authentication.user.email}} </h3>
+      <h3 style="text-align: center">{{"Username: "}} {{vm.authentication.user.username}} </h3>
+      <h3 style="text-align: center">{{"Role(s): "}} {{vm.authentication.user.roles}} </h3>
+
+    </tab>
+    <tab heading="Schedule">Short Labeled Justified content</tab>
   </tabset>
 </section>
 
-<div class="container">
 
-  <div class="row">
-    <div class="col-sm-4 col-md-4 user-details">
-      <div class="user-image">
-        <img src="{{vm.authentication.user.profileImageURL}}" class="img-circle">
-      </div>
-      <div class="user-info-block">
-        <div class="user-heading">
-          <h3>{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}} </h3>
-          <span class="help-block">Role(s)</span>
-        </div>
-
-
-
-
-        <ul class="navigation">
-          <li class="active" ng-repeat="tab in tabTagsInfo" style="color:red" ng-click="setIndex(tabTagsInfo.indexOf(tab))">
-            <a data-toggle="tab" href="#information" style="color:red">
-                {{tab.tagName}}
-              <span class="glyphicon glyphicon-user"></span>
-            </a>
-          </li>
-        </ul>
-
-
-
-
-
-        <div class="user-body">
-          <div ng-include="tabTagsInfo[tabIndex].url">
-
-
-          <div class="tab-content">
-            <div id="information" class="tab-pane active">
-              <div ng-include="modules/profilepages/client/views/list-profilepages.client.view.html">
-              </div>
-
-            </div>
-            <div id="settings" class="tab-pane">
-              <h4>Settings</h4>
-            </div>
-            <div id="email" class="tab-pane">
-              <h4>Send Message</h4>
-            </div>
-            <div id="events" class="tab-pane">
-              <h4>Events</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
