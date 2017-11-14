@@ -65,12 +65,7 @@
       //update newAssigned based on the shift they were just assigned to.
       newAssigned.sun[0] = 1;
       //prep request.
-      var newEmployee = {
-        name: employeeName,
-        id: employee._id,
-        assigned: newAssigned
-      };
-      console.log(newEmployee);
+      
 
 
       if(!hasDuplicates(employee._id , shift.employees)){
@@ -80,6 +75,12 @@
             /*assigned[start + i] = 1;*/
           }
         }
+        var newEmployee = {
+        name: employeeName,
+        id: employee._id,
+        assigned: newAssigned
+      };
+      console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
