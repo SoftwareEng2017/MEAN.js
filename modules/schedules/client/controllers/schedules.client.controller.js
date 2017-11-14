@@ -36,14 +36,16 @@
 
     /*check if two arrays are equal*/
     $scope.areEqual = function(array1, array2) {
-      for(var i =0; i < array1.length; i++){
-        if(array1[i] === array2[i]){
+      for(var i =0; i < array2.length; i++){
+        if(array2[i] === 1){
+          if(array1[i]===1){
+            return true;
+          }
         }
-        else{
-          return false;
-        }
+        
       }
-      return true;
+      return false;
+      
     };
 
     // Remove existing Schedule
@@ -58,7 +60,7 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee, assigned, day){
+    $scope.addEmployee = function(shift, employee, day){
       var employeeName = employee.firstName + " " + employee.lastName;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
@@ -99,7 +101,7 @@
           $scope.error = response.message;
         });
       }
-      console.log(assigned);
+      
       vm.save(true);
     };
 

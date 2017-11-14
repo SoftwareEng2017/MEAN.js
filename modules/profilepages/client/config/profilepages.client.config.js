@@ -8,11 +8,11 @@
   menuConfig.$inject = ['Menus'];
 
   function menuConfig(menuService) {
-      menuService.addMenuItem('topbar', {
-          title: 'List ProfilePages',
-          state: 'profilepages.list',
-          roles: ['admin', 'user']
-      });
+    menuService.addMenuItem('topbar', {
+      title: 'List ProfilePages',
+      state: 'profilepages.list',
+      roles: ['admin', 'user']
+    });
     // Set top bar menu items
     // menuService.addMenuItem('topbar', {
     //   title: 'Profilepages',

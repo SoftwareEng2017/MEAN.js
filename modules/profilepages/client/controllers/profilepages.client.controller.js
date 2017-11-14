@@ -13,7 +13,7 @@
     var vm = this;
 
     vm.authentication = Authentication;
-    vm.profilepage ={}// profilepage;
+    vm.profilepage ={};// profilepage;
     vm.error = null;
     vm.form = {};
     //vm.remove = remove;
@@ -21,27 +21,27 @@
     vm.test = "string";
     console.log(vm.authentication.user);
 
-      $scope.tabTagsInfo= [
-          {
-              url: "modules/profilepages/client/views/userInfo.html",
-              tagName: "Info"
-          },
-          {
-              url: "modules/profilepages/client/views/scheduleView.html",
-              tagName: "Schedule"
-          },
-          {
-              url: "modules/profilepages/client/views/userInfo.html",
-              tagName: "Person"
-          }
-      ]
-
-      $scope.tabIndex= 0;
-
-      $scope.setIndex = function(index){
-        $scope.tabIndex = index;
-
+    $scope.tabTagsInfo= [
+      {
+        url: "modules/profilepages/client/views/userInfo.html",
+        tagName: "Info"
+      },
+      {
+        url: "modules/profilepages/client/views/scheduleView.html",
+        tagName: "Schedule"
+      },
+      {
+        url: "modules/profilepages/client/views/userInfo.html",
+        tagName: "Person"
       }
+    ];
+
+    $scope.tabIndex= 0;
+
+    $scope.setIndex = function(index){
+      $scope.tabIndex = index;
+
+    };
 
     // // Remove existing Profilepage
     // function remove() {
