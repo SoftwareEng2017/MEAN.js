@@ -95,6 +95,24 @@ exports.changeProfilePicture = function (req, res) {
   }
 };
 
+exports.updateAssignments = function (req, res) {
+  console.log(req.id);
+  var test = req.body;
+  console.log(test.id);
+  //when called, the req should contain the user id, and their new assigned array
+  User.findById(test.id).exec(function(err, user) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      user.assigned = test.assigned;
+      user.save();
+      res.status(200).send({
+        message: 'updateAssignments Called!' + test.id
+      });
+    }
+  });
+};
+
 /**
  * Send User
  */

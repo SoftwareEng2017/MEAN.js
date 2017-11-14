@@ -30,3 +30,7 @@ exports.userByID = function (req, res, next, id) {
     next();
   });
 };
+
+exports.updateUserInfo = function(req, res, id, assigned){
+
+};
