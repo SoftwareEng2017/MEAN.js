@@ -58,21 +58,26 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee, assigned, day, num_shift){
+    $scope.addEmployee = function(shift, employee, assigned, day){
       var employeeName = employee.firstName + " " + employee.lastName;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
+      var shift_num;
       //update newAssigned based on the shift they were just assigned to.
-      
+      for (var i = 0; i<3; i++){
+        if(shift.role[i]===1){
+          shift_num = i*3;
+        }
+      }
       //prep request.
       
 
       //check for duplicates already in shift list
       if(!hasDuplicates(employee._id, shift.employees)){
         //update assigned array to include the shift the employee was just added to.
-        for(var i = 0; i<3; i++){
-          if(shift.whichShift[i] === 1){
-            newAssigned[day][num_shift + i] = 1;
+        for(var j = 0; j<3; j++){
+          if(shift.whichShift[j] === 1){
+            newAssigned[day][shift_num + j] = 1;
           }
         }
         //create a new employee
@@ -98,7 +103,44 @@
       vm.save(true);
     };
 
-    $scope.removeEmployee = function (shift, index){
+    $scope.removeEmployee = function (shift, index, day, employee){
+     
+      var employeeName = employee.name;
+      //we know the day, the type of shift and which shift; we store employees without their assigned arrays
+      //so we need to contact the server to make those changes with the above information.
+      var newAssigned = employee.assigned;
+      var shift_num;
+      for (var i = 0; i<3; i++){
+        if(shift.role[i]===1){
+          shift_num = i*3;
+        }
+      }
+      
+      for(var j = 0; j<3; j++){
+        if(shift.whichShift[j] === 1){
+          newAssigned[day][shift_num + j] = 0;
+        }
+      }
+
+
+      var newEmployee = {
+        name: employeeName,
+        id: employee.id,
+        assigned: newAssigned
+      };
+      console.log(newEmployee);
+
+      $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
+        // If successful we assign the response to the global user model
+        
+        console.log(response.message);
+        // And redirect to the previous or home page
+        
+      }).error(function (response) {
+        $scope.error = response.message;
+      });
+      
+
       shift.employees.splice(index , 1);
       vm.save(true);
     };
