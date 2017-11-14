@@ -58,29 +58,31 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee, assigned, start){
+    $scope.addEmployee = function(shift, employee, assigned, day, num_shift){
       var employeeName = employee.firstName + " " + employee.lastName;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       //update newAssigned based on the shift they were just assigned to.
-      newAssigned.sun[0] = 1;
+      
       //prep request.
       
 
-
-      if(!hasDuplicates(employee._id , shift.employees)){
-        shift.employees.push(newEmployee);
+      //check for duplicates already in shift list
+      if(!hasDuplicates(employee._id, shift.employees)){
+        //update assigned array to include the shift the employee was just added to.
         for(var i = 0; i<3; i++){
           if(shift.whichShift[i] === 1){
-            /*assigned[start + i] = 1;*/
+            newAssigned[day][num_shift + i] = 1;
           }
         }
+        //create a new employee
         var newEmployee = {
-        name: employeeName,
-        id: employee._id,
-        assigned: newAssigned
-      };
-      console.log(newEmployee);
+          name: employeeName,
+          id: employee._id,
+          assigned: newAssigned
+        };
+        shift.employees.push(newEmployee);
+        console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
