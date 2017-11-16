@@ -65,7 +65,7 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-          <a class = "btn" ng-repeat = "employee in users" ng-show = "areEqual(employee.availibility.mon.slice(3,6), monday.whichShift)" ng-click= "addEmployee(monday,employee,employee.assigned.mon,'mon',3)">
+          <a class = "btn" ng-repeat = "employee in users" ng-show = "areEqual(employee.availibility.mon.slice(3,6), monday.whichShift)" ng-click= "addEmployee(monday,employee,'mon', 3)">
             {{employee.firstName}} {{employee.lastName}}
           </a>
         </div>
