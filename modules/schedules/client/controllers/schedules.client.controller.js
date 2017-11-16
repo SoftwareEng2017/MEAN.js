@@ -103,6 +103,8 @@
       }
       
       vm.save(true);
+  
+      
     };
 
     $scope.removeEmployee = function (shift, index, day, employee){
@@ -145,6 +147,10 @@
 
       shift.employees.splice(index , 1);
       vm.save(true);
+      vm.$update();
+    
+     
+      
     };
     /*
     $scope.addShift = function(shiftArray, shift){
@@ -154,6 +160,10 @@
     */
     // Save Schedule
     function save(isValid) {
+      var newSchedule ={
+        weekName: vm.schedule.weekName,
+        users: $scope.users
+      };
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.scheduleForm');
         return false;
@@ -163,7 +173,7 @@
       if (vm.schedule._id) {
         vm.schedule.$update(successCallback, errorCallback);
       } else {
-        vm.schedule.$save(successCallback, errorCallback);
+        $http.post('http://localhost:3000/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
       function successCallback(res) {

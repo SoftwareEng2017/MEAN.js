@@ -19,6 +19,9 @@ var path = require('path'),
  * Create a Schedule
  */
 exports.create = function(req, res) {
+  console.log(req.body);
+  var temp = req.body;
+  //console.log(temp.users);
   var schedule = new Schedule(req.body);
   var Adriver1 = new Shift(req.body);
   var Adriver2 = new Shift(req.body);

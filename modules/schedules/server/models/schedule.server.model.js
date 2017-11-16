@@ -28,6 +28,13 @@ var shiftSchema = new Schema({
     }
   }],
 
+  available: [{
+    name: { type: String },
+
+    id: { type: String },
+
+  }],
+
   role: [{
     type: Number
   }],
