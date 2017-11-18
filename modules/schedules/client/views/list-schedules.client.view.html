@@ -1,9 +1,24 @@
 <section>
-  <div class="page-header">
+  <div class="page-header cookiefont">
     <h1>Schedules</h1>
   </div>
-  <div class="list-group">
-    <a ng-repeat="schedule in vm.schedules"
+  <div class="list-group cookiefont">
+    <h3> Next Week Schedule </h3>
+    <a ng-repeat="schedule in vm.schedules" ng-show = "schedule.nextWeek"
+       ui-sref="schedules.view({ scheduleId: schedule._id })"
+       class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="schedule.weekName"></h4>
+    </a>
+
+    <h3> Current Week Schedule </h3>
+    <a ng-repeat="schedule in vm.schedules" ng-show = "schedule.thisWeek"
+       ui-sref="schedules.view({ scheduleId: schedule._id })"
+       class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="schedule.weekName"></h4>
+    </a>
+
+    <h3> Other Weeks </h3>
+    <a ng-repeat="schedule in vm.schedules" ng-show = "schedule.otherWeek"
        ui-sref="schedules.view({ scheduleId: schedule._id })"
        class="list-group-item">
       <h4 class="list-group-item-heading" ng-bind="schedule.weekName"></h4>

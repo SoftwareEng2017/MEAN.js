@@ -14,23 +14,17 @@
   <!--</div>-->
 
 <!--</section>-->
-<section>
-  <div style="text-align: center" class="user-image">
-    <img src="{{vm.authentication.user.profileImageURL}}" class="img-circle">
-  </div>
-</section>
-
-<section>
+<section class = "profilePage">
   <tabset justified="true">
     <tab heading="User Info">
       <h3 style="text-align: center">{{"Name: "}}{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}} </h3>
       <h3 style="text-align: center">{{"Email: "}} {{vm.authentication.user.email}} </h3>
       <h3 style="text-align: center">{{"Username: "}} {{vm.authentication.user.username}} </h3>
-      <h3 style="text-align: center">{{"Role(s): "}} {{vm.authentication.user.roles}} </h3>
+      <h3 style="text-align: center">Phone Number: N/A</h3>
 
     </tab>
-    <tab heading="Schedule">Short Labeled Justified content</tab>
+    <tab heading="Schedule">
+      <h1> This content is not yet available! Coming Soon! </h1> 
+    </tab>
   </tabset>
 </section>
-
-
