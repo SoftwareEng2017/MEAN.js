@@ -79,6 +79,9 @@ var UserSchema = new Schema({
   },
   //Type of employee
   type: { type: [Number] , default: [0,0,0], required: true },
+    //hours assigned
+
+    hours:{type: Number, default: 0 },
 
   username: {
     type: String,

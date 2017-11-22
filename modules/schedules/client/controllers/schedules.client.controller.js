@@ -36,6 +36,8 @@
 
     /*check if two arrays are equal*/
     $scope.areEqual = function(array1, array2) {
+      // console.log(array1);
+      // console.log(array2);
       for(var i =0; i < array2.length; i++){
         if(array2[i] === 1){
           if(array1[i]===1){
@@ -48,6 +50,35 @@
       
     };
 
+      $scope.addEmployee = function(shift, employee, day){
+       
+      var employeeName = employee.firstName + " " + employee.lastName;
+      //set new assigned to current employee assigned.
+      var newAssigned = employee.assigned;
+      var shift_num;
+      //update newAssigned based on the shift they were just assigned to.
+      for (var i = 0; i<3; i++){
+        if(shift.role[i]===1){
+          shift_num = i*3;
+        }
+      }};
+
+      //   $scope.addEmployeeTest = function(shift, emp, day){
+      //   for (var i=0; i<users.length; i++){
+      //       if (users[i].firstName )
+      //   }
+      // var employeeName = employee.firstName + " " + employee.lastName;
+      // //set new assigned to current employee assigned.
+      // var newAssigned = employee.assigned;
+      // var shift_num;
+      // //update newAssigned based on the shift they were just assigned to.
+      // for (var i = 0; i<3; i++){
+      //   if(shift.role[i]===1){
+      //     shift_num = i*3;
+      //   }
+      // }
+
+    
     // Remove existing Schedule
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
@@ -128,7 +159,8 @@
       var newEmployee = {
         name: employeeName,
         id: employee.id,
-        assigned: newAssigned
+        assigned: newAssigned,
+        hours: employee.hours
       };
       console.log(newEmployee);
 
