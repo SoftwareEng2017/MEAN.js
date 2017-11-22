@@ -89,7 +89,7 @@
           assigned: newAssigned
         };
         shift.employees.push(newEmployee);
-        shift.available.splice(index,1)
+        shift.available.splice(index,1);
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
