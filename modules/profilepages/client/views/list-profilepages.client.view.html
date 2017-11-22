@@ -1,0 +1,36 @@
+<!--<section >-->
+  <!--<div class="page-header">-->
+    <!--<h1>Profilepages</h1>-->
+  <!--</div>-->
+  <!--<div class="list-profilepages-red">-->
+
+  <!--<img src="{{vm.authentication.user.profileImageURL}}"/>-->
+
+    <!--<h1> Username: {{vm.authentication.user.username}} </h1>-->
+    <!--<h1> First Name: {{vm.authentication.user.firstName}} </h1>-->
+    <!--<h1> Last Name: {{vm.authentication.user.lastName}} </h1>-->
+    <!--<h1> Email: {{vm.authentication.user.email}} </h1>-->
+    <!--{{vm.test}}-->
+  <!--</div>-->
+
+<!--</section>-->
+<section>
+  <div style="text-align: center" class="user-image">
+    <img src="{{vm.authentication.user.profileImageURL}}" class="img-circle">
+  </div>
+</section>
+
+<section>
+  <tabset justified="true">
+    <tab heading="User Info">
+      <h3 style="text-align: center">{{"Name: "}}{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}} </h3>
+      <h3 style="text-align: center">{{"Email: "}} {{vm.authentication.user.email}} </h3>
+      <h3 style="text-align: center">{{"Username: "}} {{vm.authentication.user.username}} </h3>
+      <h3 style="text-align: center">{{"Role(s): "}} {{vm.authentication.user.roles}} </h3>
+
+    </tab>
+    <tab heading="Schedule">Short Labeled Justified content</tab>
+  </tabset>
+</section>
+
+

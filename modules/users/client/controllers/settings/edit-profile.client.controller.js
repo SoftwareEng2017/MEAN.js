@@ -7,11 +7,41 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
     $scope.shifts = [1,2,3,4];
     $scope.schedules = undefined;
     $scope.mon = [];
+    
+   
+
 
     $scope.compareArray= function(array1,array2){
       return (JSON.stringify(array1) === JSON.stringify(array2));
     };
 
+    $scope.returnRole = function(roleArray){
+      if(roleArray[0] === 1){
+        return "Driver";
+      }
+      else if(roleArray[1] === 1){
+        return "Kitchen";
+      }
+      else if(roleArray[2] === 1){
+        return "Front";
+      }
+    };
+
+    $scope.findShift = function(array1, array2) {
+      for(var i =0; i < array1.length; i++){
+        if(array1[i] === 1){
+          if(array1[i] === array2[i]){
+            return true;
+          }
+          else{
+            return false;
+          }
+         
+        }
+        
+      }
+      
+    };
     // Update a user profile
     $scope.updateUserProfile = function (isValid) {
       $scope.success = $scope.error = null;

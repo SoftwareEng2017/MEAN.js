@@ -57,13 +57,24 @@ var UserSchema = new Schema({
   availibility: {
     //Investigate storing employee types in this array as well.
     //
-    mon: { type: [Number], default: [0,0,0,0], required: true },
-    tue: { type: [Number], default: [0,0,0,0], required: true },
-    wed: { type: [Number], default: [0,0,0,0], required: true },
-    thu: { type: [Number], default: [0,0,0,0], required: true },
-    fri: { type: [Number], default: [0,0,0,0], required: true },
-    sat: { type: [Number], default: [0,0,0,0], required: true },
-    sun: { type: [Number], default: [0,0,0,0], required: true }
+    mon: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    tue: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    wed: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    thu: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    fri: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    sat: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    sun: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true }
+
+  },
+  //shifts assigned to employee
+  assigned:{
+    mon: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    tue: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    wed: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    thu: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    fri: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    sat: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true },
+    sun: { type: [Number], default: [0,0,0,0,0,0,0,0,0], required: true }
 
   },
   //Type of employee

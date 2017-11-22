@@ -4,18 +4,51 @@
  */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-/*var Employee = require('../../../users/server/models/user.server.model.js');
-var EmployeeSchema= mongoose.model('User').schema;
-*/
+var Employee = require('../../../users/server/models/user.server.model.js');
+var EmployeeSchema = mongoose.model('User').schema;
+
 var shiftSchema = new Schema({
 
   hours: [{
     type: String
   }],
   employees: [{
-    type: String
+    name: { type: String },
+
+    id: { type: String },
+
+    assigned: { 
+      mon: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      tue: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      wed: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      thu: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      fri: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      sat: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      sun: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+    }
   }],
+
+  available: [{
+    name: { type: String },
+
+    id: { type: String },
+
+    assigned: { 
+      mon: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      tue: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      wed: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      thu: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      fri: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      sat: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+      sun: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
+    }
+
+  }],
+
   role: [{
+    type: Number
+  }],
+  whichShift:[{
     type: Number
   }]
 });
