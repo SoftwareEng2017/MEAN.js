@@ -9,6 +9,7 @@ var path = require('path'),
   Shift = mongoose.model('Shift'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
+
 /*
   exports.createShift = function (req, res){
     var shift = new Shift(req.body);
@@ -19,7 +20,154 @@ var path = require('path'),
  * Create a Schedule
  */
 exports.create = function(req, res) {
+  console.log(req.body);
+  var temp = req.body;
+  var users = temp.users;
+  //console.log(temp.users);
   var schedule = new Schedule(req.body);
+  var shifts = [];
+  for(var i = 0; i< 63; i++){
+    //create array of each individual shift
+    shifts[i] = new Shift(req.body);
+  }
+  console.log(shifts);
+  for (var j = 0; j< 28; j+=9){
+    //push hours for A type shift
+    //0-8 = sun, 9-17 = mon .. . wed
+    shifts[j].hours.push('6:00 p.m.');
+    shifts[j].hours.push('12:00 a.m');
+    shifts[j].whichShift = [1,0,0];
+    shifts[j+1].hours.push('7:00 p.m');
+    shifts[j+1].hours.push('1.00 a.m');
+    shifts[j+1].whichShift = [0,1,0];
+    shifts[j+2].hours.push('6:00 p.m');
+    shifts[j+2].hours.push('1.00 a.m');
+    shifts[j+2].whichShift = [0,0,1];
+    //front
+    shifts[j+3].hours.push('5:00 p.m.');
+    shifts[j+3].hours.push('11:00 p.m');
+    shifts[j+3].whichShift = [1,0,0];
+    shifts[j+4].hours.push('7:30 p.m');
+    shifts[j+4].hours.push('1:30 a.m');
+    shifts[j+4].whichShift = [0,1,0];
+    shifts[j+5].hours.push('5:30 p.m');
+    shifts[j+5].hours.push('1:30 a.m');
+    shifts[j+5].whichShift = [0,0,1];
+    //kitchen
+    shifts[j+6].hours.push('6:00 p.m.');
+    shifts[j+6].hours.push('12:00 a.m');
+    shifts[j+6].whichShift = [1,0,0];
+    shifts[j+7].hours.push('7:00 p.m');
+    shifts[j+7].hours.push('1.00 a.m');
+    shifts[j+7].whichShift = [0,1,0];
+    shifts[j+8].hours.push('6:00 p.m');
+    shifts[j+8].hours.push('1.00 a.m');
+    shifts[j+8].whichShift = [0,0,1];
+
+    shifts[j].role.push(1);
+    shifts[j].role.push(0);
+    shifts[j].role.push(0);
+    shifts[j+1].role.push(1);
+    shifts[j+1].role.push(0);
+    shifts[j+1].role.push(0);
+    shifts[j+2].role.push(1);
+    shifts[j+2].role.push(0);
+    shifts[j+2].role.push(0);
+
+    shifts[j+3].role.push(0);
+    shifts[j+3].role.push(1);
+    shifts[j+3].role.push(0);
+    shifts[j+4].role.push(0);
+    shifts[j+4].role.push(1);
+    shifts[j+4].role.push(0);
+    shifts[j+5].role.push(0);
+    shifts[j+5].role.push(1);
+    shifts[j+5].role.push(0);
+
+    shifts[j+6].role.push(0);
+    shifts[j+6].role.push(0);
+    shifts[j+6].role.push(1);
+    shifts[j+7].role.push(0);
+    shifts[j+7].role.push(0);
+    shifts[j+7].role.push(1);
+    shifts[j+8].role.push(0);
+    shifts[j+8].role.push(0);
+    shifts[j+8].role.push(1);
+  }
+  for (var k = 37; k < 55; k+=9){
+    //thur-sat
+
+    shifts[k].hours.push('6:00 p.m.');
+    shifts[k].hours.push('12:00 a.m');
+    shifts[k].whichShift = [1,0,0];
+    shifts[k+1].hours.push('9:00 p.m');
+    shifts[k+1].hours.push('3.00 a.m');
+    shifts[k+1].whichShift = [0,1,0];
+    shifts[k+2].hours.push('6:00 p.m');
+    shifts[k+2].hours.push('3.00 a.m');
+    shifts[k+2].whichShift = [0,0,1];
+
+    shifts[k+3].hours.push('5:00 p.m.');
+    shifts[k+3].hours.push('11:00 p.m');
+    shifts[k+3].whichShift = [1,0,0];
+    shifts[k+4].hours.push('9:30 p.m');
+    shifts[k+4].hours.push('3:30 a.m');
+    shifts[k+4].whichShift = [0,1,0];
+    shifts[k+5].hours.push('5:00 p.m');
+    shifts[k+5].hours.push('3:30 a.m');
+    shifts[k+5].whichShift = [0,0,1];
+
+    //thur-sat
+    shifts[k+6].hours.push('6:00 p.m.');
+    shifts[k+6].hours.push('12:00 a.m');
+    shifts[k+6].whichShift = [1,0,0];
+    shifts[k+7].hours.push('9:00 p.m');
+    shifts[k+7].hours.push('3.00 a.m');
+    shifts[k+7].whichShift = [0,1,0];
+    shifts[k+8].hours.push('6:00 p.m');
+    shifts[k+8].hours.push('3.00 a.m');
+    shifts[k+8].whichShift = [0,0,1];
+    
+    /*Thursday thru Saturday*/
+    
+
+    shifts[k].role.push(1);
+    shifts[k].role.push(0);
+    shifts[k].role.push(0);
+    shifts[k+1].role.push(1);
+    shifts[k+1].role.push(0);
+    shifts[k+1].role.push(0);
+    shifts[k+2].role.push(1);
+    shifts[k+2].role.push(0);
+    shifts[k+2].role.push(0);
+
+    /*Sunday thru Wednesday*/
+
+    /*Thursday thru Saturday*/
+    shifts[k+3].role.push(0);
+    shifts[k+3].role.push(1);
+    shifts[k+3].role.push(0);
+    shifts[k+4].role.push(0);
+    shifts[k+4].role.push(1);
+    shifts[k+4].role.push(0);
+    shifts[k+5].role.push(0);
+    shifts[k+5].role.push(1);
+    shifts[k+5].role.push(0);
+   
+
+    /*Thursday thru Saturday*/
+    shifts[k+6].role.push(0);
+    shifts[k+6].role.push(0);
+    shifts[k+6].role.push(1);
+    shifts[k+7].role.push(0);
+    shifts[k+7].role.push(0);
+    shifts[k+7].role.push(1);
+    shifts[k+8].role.push(0);
+    shifts[k+8].role.push(0);
+    shifts[k+8].role.push(1);
+
+  }
+  /*
   var Adriver1 = new Shift(req.body);
   var Adriver2 = new Shift(req.body);
   var Adriver3 = new Shift(req.body);
@@ -29,8 +177,9 @@ exports.create = function(req, res) {
   var Afront1 = new Shift(req.body);
   var Afront2 = new Shift(req.body);
   var Afront3 = new Shift(req.body);
-
-  var Bdriver1 = new Shift(req.body);
+  ahoulsnt need these anymore
+  */
+  /*var Bdriver1 = new Shift(req.body);
   var Bdriver2 = new Shift(req.body);
   var Bdriver3 = new Shift(req.body);
   var Bkitchen1 = new Shift(req.body);
@@ -38,247 +187,132 @@ exports.create = function(req, res) {
   var Bkitchen3 = new Shift(req.body);
   var Bfront1 = new Shift(req.body);
   var Bfront2 = new Shift(req.body);
-  var Bfront3 = new Shift(req.body);
+  var Bfront3 = new Shift(req.body);*/
 
   /*hours for shifts*/
 
   /*Sunday thru Wednesday*/
-  Adriver1.hours.push('6:00 p.m.');
-  Adriver1.hours.push('12:00 a.m');
-  Adriver1.whichShift = [1,0,0];
-  Adriver2.hours.push('7:00 p.m');
-  Adriver2.hours.push('1.00 a.m');
-  Adriver2.whichShift = [0,1,0];
-  Adriver3.hours.push('6:00 p.m');
-  Adriver3.hours.push('1.00 a.m');
-  Adriver3.whichShift = [0,0,1];
+  //check and push availbility
+  for(var u = 0; u < users.length; u++) {
+    var obj = users[u];
+    var availibility = obj.availibility;
+    var default_assigned = [0,0,0,0,0,0,0,0,0];
+    var pushEmployee = {
+      assigned: { 
+        mon: default_assigned,
+        tue: default_assigned,
+        wed: default_assigned,
+        thu: default_assigned,
+        fri: default_assigned,
+        sat: default_assigned,
+        sun: default_assigned 
+      },
+      name: " ",
+      id: " "      
+    };
+    for (var sun = 0; sun <9; sun++){
+      if(availibility.sun[sun] === 1){
+        console.log(obj.firstName);
+        pushEmployee.name = obj.firstName + " " + obj.lastName;
+        pushEmployee.id = obj._id;
+        shifts[sun].available.push(pushEmployee);
+      }
+    }
+    //check mon avail
+    for (var mon = 0; mon < 9; mon++){
+      if(availibility.mon[mon] === 1){
+        console.log(obj.firstName);
+        pushEmployee.name = obj.firstName + " " + obj.lastName;
+        pushEmployee.id = obj._id;
+        shifts[mon+9].available.push(pushEmployee);
+      }
+    }
+    //tue avail
+    for (var tue = 0; tue <9; tue++){
+      if(availibility.tue[tue] === 1){
+        console.log(obj.firstName);
+        pushEmployee.name = obj.firstName + " " + obj.lastName;
+        pushEmployee.id = obj._id;
+        shifts[tue+18].available.push(pushEmployee);
+      }
+    }
+    for (var wed = 0; wed <9; wed++){
+      if(availibility.wed[wed] === 1){
+        console.log(obj.firstName);
+        pushEmployee.name = obj.firstName + " " + obj.lastName;
+        pushEmployee.id = obj._id;
+        shifts[wed+27].available.push(pushEmployee);
+      }
+    }
+    for (var thu = 0; thu <9; thu++){
+      if(availibility.thu[thu] === 1){
+        console.log(obj.firstName);
+        pushEmployee.name = obj.firstName + " " + obj.lastName;
+        pushEmployee.id = obj._id;
+        shifts[thu+36].available.push(pushEmployee);
+      }
+    }
+    for (var fri = 0; fri <9; fri++){
+      if(availibility.fri[fri] === 1){
+        console.log(obj.firstName);
+        pushEmployee.name = obj.firstName + " " + obj.lastName;
+        pushEmployee.id = obj._id;
+        shifts[fri+45].available.push(pushEmployee);
+      }
+    }
+    for (var sat = 0; sat <9; sat++){
+      if(availibility.sat[sat] === 1){
+        console.log(obj.firstName);
+        pushEmployee.name = obj.firstName + " " + obj.lastName;
+        pushEmployee.id = obj._id;
+        shifts[sat+54].available.push(pushEmployee);
+      }
+    }
+    //monday driver
+  
+    //push everything to monday
 
-
-  /*Thursday thru Saturday*/
-  Bdriver1.hours.push('6:00 p.m.');
-  Bdriver1.hours.push('12:00 a.m');
-  Bdriver1.whichShift = [1,0,0];
-  Bdriver2.hours.push('9:00 p.m');
-  Bdriver2.hours.push('3.00 a.m');
-  Bdriver2.whichShift = [0,1,0];
-  Bdriver3.hours.push('6:00 p.m');
-  Bdriver3.hours.push('3.00 a.m');
-  Bdriver3.whichShift = [0,0,1];
-
-
-  /*Sunday thru Wednesday*/
-  Afront1.hours.push('6:00 p.m.');
-  Afront1.hours.push('12:00 a.m');
-  Afront1.whichShift = [1,0,0];
-  Afront2.hours.push('7:00 p.m');
-  Afront2.hours.push('1.00 a.m');
-  Afront2.whichShift = [0,1,0];
-  Afront3.hours.push('6:00 p.m');
-  Afront3.hours.push('1.00 a.m');
-  Afront3.whichShift = [0,0,1];
-
-
-  /*Thursday thru Saturday*/
-  Bfront1.hours.push('6:00 p.m.');
-  Bfront1.hours.push('12:00 a.m');
-  Afront1.whichShift = [1,0,0];
-  Bfront2.hours.push('9:00 p.m');
-  Bfront2.hours.push('3.00 a.m');
-  Afront2.whichShift = [0,1,0];
-  Bfront3.hours.push('6:00 p.m');
-  Bfront3.hours.push('3.00 a.m');
-  Afront3.whichShift = [0,0,1];
-
-  /*Sunday thru Wednesday*/
-  Akitchen1.hours.push('5:00 p.m.');
-  Akitchen1.hours.push('11:00 p.m');
-  Akitchen1.whichShift = [1,0,0];
-  Akitchen2.hours.push('7:30 p.m');
-  Akitchen2.hours.push('1:30 a.m');
-  Akitchen2.whichShift = [0,1,0];
-  Akitchen3.hours.push('5:30 p.m');
-  Akitchen3.hours.push('1:30 a.m');
-  Akitchen3.whichShift = [0,0,1];
-
-
-  /*Thursday thru Saturday*/
-  Bkitchen1.hours.push('5:00 p.m.');
-  Bkitchen1.hours.push('11:00 p.m');
-  Bkitchen1.whichShift = [1,0,0];
-  Bkitchen2.hours.push('9:30 p.m');
-  Bkitchen2.hours.push('3:30 a.m');
-  Bkitchen2.whichShift = [0,1,0];
-  Bkitchen3.hours.push('5:00 p.m');
-  Bkitchen3.hours.push('3:30 a.m');
-  Bkitchen3.whichShift = [0,0,1];
-
-  /*Assigning shift roles*/
-
-  /*Sunday thru Wednesday*/
-  Adriver1.role.push(1);
-  Adriver1.role.push(0);
-  Adriver1.role.push(0);
-  Adriver2.role.push(1);
-  Adriver2.role.push(0);
-  Adriver2.role.push(0);
-  Adriver3.role.push(1);
-  Adriver3.role.push(0);
-  Adriver3.role.push(0);
-
-  /*Thursday thru Saturday*/
-  Bdriver1.role.push(1);
-  Bdriver1.role.push(0);
-  Bdriver1.role.push(0);
-  Bdriver2.role.push(1);
-  Bdriver2.role.push(0);
-  Bdriver2.role.push(0);
-  Bdriver3.role.push(1);
-  Bdriver3.role.push(0);
-  Bdriver3.role.push(0);
-
-  /*Sunday thru Wednesday*/
-  Akitchen1.role.push(0);
-  Akitchen1.role.push(1);
-  Akitchen1.role.push(0);
-  Akitchen2.role.push(0);
-  Akitchen2.role.push(1);
-  Akitchen2.role.push(0);
-  Akitchen3.role.push(0);
-  Akitchen3.role.push(1);
-  Akitchen3.role.push(0);
-
-  /*Thursday thru Saturday*/
-  Bkitchen1.role.push(0);
-  Bkitchen1.role.push(1);
-  Bkitchen1.role.push(0);
-  Bkitchen2.role.push(0);
-  Bkitchen2.role.push(1);
-  Bkitchen2.role.push(0);
-  Bkitchen3.role.push(0);
-  Bkitchen3.role.push(1);
-  Bkitchen3.role.push(0);
-
-/*Sunday thru Wednesday*/
-  Afront1.role.push(0);
-  Afront1.role.push(0);
-  Afront1.role.push(1);
-  Afront2.role.push(0);
-  Afront2.role.push(0);
-  Afront2.role.push(1);
-  Afront3.role.push(0);
-  Afront3.role.push(0);
-  Afront3.role.push(1);
-
-  /*Thursday thru Saturday*/
-  Bfront1.role.push(0);
-  Bfront1.role.push(0);
-  Bfront1.role.push(1);
-  Bfront2.role.push(0);
-  Bfront2.role.push(0);
-  Bfront2.role.push(1);
-  Bfront3.role.push(0);
-  Bfront3.role.push(0);
-  Bfront3.role.push(1);
-
-  schedule.user = req.user;
-
+    //empty the available of each A type shift.
+    //tuesday
+    console.log(availibility);
+  }
   /*monday*/
   /*driver*/
-  schedule.monday.push(Adriver1);
-  schedule.monday.push(Adriver2);
-  schedule.monday.push(Adriver3);
-  /*kitchen*/
-  schedule.monday.push(Akitchen1);
-  schedule.monday.push(Akitchen2);
-  schedule.monday.push(Akitchen3);
-  /*front*/
-  schedule.monday.push(Afront1);
-  schedule.monday.push(Afront2);
-  schedule.monday.push(Afront3);
+  for (var m = 0; m<63; m++){
+    if (m < 9){
+      schedule.sunday.push(shifts[m]);
+    }
+    else if (m < 18 && m > 8){
+      schedule.monday.push(shifts[m]);
+    }
+    else if (m < 27 && m > 17){
+      schedule.tuesday.push(shifts[m]);
+    }
+    else if (m<36 && m > 26){
+      schedule.wednesday.push(shifts[m]);
+    }
+    else if (m <45 && m > 35){
+      schedule.thursday.push(shifts[m]);
+    }
+    else if (m < 54 && m > 44){
+      schedule.friday.push(shifts[m]);
+    }
+    else if (m < 63 && m > 53){
+      schedule.saturday.push(shifts[m]);
+    }
+  }
+  
+
 
   /*tuesday*/
   /*driver*/
-  schedule.tuesday.push(Adriver1);
-  schedule.tuesday.push(Adriver2);
-  schedule.tuesday.push(Adriver3);
-  /*kitchen*/
-  schedule.tuesday.push(Akitchen1);
-  schedule.tuesday.push(Akitchen2);
-  schedule.tuesday.push(Akitchen3);
-  /*front*/
-  schedule.tuesday.push(Afront1);
-  schedule.tuesday.push(Afront2);
-  schedule.tuesday.push(Afront3);
 
   /*wednesday*/
   /*driver*/
-  schedule.wednesday.push(Adriver1);
-  schedule.wednesday.push(Adriver2);
-  schedule.wednesday.push(Adriver3);
-  /*kitchen*/
-  schedule.wednesday.push(Akitchen1);
-  schedule.wednesday.push(Akitchen2);
-  schedule.wednesday.push(Akitchen3);
-  /*front*/
-  schedule.wednesday.push(Afront1);
-  schedule.wednesday.push(Afront2);
-  schedule.wednesday.push(Afront3);
+
 
   /*thursday*/
   /*driver*/
-  schedule.thursday.push(Bdriver1);
-  schedule.thursday.push(Bdriver2);
-  schedule.thursday.push(Bdriver3);
-  /*kitchen*/
-  schedule.thursday.push(Bkitchen1);
-  schedule.thursday.push(Bkitchen2);
-  schedule.thursday.push(Bkitchen3);
-  /*front*/
-  schedule.thursday.push(Bfront1);
-  schedule.thursday.push(Bfront2);
-  schedule.thursday.push(Bfront3);
-
-  /*friday*/
-  /*driver*/
-  schedule.friday.push(Bdriver1);
-  schedule.friday.push(Bdriver2);
-  schedule.friday.push(Bdriver3);
-  /*kitchen*/
-  schedule.friday.push(Bkitchen1);
-  schedule.friday.push(Bkitchen2);
-  schedule.friday.push(Bkitchen3);
-  /*front*/
-  schedule.friday.push(Bfront1);
-  schedule.friday.push(Bfront2);
-  schedule.friday.push(Bfront3);
-
-  /*saturday*/
-  /*driver*/
-  schedule.saturday.push(Bdriver1);
-  schedule.saturday.push(Bdriver2);
-  schedule.saturday.push(Bdriver3);
-  /*kitchen*/
-  schedule.saturday.push(Bkitchen1);
-  schedule.saturday.push(Bkitchen2);
-  schedule.saturday.push(Bkitchen3);
-  /*front*/
-  schedule.saturday.push(Bfront1);
-  schedule.saturday.push(Bfront2);
-  schedule.saturday.push(Bfront3);
-
-  /*sunday*/
-  /*driver*/
-  schedule.sunday.push(Adriver1);
-  schedule.sunday.push(Adriver2);
-  schedule.sunday.push(Adriver3);
-  /*kitchen*/
-  schedule.sunday.push(Akitchen1);
-  schedule.sunday.push(Akitchen2);
-  schedule.sunday.push(Akitchen3);
-  /*front*/
-  schedule.sunday.push(Afront1);
-  schedule.sunday.push(Afront1);
-  schedule.sunday.push(Afront1);
 
   schedule.save(function(err) {
     if (err) {
@@ -324,6 +358,7 @@ exports.update = function(req, res) {
     }
   });
 };
+
 
 /**
  * Delete an Schedule

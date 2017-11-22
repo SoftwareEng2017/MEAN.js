@@ -60,8 +60,8 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee, day){
-      var employeeName = employee.firstName + " " + employee.lastName;
+    $scope.addEmployee = function(shift, employee, day, index){
+      var employeeName = employee.name;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       var shift_num;
@@ -85,10 +85,11 @@
         //create a new employee
         var newEmployee = {
           name: employeeName,
-          id: employee._id,
+          id: employee.id,
           assigned: newAssigned
         };
         shift.employees.push(newEmployee);
+        shift.available.splice(index,1)
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
@@ -103,6 +104,8 @@
       }
       
       vm.save(true);
+  
+      
     };
 
     $scope.removeEmployee = function (shift, index, day, employee){
@@ -141,10 +144,14 @@
       }).error(function (response) {
         $scope.error = response.message;
       });
-      
+      shift.available.push(employee);
 
       shift.employees.splice(index , 1);
       vm.save(true);
+      vm.$update();
+    
+     
+      
     };
     /*
     $scope.addShift = function(shiftArray, shift){
@@ -154,6 +161,10 @@
     */
     // Save Schedule
     function save(isValid) {
+      var newSchedule ={
+        weekName: vm.schedule.weekName,
+        users: $scope.users
+      };
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.scheduleForm');
         return false;
@@ -163,7 +174,7 @@
       if (vm.schedule._id) {
         vm.schedule.$update(successCallback, errorCallback);
       } else {
-        vm.schedule.$save(successCallback, errorCallback);
+        $http.post('http://localhost:3000/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
       function successCallback(res) {
