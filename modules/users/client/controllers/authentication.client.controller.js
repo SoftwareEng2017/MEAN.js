@@ -25,6 +25,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         mon: [0,0,0,0,0,0,0,0,0],
       },
       email: '',
+      hours: 0,
       type: [0,0,0],
       lastName: '',
       firstName: ''

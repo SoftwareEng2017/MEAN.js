@@ -16,6 +16,7 @@ var shiftSchema = new Schema({
     name: { type: String },
 
     id: { type: String },
+    totalHours: {type: Number, default: 0},
 
     assigned: { 
       mon: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },

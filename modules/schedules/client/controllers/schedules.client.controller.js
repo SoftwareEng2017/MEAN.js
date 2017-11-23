@@ -36,8 +36,6 @@
 
     /*check if two arrays are equal*/
     $scope.areEqual = function(array1, array2) {
-      // console.log(array1);
-      // console.log(array2);
       for(var i =0; i < array2.length; i++){
         if(array2[i] === 1){
           if(array1[i]===1){
@@ -50,24 +48,6 @@
       
     };
 
-    
-
-      //   $scope.addEmployeeTest = function(shift, emp, day){
-      //   for (var i=0; i<users.length; i++){
-      //       if (users[i].firstName )
-      //   }
-      // var employeeName = employee.firstName + " " + employee.lastName;
-      // //set new assigned to current employee assigned.
-      // var newAssigned = employee.assigned;
-      // var shift_num;
-      // //update newAssigned based on the shift they were just assigned to.
-      // for (var i = 0; i<3; i++){
-      //   if(shift.role[i]===1){
-      //     shift_num = i*3;
-      //   }
-      // }
-
-    
     // Remove existing Schedule
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
@@ -80,11 +60,22 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee, day){
-      var employeeName = employee.firstName + " " + employee.lastName;
+    $scope.addEmployee = function(shift, employee, day, index){
+      var employeeName = employee.name;
+      var employeeHours = employee.totalHours;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       var shift_num;
+
+      if (shift.role[0]===1)
+            employeeHours+=5;
+      if (shift.role[1]===1)
+            employeeHours+=5;
+        if (shift.role[2]===1)
+            employeeHours+=6;
+          
+          
+      
       //update newAssigned based on the shift they were just assigned to.
       for (var i = 0; i<3; i++){
         if(shift.role[i]===1){
@@ -103,13 +94,15 @@
           }
         }
         //create a new employee
-        var newEmployee = {
-          name: employeeName,
-          id: employee._id,
-          assigned: newAssigned,
-          hoursTotal: employee.hours
-        };
+      var newEmployee = {
+        name: employeeName,
+        id: employee.id,
+        assigned: newAssigned,
+        totalHours: employeeHours
+      };
         shift.employees.push(newEmployee);
+        shift.available.splice(index,1);
+        console.log(employee.hours);
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
@@ -124,6 +117,8 @@
       }
       
       vm.save(true);
+  
+      
     };
 
     $scope.removeEmployee = function (shift, index, day, employee){
@@ -132,7 +127,17 @@
       //we know the day, the type of shift and which shift; we store employees without their assigned arrays
       //so we need to contact the server to make those changes with the above information.
       var newAssigned = employee.assigned;
+      var employeeHours = employee.totalHours;
       var shift_num;
+
+
+      if (shift.role[0]===1)
+            employeeHours+=5;
+      if (shift.role[1]===1)
+            employeeHours+=5;
+        if (shift.role[2]===1)
+            employeeHours+=6;
+
       for (var i = 0; i<3; i++){
         if(shift.role[i]===1){
           shift_num = i*3;
@@ -150,8 +155,7 @@
         name: employeeName,
         id: employee.id,
         assigned: newAssigned,
-        hoursTotal: employee.hours
-       
+        totalHours: employeeHours
       };
       console.log(newEmployee);
 
@@ -164,10 +168,14 @@
       }).error(function (response) {
         $scope.error = response.message;
       });
-      
+      shift.available.push(employee);
 
       shift.employees.splice(index , 1);
       vm.save(true);
+      vm.$update();
+    
+     
+      
     };
     /*
     $scope.addShift = function(shiftArray, shift){
@@ -177,6 +185,10 @@
     */
     // Save Schedule
     function save(isValid) {
+      var newSchedule ={
+        weekName: vm.schedule.weekName,
+        users: $scope.users
+      };
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.scheduleForm');
         return false;
@@ -186,7 +198,7 @@
       if (vm.schedule._id) {
         vm.schedule.$update(successCallback, errorCallback);
       } else {
-        vm.schedule.$save(successCallback, errorCallback);
+        $http.post('http://localhost:3000/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
       function successCallback(res) {
@@ -201,3 +213,4 @@
     }
   }
 }());
+
