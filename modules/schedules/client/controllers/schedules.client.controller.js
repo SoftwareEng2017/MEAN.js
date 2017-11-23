@@ -50,18 +50,7 @@
       
     };
 
-      $scope.addEmployee = function(shift, employee, day){
-       
-      var employeeName = employee.firstName + " " + employee.lastName;
-      //set new assigned to current employee assigned.
-      var newAssigned = employee.assigned;
-      var shift_num;
-      //update newAssigned based on the shift they were just assigned to.
-      for (var i = 0; i<3; i++){
-        if(shift.role[i]===1){
-          shift_num = i*3;
-        }
-      }};
+    
 
       //   $scope.addEmployeeTest = function(shift, emp, day){
       //   for (var i=0; i<users.length; i++){
@@ -117,7 +106,8 @@
         var newEmployee = {
           name: employeeName,
           id: employee._id,
-          assigned: newAssigned
+          assigned: newAssigned,
+          hoursTotal: employee.hours
         };
         shift.employees.push(newEmployee);
         console.log(newEmployee);
@@ -160,7 +150,8 @@
         name: employeeName,
         id: employee.id,
         assigned: newAssigned,
-        hours: employee.hours
+        hoursTotal: employee.hours
+       
       };
       console.log(newEmployee);
 

@@ -31,7 +31,7 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee.name}} {{"Hours: "}} {{employee.hours}}
+              {{employee.name}} {{"Hours: "}} {{employee.hoursTotal}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
@@ -52,12 +52,12 @@
                 <option  value="">Add Employee</option>
           </select> -->
 
-
+<!-- 
            <select  
 
           ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee, 'mon', 'mon')">  
                 <ng-options=" employee in users">{{employee.firstName + ' ' + employee.lastName}}</option>
-          </select>
+          </select> -->
         </div>
       </div>
 
@@ -73,8 +73,9 @@
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
               {{employee.name}}
-              {{employee.id}}
-                 {{employee.hours}}
+              {{"Hours: " }}  
+                 {{employee.id}}
+                 {{employee.hoursTotal}}
 
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
@@ -90,7 +91,7 @@
 
           <select  
 
-          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', 3)" ng-options=" employee.firstName + ' ' + employee.lastName + ', Total Hrs: ' + employee.hours for employee in users" ng-repeat= "employee in users" ng-show="areEqual(employee.availibility.mon.slice(3,6),monday.whichShift)" >  
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', 3)" ng-options=" employee.firstName + ' ' + employee.lastName + ', Total Hrs: ' + employee.hours for employee in users" ng-repeat= "employee in users" ng-if="areEqual(employee.availibility.mon.slice(3,6),monday.whichShift)" >  
         
           </select>
 
@@ -110,7 +111,7 @@
             <div ng-repeat="employee in monday.employees">
               {{employee.name}}  
               {{"Hours: " }}  
-              {{employee.hours}}
+              {{employee.hoursTotal}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon', monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
