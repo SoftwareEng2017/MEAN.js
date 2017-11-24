@@ -161,9 +161,15 @@
     */
     // Save Schedule
     function save(isValid) {
-      var newSchedule ={
+      var newSchedule = {
         weekName: vm.schedule.weekName,
-        users: $scope.users
+        users: $scope.users,
+        requirements:{
+          open:{ type: [Number], default: [1,1,1]},
+          close:{ type: [Number], default: [1,1,1]},
+          full:{ type: [Number], default: [3,2,1]}
+
+        }
       };
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.scheduleForm');

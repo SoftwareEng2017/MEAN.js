@@ -45,6 +45,8 @@ var shiftSchema = new Schema({
 
   }],
 
+  required: { type: Number, default: 0 },
+
   role: [{
     type: Number
   }],
