@@ -46,7 +46,7 @@
           
           <select  
 
-          ng-model="thisEmployee" ng-change="addEmployee(monday, employee,'mon', $index)" ng-options=" employee.firstName + ' ' + employee.lastName + ' ' + employee.totalHours for employee in monday.available"  >  
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + employee.totalHours for employee in monday.available"  >  
         
           </select>
 
