@@ -86,7 +86,8 @@
         var newEmployee = {
           name: employeeName,
           id: employee.id,
-          assigned: newAssigned
+          assigned: newAssigned,
+          totalHours: employee.totalHours
         };
         shift.employees.push(newEmployee);
         shift.available.splice(index,1);
@@ -131,7 +132,8 @@
       var newEmployee = {
         name: employeeName,
         id: employee.id,
-        assigned: newAssigned
+        assigned: newAssigned,
+        totalHours: employees.totalHours
       };
       console.log(newEmployee);
 
