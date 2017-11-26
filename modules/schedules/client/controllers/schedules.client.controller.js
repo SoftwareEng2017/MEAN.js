@@ -90,6 +90,7 @@
         };
         shift.employees.push(newEmployee);
         shift.available.splice(index,1);
+        shift.required = (shift.required - 1);
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
@@ -145,7 +146,7 @@
         $scope.error = response.message;
       });
       shift.available.push(employee);
-
+      shift.required = (shift.required + 1);
       shift.employees.splice(index , 1);
       vm.save(true);
       vm.$update();
