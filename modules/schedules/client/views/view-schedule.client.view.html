@@ -48,7 +48,10 @@
       <!--------- Kitchen --------->
       <div class="cookiecol">
         <h4 class="margintop25">Kitchen</h2>
-
+        //we now have a required value for each shift
+        //when an employee is added, this required value needs to be subtracted or added to
+        //if shift.required = 0, turn the element green.
+        
         <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
         ng-show = "monday.role[1]" class="list-group-item">

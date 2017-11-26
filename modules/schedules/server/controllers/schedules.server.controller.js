@@ -31,8 +31,8 @@ exports.create = function(req, res) {
     //create array of each individual shift
     shifts[i] = new Shift(req.body);
   }
-  console.log(shifts);
-  for (var j = 0; j< 28; j+=9){
+  
+  for (var j = 0; j <= 27; j+=9){
     //push hours for A type shift
     //0-8 = sun, 9-17 = mon .. . wed
     //driver: open, close, full
@@ -61,6 +61,7 @@ exports.create = function(req, res) {
     shifts[j+5].hours.push('5:30 p.m');
     shifts[j+5].hours.push('1:30 a.m');
     shifts[j+5].whichShift = [0,0,1];
+
     shifts[j+3].required = requirements.open[1];
     shifts[j+4].required = requirements.close[1];
     shifts[j+5].required = requirements.full[1];
@@ -74,6 +75,7 @@ exports.create = function(req, res) {
     shifts[j+8].hours.push('6:00 p.m');
     shifts[j+8].hours.push('1.00 a.m');
     shifts[j+8].whichShift = [0,0,1];
+
     shifts[j+6].required = requirements.open[2];
     shifts[j+7].required = requirements.close[2];
     shifts[j+8].required = requirements.full[2];
@@ -108,7 +110,7 @@ exports.create = function(req, res) {
     shifts[j+8].role.push(0);
     shifts[j+8].role.push(1);
   }
-  for (var k = 37; k < 55; k+=9){
+  for (var k = 36; k <= 54; k+=9){
     //thur-sat
 
     shifts[k].hours.push('6:00 p.m.');
@@ -120,6 +122,7 @@ exports.create = function(req, res) {
     shifts[k+2].hours.push('6:00 p.m');
     shifts[k+2].hours.push('3.00 a.m');
     shifts[k+2].whichShift = [0,0,1];
+
     shifts[k].required = requirements.open[0];
     shifts[k+1].required = requirements.close[0];
     shifts[k+2].required = requirements.full[0];
@@ -134,6 +137,7 @@ exports.create = function(req, res) {
     shifts[k+5].hours.push('5:00 p.m');
     shifts[k+5].hours.push('3:30 a.m');
     shifts[k+5].whichShift = [0,0,1];
+
     shifts[k+3].required = requirements.open[1];
     shifts[k+4].required = requirements.close[1];
     shifts[k+5].required = requirements.full[1];
@@ -148,6 +152,8 @@ exports.create = function(req, res) {
     shifts[k+8].hours.push('6:00 p.m');
     shifts[k+8].hours.push('3.00 a.m');
     shifts[k+8].whichShift = [0,0,1];
+
+    
     shifts[k+6].required = requirements.open[2];
     shifts[k+7].required = requirements.close[2];
     shifts[k+8].required = requirements.full[2];
@@ -300,6 +306,7 @@ exports.create = function(req, res) {
     //tuesday
     console.log(availibility);
   }
+  console.log(shifts);
   /*monday*/
   /*driver*/
   for (var m = 0; m<63; m++){

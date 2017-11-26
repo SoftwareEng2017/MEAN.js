@@ -165,9 +165,9 @@
         weekName: vm.schedule.weekName,
         users: $scope.users,
         requirements:{
-          open:{ type: [Number], default: [1,1,1]},
-          close:{ type: [Number], default: [1,1,1]},
-          full:{ type: [Number], default: [3,2,1]}
+          open: [1,1,1],
+          close: [1,1,1],
+          full: [3,2,1] 
 
         }
       };
