@@ -14,12 +14,46 @@ var path = require('path'),
     var shift = new Shift(req.body);
 
   }
+
+
 */
+/*
+Function to create a weekName based on what week it is.
+*/
+function newName() {
+  var d = new Date();
+  var today = d.getDay();
+  var date1 = new Date(d);
+  var date2 = new Date(d);
+  if(today === 0){
+    date1.setDate(d.getDate() + 1);
+  }
+  else if(today === 1){
+    date2.setDate(d.getDate() + 6);
+  }
+  else{
+    date1.setDate(d.getDate() - (today - 1));
+    date2.setDate(d.getDate() - (today - 2));
+  }
+
+  var day1 = date1.getUTCDate();
+  var day2 = date2.getUTCDate();
+  var month1 = date1.getUTCMonth() + 1;
+  var month2 = date2.getUTCMonth() + 1;
+  var year1 = date1.getUTCFullYear();
+  var year2 = date2.getUTCFullYear();
+
+  var weekName = month1 + "/" + day1 + "/" + year1 + "-" + month2 + "/" + day2 + "/" + year2;
+  return weekName;
+}
+
 /**
  * Create a Schedule
  */
 exports.create = function(req, res) {
+
   var schedule = new Schedule(req.body);
+  schedule.weekName = newName();
   var Adriver1 = new Shift(req.body);
   var Adriver2 = new Shift(req.body);
   var Adriver3 = new Shift(req.body);
