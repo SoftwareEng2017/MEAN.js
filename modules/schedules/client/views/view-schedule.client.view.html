@@ -31,7 +31,7 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee.name}} {{employee.id}} {{employee.totalHours}}
+            {{employee.name}} {{", Total Hours: "}}{{employee.totalHours}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
@@ -46,7 +46,7 @@
           
           <select  
 
-          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + employee.totalHours for employee in monday.available"  >  
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + ', Total Hours: ' + semployee.totalHours for employee in monday.available"  >  
         
           </select>
 
@@ -64,8 +64,7 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee.name}}
-              {{employee.id}}
+              {{employee.name}} {{", Total Hours: "}}
               {{employee.totalHours}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
@@ -79,9 +78,9 @@
           </a> -->
 
            
-          <select  
+        <select  
 
-          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + employee.totalHours for employee in monday.available"  >  
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + ', Total Hours: ' + semployee.totalHours for employee in monday.available"  >  
         
           </select>
         </div>
@@ -98,7 +97,8 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee.name}} {{employee.totalHours}}
+              {{employee.name}} {{", Total Hours: "}}
+                                {{employee.totalHours}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon', monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
@@ -111,9 +111,9 @@
           </a>
  -->
               
-          <select  
+         <select  
 
-          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + employee.totalHours for employee in monday.available"  >  
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + ', Total Hours: ' + semployee.totalHours for employee in monday.available"  >  
         
           </select>
         </div>

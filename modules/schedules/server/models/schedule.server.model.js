@@ -15,6 +15,8 @@ var shiftSchema = new Schema({
   employees: [{
     name: { type: String },
 
+    totalHours: {type: Number, default: 0},
+
     id: { type: String },
     totalHours: {type: Number, default: 0},
 
