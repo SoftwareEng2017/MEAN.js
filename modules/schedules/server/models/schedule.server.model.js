@@ -15,11 +15,9 @@ var shiftSchema = new Schema({
   employees: [{
     name: { type: String },
 
-    totalHours: {type: Number, default: 0},
-
     id: { type: String },
-    totalHours: {type: Number, default: 0},
-
+    
+    
     assigned: { 
       mon: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
       tue: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
@@ -30,7 +28,7 @@ var shiftSchema = new Schema({
       sun: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
     }
   }],
-
+totalHours: { type: Number, default: 0},
   role: [{
     type: Number
   }],

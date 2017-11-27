@@ -62,17 +62,17 @@
 
     $scope.addEmployee = function(shift, employee, day, index){
       var employeeName = employee.name;
-      var employeeHours = employee.totalHours;
+      
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       var shift_num;
 
       if (shift.role[0]===1)
-            employeeHours+=5;
+            employee.totalHours+=5;
       if (shift.role[1]===1)
-            employeeHours+=5;
+            employee.totalHours+=5;
         if (shift.role[2]===1)
-            employeeHours+=6;
+            employee.totalHours+=6;
           
           
       
@@ -98,7 +98,7 @@
         name: employeeName,
         id: employee.id,
         assigned: newAssigned,
-        totalHours: employeeHours
+        totalHours: employee.totalHours
       };
         shift.employees.push(newEmployee);
         shift.available.splice(index,1);
@@ -127,16 +127,16 @@
       //we know the day, the type of shift and which shift; we store employees without their assigned arrays
       //so we need to contact the server to make those changes with the above information.
       var newAssigned = employee.assigned;
-      var employeeHours = employee.totalHours;
+    
       var shift_num;
 
 
       if (shift.role[0]===1)
-            employeeHours+=5;
+            employee.totalHours-=5;
       if (shift.role[1]===1)
-            employeeHours+=5;
+            employee.totalHours-=5;
         if (shift.role[2]===1)
-            employeeHours+=6;
+            employee.totalHours-=6;
 
       for (var i = 0; i<3; i++){
         if(shift.role[i]===1){
@@ -155,7 +155,7 @@
         name: employeeName,
         id: employee.id,
         assigned: newAssigned,
-        totalHours: employeeHours
+        totalHours: employee.totalHours
       };
       console.log(newEmployee);
 
