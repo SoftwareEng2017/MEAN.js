@@ -135,6 +135,9 @@
         assigned: newAssigned
       };
       console.log(newEmployee);
+      shift.available.push(employee);
+      shift.required = (shift.required + 1);
+      shift.employees.splice(index , 1);
 
       $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
@@ -145,9 +148,7 @@
       }).error(function (response) {
         $scope.error = response.message;
       });
-      shift.available.push(employee);
-      shift.required = (shift.required + 1);
-      shift.employees.splice(index , 1);
+
       vm.save(true);
       vm.$update();
     
