@@ -31,7 +31,7 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee.name}} {{employee.id}}
+            {{employee.name}} {{", Total Hours: "}}{{employee.totalHours}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
@@ -39,9 +39,22 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
+
           <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee, 'mon', $index)">
             {{employee.name}}
+
           </a>
+          <!-- <select ng-change= "addEmployee(monday, employee, 'mon', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
+          
+          <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + ', Total Hours: ' + employee.totalHours for employee in monday.available" ng-show= "employee in monday.employees"  >  
+          <option value="" > Add Employee </option>
+        
+          </select>
+
+       
+
         </div>
       </div>
 
@@ -59,8 +72,8 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee.name}}
-              {{employee.id}}
+              {{employee.name}} {{", Total Hours: "}}
+              {{employee.totalHours}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
@@ -68,9 +81,19 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-          <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
+
+       <!--    <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
             {{employee.name}}
-          </a>
+          </a> -->
+
+           
+     <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + ', Total Hours: ' + employee.totalHours for employee in monday.available"  >  
+          <option value="" > Add Employee </option>
+        
+          </select>
+
         </div>
       </div>
 
@@ -85,7 +108,8 @@
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
             <div ng-repeat="employee in monday.employees">
-              {{employee.name}}
+              {{employee.name}} {{", Total Hours: "}}
+                                {{employee.totalHours}}
               <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon', monday.employees[$index])">
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
@@ -93,9 +117,19 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
+
           <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee,'mon', $index)">
             {{employee.name}}
+
           </a>
+ -->
+              
+          <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', $index)" ng-options=" employee.name + ', Total Hours: ' + employee.totalHours for employee in monday.available" >  
+          <option value="" > Add Employee </option>
+        
+          </select>
         </div>
       </div>
 

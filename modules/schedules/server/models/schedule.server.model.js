@@ -16,7 +16,8 @@ var shiftSchema = new Schema({
     name: { type: String },
 
     id: { type: String },
-
+    
+    
     assigned: { 
       mon: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
       tue: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
@@ -27,6 +28,7 @@ var shiftSchema = new Schema({
       sun: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
     }
   }],
+
 
   available: [{
     name: { type: String },
@@ -46,6 +48,7 @@ var shiftSchema = new Schema({
   }],
 
   required: { type: Number, default: 0 },
+
 
   role: [{
     type: Number
