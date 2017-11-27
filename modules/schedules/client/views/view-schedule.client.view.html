@@ -26,7 +26,7 @@
 
         <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
-        ng-show = "monday.role[0]" class="list-group-item">
+        ng-show = "monday.role[0]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? 'green' : 'red'}">
           <div class="pull-right" style = "padding-top : 5px">
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
@@ -39,9 +39,9 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-          <a class = "btn" ng-repeat = "employee in monday.employees" ng-click= "addEmployee(monday, employee, 'mon', $index)">
-            {{employee.name}} {{employee.totalHours}} 
 
+          <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee, 'mon', $index)">
+            {{employee.name}}
 
           </a>
           <!-- <select ng-change= "addEmployee(monday, employee, 'mon', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
@@ -58,13 +58,16 @@
         </div>
       </div>
 
-      <!--------- Kitchen --------->
+      <!--------- Kitchen //we now have a required value for each shift
+        //when an employee is added, this required value needs to be subtracted or added to
+        //if shift.required = 0, turn the element green. --------->
       <div class="cookiecol">
         <h4 class="margintop25">Kitchen</h2>
+       
 
         <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
-        ng-show = "monday.role[1]" class="list-group-item">
+        ng-show = "monday.role[1]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? 'green' : 'red'}">
           <div class="pull-right" style = "padding-top : 5px">
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
@@ -78,6 +81,7 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
+
        <!--    <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
             {{employee.name}}
           </a> -->
@@ -89,6 +93,7 @@
           <option value="" > Add Employee </option>
         
           </select>
+
         </div>
       </div>
 
@@ -98,7 +103,7 @@
 
         <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
-        ng-show = "monday.role[2]" class="list-group-item">
+        ng-show = "monday.role[2]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? 'green' : 'red'}">
           <div class="pull-right" style = "padding-top : 5px">
             {{monday.whichShift}}
             <!--Printing all employees assigned to shift-->
@@ -112,8 +117,10 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-         <!--  <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee,'mon', $index)">
-            {{employee.name}} {{employee.totalHours}}
+
+          <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee,'mon', $index)">
+            {{employee.name}}
+
           </a>
  -->
               
