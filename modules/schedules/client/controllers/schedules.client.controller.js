@@ -90,6 +90,7 @@
         };
         shift.employees.push(newEmployee);
         shift.available.splice(index,1);
+        shift.required = (shift.required - 1);
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
@@ -134,6 +135,9 @@
         assigned: newAssigned
       };
       console.log(newEmployee);
+      shift.available.push(employee);
+      shift.required = (shift.required + 1);
+      shift.employees.splice(index , 1);
 
       $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
@@ -144,9 +148,7 @@
       }).error(function (response) {
         $scope.error = response.message;
       });
-      shift.available.push(employee);
 
-      shift.employees.splice(index , 1);
       vm.save(true);
       vm.$update();
     
@@ -161,9 +163,15 @@
     */
     // Save Schedule
     function save(isValid) {
-      var newSchedule ={
+      var newSchedule = {
         weekName: vm.schedule.weekName,
-        users: $scope.users
+        users: $scope.users,
+        requirements:{
+          open: [1,1,1],
+          close: [1,1,1],
+          full: [3,2,1] 
+
+        }
       };
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.scheduleForm');
