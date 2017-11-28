@@ -740,9 +740,9 @@ angular.module('core').service('Socket', ['Authentication', '$state', '$timeout'
 
   function menuConfig(menuService) {
     menuService.addMenuItem('topbar', {
-      title: 'List ProfilePages',
+      title: 'Profile Page',
       state: 'profilepages.list',
-      roles: ['admin', 'user']
+      roles: ['user']
     });
     // Set top bar menu items
     // menuService.addMenuItem('topbar', {
@@ -1290,10 +1290,164 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
     .module('schedules')
     .controller('SchedulesListController', SchedulesListController);
 
-  SchedulesListController.$inject = ['SchedulesService'];
+  SchedulesListController.$inject = ['SchedulesService', '$scope', '$http'];
 
-  function SchedulesListController(SchedulesService) {
+  function SchedulesListController(SchedulesService, $scope, $http) {
     var vm = this;
+    $scope.nextWeekArray = [];
+    $scope.noWeek = 0;
+
+    $scope.noNextWeek = function(){
+      for(var i = 0; i < $scope.nextWeekArray.length; ++i){
+        if($scope.nextWeekArray[i] === true){
+          $scope.nextWeekArray = [];
+          $scope.noWeek = 0;
+          return false;
+        }
+      }
+      $scope.nextWeekArray = [];
+      $scope.noWeek = 1;
+      return true;
+    };
+
+    $scope.isNextWeek = function(schedule){
+      var _MS_PER_DAY = 1000*60*60*24;
+      var d = new Date();
+      var today = d.getDay();
+      var date1;
+      if(today === 0){
+        date1 = new Date(d.setTime(d.getTime() - 6*86400000));
+      }
+      else if(today === 1){
+        date1 = new Date(d.setTime(d.getTime()));
+      }
+      else if(today === 2){
+        date1 = new Date(d.setTime(d.getTime() - 1*86400000));
+      }
+      else if(today === 3){
+        date1 = new Date(d.setTime(d.getTime() - 2*86400000));
+      }
+      else if(today === 4){
+        date1 = new Date(d.setTime(d.getTime() - 3*86400000));
+      }
+      else if(today === 5){
+        date1 = new Date(d.setTime(d.getTime() - 4*86400000));
+      }
+      else if(today === 6){
+        date1 = new Date(d.setTime(d.getTime() - 5*86400000));
+      }
+      console.log(date1);
+      var w = new Date(schedule.weekStart);
+      console.log(w);
+      var utcWeekStart = w.getTime();
+
+      var utcMonday = date1.getTime();
+
+      if(utcWeekStart > utcMonday) {
+        return true;
+      }
+      else if ((utcMonday - utcWeekStart) <= 7*86400000){
+        return false;
+      }
+      else if ((utcMonday - utcWeekStart) > 7*86400000){
+        return false;
+      }
+      return false;
+    };
+
+    $scope.pushNextWeek = function(schedule){
+      $scope.nextWeekArray.push($scope.isNextWeek(schedule));
+      return true;
+    };
+
+    $scope.isThisWeek = function(schedule){
+      var _MS_PER_DAY = 1000*60*60*24;
+      var d = new Date();
+      var today = d.getDay();
+      var date1;
+      if(today === 0){
+        date1 = new Date(d.setTime(d.getTime() - 6*86400000));
+      }
+      else if(today === 1){
+        date1 = new Date(d.setTime(d.getTime()));
+      }
+      else if(today === 2){
+        date1 = new Date(d.setTime(d.getTime() - 1*86400000));
+      }
+      else if(today === 3){
+        date1 = new Date(d.setTime(d.getTime() - 2*86400000));
+      }
+      else if(today === 4){
+        date1 = new Date(d.setTime(d.getTime() - 3*86400000));
+      }
+      else if(today === 5){
+        date1 = new Date(d.setTime(d.getTime() - 4*86400000));
+      }
+      else if(today === 6){
+        date1 = new Date(d.setTime(d.getTime() - 5*86400000));
+      }
+      console.log(date1);
+      var w = new Date(schedule.weekStart);
+      console.log(w);
+      var utcWeekStart = w.getTime();
+
+      var utcMonday = date1.getTime();
+
+      if(utcWeekStart > utcMonday) {
+        return false;
+      }
+      else if ((utcMonday - utcWeekStart) <= 7*86400000){
+        return true;
+      }
+      else if ((utcMonday - utcWeekStart) > 7*86400000){
+        return false;
+      }
+      return false;
+    };
+    $scope.isOtherWeek = function(schedule){
+      var _MS_PER_DAY = 1000*60*60*24;
+      var d = new Date();
+      var today = d.getDay();
+      var date1;
+      if(today === 0){
+        date1 = new Date(d.setTime(d.getTime() - 6*86400000));
+      }
+      else if(today === 1){
+        date1 = new Date(d.setTime(d.getTime()));
+      }
+      else if(today === 2){
+        date1 = new Date(d.setTime(d.getTime() - 1*86400000));
+      }
+      else if(today === 3){
+        date1 = new Date(d.setTime(d.getTime() - 2*86400000));
+      }
+      else if(today === 4){
+        date1 = new Date(d.setTime(d.getTime() - 3*86400000));
+      }
+      else if(today === 5){
+        date1 = new Date(d.setTime(d.getTime() - 4*86400000));
+      }
+      else if(today === 6){
+        date1 = new Date(d.setTime(d.getTime() - 5*86400000));
+      }
+      console.log(date1);
+      var w = new Date(schedule.weekStart);
+      console.log(w);
+      var utcWeekStart = w.getTime();
+
+      var utcMonday = date1.getTime();
+
+      if(utcWeekStart > utcMonday) {
+        return false;
+      }
+      else if ((utcMonday - utcWeekStart) <= 7*86400000){
+        return false;
+      }
+      else if ((utcMonday - utcWeekStart) > 7*86400000){
+        return true;
+      }
+      return false;
+    };
 
     vm.schedules = SchedulesService.query();
   }
@@ -1325,6 +1479,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
     vm.remove = remove;
     vm.save = save;
 
+
     function hasDuplicates(input , array) {
       for (var i = 0; i < array.length; ++i) {
         var value = array[i];
@@ -1343,10 +1498,10 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
             return true;
           }
         }
-        
+
       }
       return false;
-      
+
     };
 
     // Remove existing Schedule
@@ -1373,7 +1528,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
         }
       }
       //prep request.
-      
+
 
       //check for duplicates already in shift list
       if(!hasDuplicates(employee._id, shift.employees)){
@@ -1397,23 +1552,25 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
         shift.required = (shift.required - 1);
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
-        $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
+        $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
-        
-          //console.log(response.message);
+
+
+          console.log(response.message);
+
         // And redirect to the previous or home page
-        
+
         }).error(function (response) {
           $scope.error = response.message;
         });
       }
-      
+
       vm.save(true);
-      
+
     };
 
     $scope.removeEmployee = function (shift, index, day, employee){
-     
+
       var employeeName = employee.name;
       //we know the day, the type of shift and which shift; we store employees without their assigned arrays
       //so we need to contact the server to make those changes with the above information.
@@ -1424,7 +1581,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
           shift_num = i*3;
         }
       }
-      
+
       for(var j = 0; j<3; j++){
         if(shift.whichShift[j] === 1){
           newAssigned[day][shift_num + j] = 0;
@@ -1445,21 +1602,24 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
       shift.required = (shift.required + 1);
       shift.employees.splice(index , 1);
 
-      $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
+      $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
-        
-        //console.log(response.message);
+
+
+        console.log(response.message);
+
         // And redirect to the previous or home page
-        
+
       }).error(function (response) {
         $scope.error = response.message;
       });
 
+
       vm.save(true);
-     
-    
-     
-      
+
+
+
+
     };
     /*
     $scope.addShift = function(shiftArray, shift){
@@ -1475,7 +1635,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
         requirements:{
           open: [1,1,1],
           close: [1,1,1],
-          full: [3,2,1] 
+          full: [3,2,1]
 
         }
       };
@@ -1489,7 +1649,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
         vm.schedule.$update(successCallback, errorCallback);
       } else {
         //test
-        $http.post('https://vast-tundra-19351.herokuapp.com/api/schedules', newSchedule).success(successCallback).error(errorCallback);
+        $http.post('http://localhost:3000/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
       function successCallback(res) {
