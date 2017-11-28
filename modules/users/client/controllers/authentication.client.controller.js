@@ -13,6 +13,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     $scope.days = ['mon','tue','wed','thu','fri','sat','sun'];
     $scope.shifts = [0,1,2,3];
     $scope.employeeCredentials = {
+      confirm_password: '', 
       username: '',
       password: '',
       availibility: {
@@ -91,5 +92,86 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       // Effectively call OAuth authentication route:
       $window.location.href = url;
     };
+   // $scope.passwordVerification= function(pass, confirm){
+  //     if (pass!==confirm){
+  //            alert("Passwords do not match.");
+  //         return false;}
+  //     else
+          
+  //         return true;
+
+
+
+  //   };
+// var compareTo = function() {
+//     return {
+//         require: "ngModel",
+//         scope: {
+//             otherModelValue: "=compareTo"
+//         },
+//         link: function(scope, element, attributes, ngModel) {
+             
+//             ngModel.$validators.compareTo = function(modelValue) {
+//                 return modelValue == scope.otherModelValue;
+//             };
+ 
+//             scope.$watch("otherModelValue", function() {
+//                 ngModel.$validate();
+//             });
+//         }
+//     };
+// };
+ 
+// module.directive("compareTo", compareTo);
+
+
+
+angular.module('users')
+  .directive('passwordVerify', [function() {
+    return {
+      require: 'ngModel',
+      scope: {
+        passwordVerify: '='
+      },
+      link: function(scope, element, attrs, ngModel) {
+        var status = true;
+        scope.$watch(function() {
+          var combined;
+          if (scope.passwordVerify || ngModel) {
+            combined = scope.passwordVerify + '_' + ngModel;
+          }
+          return combined;
+        }, function(value) {
+          if (value) {
+            ngModel.$validators.passwordVerify = function (password) {
+              var origin = scope.passwordVerify;
+              return (origin !== password) ? false : true;
+            };
+          }
+        });
+      }
+    };
+  }]);
+
+
+// app.directive('compareTo', function(){
+//     return {
+//         require: "ngModel",
+        
+//         link: function(scope, element, attributes, ngModel) {
+             
+//             ngModel.$validators.compareTo = function(modelValue) {
+//                 return modelValue == scope.otherModelValue;
+//             };
+ 
+//             scope.$watch("otherModelValue", function() {
+//                 ngModel.$validate();
+//             });
+//         }
+//     };
+
+
+// })
+
   }
 ]);
