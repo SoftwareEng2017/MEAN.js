@@ -60,20 +60,13 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee, day, index){
+    $scope.addEmployee = function(shift, employee, day, array){
       var employeeName = employee.name;
-
+        var index= null;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       var shift_num;
-
-      if (shift.role[0]===1)
-            employee.totalHours+=5;
-      if (shift.role[1]===1)
-            employee.totalHours+=5;
-        if (shift.role[2]===1)
-            employee.totalHours+=6;
-          
+  
           
       
       //update newAssigned based on the shift they were just assigned to.
@@ -94,7 +87,11 @@
           }
         }
         //create a new employee
+        for (var i =0; i<array.length; i++){
+            if (employee.name===array[i].name)
+                index=i;
 
+        }
   
 
         var newEmployee = {

@@ -35,6 +35,23 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       //$location.path('/');
     }
 
+
+    
+    $scope.returnRole = function(roleArray){
+      var Roles = '';
+      if(roleArray[0] === 1){
+        Roles += ("Driver" + ' ');
+      }
+      if(roleArray[1] === 1){
+        Roles += ("Kitchen" + ' ');
+      }
+      if(roleArray[2] === 1){
+        Roles += ("Front" + ' ');
+      }
+      return Roles;
+    };
+
+
     $scope.signup = function (isValid) {
       $scope.error = null;
 

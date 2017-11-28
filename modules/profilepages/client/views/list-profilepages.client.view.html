@@ -16,17 +16,19 @@
 <!--</section>-->
 <section>
   <div style="text-align: center" class="user-image">
-    <img src="{{vm.authentication.user.profileImageURL}}" class="img-circle">
+   <h3 style="text-align: center">{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}} </h3>
   </div>
 </section>
 
 <section>
   <tabset justified="true">
     <tab heading="User Info">
-      <h3 style="text-align: center">{{"Name: "}}{{vm.authentication.user.firstName}} {{vm.authentication.user.lastName}} </h3>
-      <h3 style="text-align: center">{{"Email: "}} {{vm.authentication.user.email}} </h3>
+   
       <h3 style="text-align: center">{{"Username: "}} {{vm.authentication.user.username}} </h3>
-      <h3 style="text-align: center">{{"Role(s): "}} {{vm.authentication.user.roles}} </h3>
+      <h3 style="text-align: center">{{"Email: "}} {{vm.authentication.user.email}} </h3>
+      
+      <h3 style="text-align: center" >{{"Job:"}} {{ vm.returnRole(vm.authentication.user.type) }} </h3>
+     
 
     </tab>
     <tab heading="Schedule">Short Labeled Justified content</tab>
