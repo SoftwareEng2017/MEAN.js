@@ -96,7 +96,7 @@
         shift.required = (shift.required - 1);
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
-        $http.post('https://limitless-mesa-72413.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
+        $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
         
           //console.log(response.message);
@@ -144,7 +144,7 @@
       shift.required = (shift.required + 1);
       shift.employees.splice(index , 1);
 
-      $http.post('https://limitless-mesa-72413.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
+      $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
         
         //console.log(response.message);
@@ -188,7 +188,7 @@
         vm.schedule.$update(successCallback, errorCallback);
       } else {
         //test
-        $http.post('https://limitless-mesa-72413.herokuapp.com/api/schedules', newSchedule).success(successCallback).error(errorCallback);
+        $http.post('https://vast-tundra-19351.herokuapp.com/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
       function successCallback(res) {
