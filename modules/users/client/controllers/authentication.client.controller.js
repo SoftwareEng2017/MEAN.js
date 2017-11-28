@@ -16,6 +16,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       confirm_password: '', 
       username: '',
       password: '',
+      confirm_password: '', 
       availibility: {
         sun: [0,0,0,0,0,0,0,0,0],
         sat: [0,0,0,0,0,0,0,0,0],
@@ -92,7 +93,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       // Effectively call OAuth authentication route:
       $window.location.href = url;
     };
-   // $scope.passwordVerification= function(pass, confirm){
+
   //     if (pass!==confirm){
   //            alert("Passwords do not match.");
   //         return false;}
@@ -174,4 +175,5 @@ angular.module('users')
 // })
 
   }
+
 ]);
