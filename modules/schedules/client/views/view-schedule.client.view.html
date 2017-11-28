@@ -40,9 +40,24 @@
 
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-          <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee, 'mon', $index)">
-            {{employee.name}}
+
+
+      
+          <!-- <select ng-change= "addEmployee(monday, employee, 'mon', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
+          
+          <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
+            {{employee.name}} {{$index}}
           </a>
+          <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name + ', Total Hours: '  for employee in monday.available"   >  
+
+          <option value="" > Add Employee </option>
+        
+          </select>
+            {{monday.avaiable}}
+                 
+
 
         </div>
       </div>
@@ -68,9 +83,20 @@
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
+
           <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
-            {{employee.name}}
+            {{employee.name}} {{$index}}
           </a>
+
+           
+     <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name + ', Total Hours: '  for employee in monday.available"   >  
+
+          <option value="" > Add Employee </option>
+        
+          </select>
+
 
         </div>
       </div>
@@ -97,6 +123,18 @@
           <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee,'mon', $index)">
             {{employee.name}}
           </a>
+
+
+      
+
+              
+          <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name + ', Total Hours: '  for employee in monday.available"   >  
+
+          <option value="" > Add Employee </option>
+        
+          </select>
 
         </div>
       </div>

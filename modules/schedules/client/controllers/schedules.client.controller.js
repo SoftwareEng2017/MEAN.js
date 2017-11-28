@@ -61,11 +61,17 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee, day, index){
+    $scope.addEmployee = function(shift, employee, day, array){
       var employeeName = employee.name;
+
+        var index= null;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       var shift_num;
+  
+          
+      
+
       //update newAssigned based on the shift they were just assigned to.
       for (var i = 0; i<3; i++){
         if(shift.role[i]===1){
@@ -84,13 +90,19 @@
           }
         }
         //create a new employee
+
+        for (var i =0; i<array.length; i++){
+            if (employee.name===array[i].name)
+                index=i;
+
+        }
+  
+
+
         var newEmployee = {
           name: employeeName,
           id: employee.id,
-          shift_day: day,
-          shift_role: shift.role,
-          which_shift: shift.whichShift,
-          value: 1
+          assigned: newAssigned
         };
         shift.employees.push(newEmployee);
         shift.available.splice(index,1);
@@ -101,7 +113,9 @@
         // If successful we assign the response to the global user model
 
 
+
           console.log(response.message);
+
 
         // And redirect to the previous or home page
 
@@ -137,18 +151,21 @@
       var newEmployee = {
         name: employeeName,
         id: employee.id,
+
         shift_day: day,
         shift_role: shift.role,
         which_shift: shift.whichShift,
         value: 0
+
       };
       console.log(newEmployee);
-      shift.available.push(newEmployee);
+      shift.available.push(employee);
       shift.required = (shift.required + 1);
       shift.employees.splice(index , 1);
 
       $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
+
 
 
         console.log(response.message);
@@ -161,9 +178,6 @@
 
 
       vm.save(true);
-
-
-
 
     };
     /*
