@@ -9,7 +9,8 @@ angular.module('users.admin').run(['Menus',
     });
     Menus.addSubMenuItem('topbar', 'admin', {
       title: 'Add Employee',
-      state: 'authentication.signup'
+      state: 'authentication.signup',
+      roles:['admin']
     });
   }
 ]);
