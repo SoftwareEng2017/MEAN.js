@@ -96,7 +96,7 @@
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
         
-          console.log(response.message);
+          //console.log(response.message);
         // And redirect to the previous or home page
         
         }).error(function (response) {
@@ -105,7 +105,7 @@
       }
       
       vm.save(true);
-  
+      vm.$update();
       
     };
 
@@ -135,14 +135,14 @@
         assigned: newAssigned
       };
       console.log(newEmployee);
-      shift.available.push(employee);
+      shift.available.push(newEmployee);
       shift.required = (shift.required + 1);
       shift.employees.splice(index , 1);
 
       $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
         
-        console.log(response.message);
+        //console.log(response.message);
         // And redirect to the previous or home page
         
       }).error(function (response) {
