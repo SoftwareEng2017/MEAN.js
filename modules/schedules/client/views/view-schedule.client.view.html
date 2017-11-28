@@ -12,13 +12,15 @@
 
   </div>
 -->
+<tabset>
+  <tab heading = "monday">
 <!------Printing out shifts for each day------->
   <h1 ng-bind="vm.schedule.weekName"></h1>
   <div class="cookiefont">
 
     <!---------Monday--------->
 
-    <h2>Monday</h2>
+    
     <div class="cookierow">
       <!--------- Drivers --------->
       <div class="cookiecol">
@@ -32,7 +34,7 @@
             {{monday.whichShift}}
 
             <!--Printing all employees assigned to shift-->
-            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <h4 style ="padding: 10px;"> Assigned Employees </h4>
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
@@ -76,7 +78,7 @@
             {{monday.whichShift}}
 
             <!--Printing all employees assigned to shift-->
-            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <h4 style ="padding: 10px;"> Assigned Employees </h4>
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
@@ -112,7 +114,7 @@
             {{monday.whichShift}}
 
             <!--Printing all employees assigned to shift-->
-            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <h4 style ="padding: 10px;"> Assigned Employees </h4>
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
@@ -141,8 +143,23 @@
 
     </div>
 
-  <!----------REST OF DAYS GO HEAR------->
+
 
   </div>
   <p class="lead" ng-bind="vm.schedule.content"></p>
+  </tab>
+  <tab heading = "tuesday">
+  </tab>
+  <tab heading = "wednesday">
+  </tab>
+  <tab heading = "thursday">
+  </tab>
+  <tab heading = "friday">
+  </tab>
+  <tab heading = "saturday">
+  </tab>
+  <tab heading = "sunday">
+  </tab>
+
+</tabset>
 </section>
