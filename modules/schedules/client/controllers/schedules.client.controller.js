@@ -187,6 +187,7 @@
       if (vm.schedule._id) {
         vm.schedule.$update(successCallback, errorCallback);
       } else {
+        //test
         $http.post('https://limitless-mesa-72413.herokuapp.com/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
