@@ -86,7 +86,10 @@
         var newEmployee = {
           name: employeeName,
           id: employee.id,
-          assigned: newAssigned
+          shift_day: day,
+          shift_role: shift.role,
+          which_shift: shift.whichShift,
+          value: 1
         };
         shift.employees.push(newEmployee);
         shift.available.splice(index,1);
@@ -105,7 +108,6 @@
       }
       
       vm.save(true);
-      vm.$update();
       
     };
 
@@ -132,7 +134,10 @@
       var newEmployee = {
         name: employeeName,
         id: employee.id,
-        assigned: newAssigned
+        shift_day: day,
+        shift_role: shift.role,
+        which_shift: shift.whichShift,
+        value: 0
       };
       console.log(newEmployee);
       shift.available.push(newEmployee);
@@ -150,7 +155,7 @@
       });
 
       vm.save(true);
-      vm.$update();
+     
     
      
       
