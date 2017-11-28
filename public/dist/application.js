@@ -1397,7 +1397,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
         shift.required = (shift.required - 1);
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
-        $http.post('https://serene-lake-90567.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
+        $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
         
           //console.log(response.message);
@@ -1445,7 +1445,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
       shift.required = (shift.required + 1);
       shift.employees.splice(index , 1);
 
-      $http.post('https://serene-lake-90567.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
+      $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
         
         //console.log(response.message);
@@ -1488,7 +1488,8 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
       if (vm.schedule._id) {
         vm.schedule.$update(successCallback, errorCallback);
       } else {
-        $http.post('https://serene-lake-90567.herokuapp.com/api/schedules', newSchedule).success(successCallback).error(errorCallback);
+        //test
+        $http.post('https://vast-tundra-19351.herokuapp.com/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
       function successCallback(res) {
