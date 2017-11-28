@@ -61,8 +61,8 @@
       $stateParams.index = index;
     };
 
-    $scope.addEmployee = function(shift, employee, day){
-      var employeeName = employee.firstName + " " + employee.lastName;
+    $scope.addEmployee = function(shift, employee, day, index){
+      var employeeName = employee.name;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       var shift_num;
@@ -86,16 +86,23 @@
         //create a new employee
         var newEmployee = {
           name: employeeName,
-          id: employee._id,
-          assigned: newAssigned
+          id: employee.id,
+          shift_day: day,
+          shift_role: shift.role,
+          which_shift: shift.whichShift,
+          value: 1
         };
         shift.employees.push(newEmployee);
+        shift.available.splice(index,1);
+        shift.required = (shift.required - 1);
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
-        $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
+        $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
 
+
           console.log(response.message);
+
         // And redirect to the previous or home page
 
         }).error(function (response) {
@@ -104,6 +111,7 @@
       }
 
       vm.save(true);
+      
     };
 
     $scope.removeEmployee = function (shift, index, day, employee){
@@ -129,14 +137,22 @@
       var newEmployee = {
         name: employeeName,
         id: employee.id,
-        assigned: newAssigned
+        shift_day: day,
+        shift_role: shift.role,
+        which_shift: shift.whichShift,
+        value: 0
       };
       console.log(newEmployee);
+      shift.available.push(newEmployee);
+      shift.required = (shift.required + 1);
+      shift.employees.splice(index , 1);
 
-      $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
+      $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
 
+
         console.log(response.message);
+
         // And redirect to the previous or home page
 
       }).error(function (response) {
@@ -144,8 +160,11 @@
       });
 
 
-      shift.employees.splice(index , 1);
       vm.save(true);
+     
+    
+     
+      
     };
     /*
     $scope.addShift = function(shiftArray, shift){
@@ -155,6 +174,16 @@
     */
     // Save Schedule
     function save(isValid) {
+      var newSchedule = {
+        weekName: vm.schedule.weekName,
+        users: $scope.users,
+        requirements:{
+          open: [1,1,1],
+          close: [1,1,1],
+          full: [3,2,1] 
+
+        }
+      };
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.scheduleForm');
         return false;
@@ -164,7 +193,8 @@
       if (vm.schedule._id) {
         vm.schedule.$update(successCallback, errorCallback);
       } else {
-        vm.schedule.$save(successCallback, errorCallback);
+        //test
+        $http.post('https://vast-tundra-19351.herokuapp.com/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
       function successCallback(res) {
