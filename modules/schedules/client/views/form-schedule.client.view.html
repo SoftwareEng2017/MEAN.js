@@ -1,4 +1,4 @@
-<section>
+<section class = "cookiefont">
   <div class="page-header">
     <h1>{{vm.schedule._id ? 'Edit Schedule' : 'New Schedule'}}</h1>
     <h2>{{vm.shiftName}}</h2>
@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <form name="vm.form.scheduleForm" class="form-horizontal" ng-submit="vm.save(vm.form.scheduleForm.$valid)" novalidate>
       <fieldset>
-        
+
         <div class="form-group">
           <h2>You are about to create next week's schedule! Continue ?</h2>
           <button type="submit" class="btn cookiebutton">Yes</button>

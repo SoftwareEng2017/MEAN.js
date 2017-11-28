@@ -3,7 +3,7 @@
     <form name="userForm" ng-submit="updateUserProfile(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
         <tabset justified="true">
-          <tab heading="Edit User Info">
+          <tab class = "fontcolorbrown cookiefont" heading="Edit User Info">
             <div class="form-group" show-errors>
               <label class = "inputCenter" for="firstName">First Name</label>
               <input type="text" id="firstName" name="firstName" class="form-control inputCenter" ng-model="user.firstName" placeholder="First Name" required>
@@ -36,7 +36,7 @@
               <strong ng-bind="error"></strong>
             </div>
           </tab>
-          <tab class = "cookiefont" heading="Edit Availablity">
+          <tab class = "cookiefont fontcolorbrown" heading="Edit Availablity">
             <div class="form-group" >
               <p ng-show = "compareArray(user.type, [0,0,0])">
                 This employee doesn't have any roles! Ask your manager to update your role.

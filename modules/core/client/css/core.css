@@ -170,6 +170,11 @@ a.ng-binding.ng-scope:hover{
   color: #662611 !important;
 }
 
+.divider{
+  border-bottom-width: 2px;
+  border-bottom-color: #662611;
+  border-bottom-style: inset;
+}
 
 /*------------Layout Classes--------------*/
 
