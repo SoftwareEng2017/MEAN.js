@@ -1,15 +1,16 @@
 <section class="row" ng-controller="EditProfileController">
-  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4" ng-init = "getSchedules()">
+  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
     <form name="userForm" ng-submit="updateUserProfile(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
-
-<!--
+       
+<!-- 
        <div class="form-group" show-errors>
           <label for="type">Position</label>
           <input type="text" id="type" name="type" class="form-control" ng-model="user.type" placeholder="Position" required>
-
+        
         </div> -->
 
+          
         <div class="form-group" show-errors>
           <label for="firstName">First Name</label>
           <input type="text" id="firstName" name="firstName" class="form-control" ng-model="user.firstName" placeholder="First Name" required>
@@ -32,7 +33,7 @@
             <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
           </div>
         </div>
-
+    
 
 
         <div class="form-group" show-errors>
@@ -42,7 +43,7 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
-        <div class="form-group" show-errors>
+        <dibn v class="form-group" show-errors>
           <label for="password">Password</label>
             <input type="password" id="password" name="password" class="form-control" ng-model="employeeCredentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
           <div ng-messages="userForm.password.$error" role="alert">
@@ -53,77 +54,30 @@
           </div>
         </div>
         <div class="form-group" >
-
-        <p ng-show = "compareArray(user.type, [0,0,0])">
-          This employee doesn't have any roles! Ask your manager to update your role.
-        </p>
-        <p ng-show ="schedules.length == 0">
-          No schedules available at this time.
-        </p>
-        <div ng-hide ="schedules.length == 0">
-        <table border = "1" width = "500" height = "300" ng-show ="!compareArray(user.type, [0,0,0])" >
-
-
-          <tr>
-
-          <th>Mon</th>
-           <td ng-repeat = "shift in schedules[0].monday" ng-show = "findShift(shift.role, user.type)">
-             <h4>{{returnRole(shift.role)}}:</h4>
-                {{shift.hours[0]}} to {{shift.hours[1]}}
-           <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.mon[$index]">
-
-           </td>
-           </tr>
-          <tr >
-          <th>Tue</th>
-           <td ng-repeat = "shift in schedules[0].tuesday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
-              {{shift.hours[0]}} to {{shift.hours[1]}}
-            <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.tue[$index]">
-
-           </td>
+        <table ng-controller = "EditProfileController" border = "1" width = "500" height = "300">
+          <th>Availibility </th>
+          <th ng-repeat = "day in days"> {{day&nbsp;}} &nbsp;</th>
+          <tr ng-repeat = 'shift in shifts'>
+	         <th >Sh{{shift}}</th>
+	          <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.mon[shift]">
+	          </td>
+	          <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.tue[shift]">
+	          </td>
+	          <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.wed[shift]">
+	          </td>
+	          <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.thu[shift]">
+	          </td>
+	          <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.fri[shift]">
+	          </td>
+	          <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sat[shift]">
+	          </td>
+	          <td><input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sun[shift]">
+	          </td>
           </tr>
-          <tr >
-          <th>Wed</th>
-           <td ng-repeat = "shift in schedules[0].wednesday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
-              {{shift.hours[0]}} to {{shift.hours[1]}}
-            <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.wed[$index]">
 
-           </td>
-          </tr>
-          <tr >
-          <th>Thu</th>
-           <td ng-repeat = "shift in schedules[0].thursday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
-              {{shift.hours[0]}} to {{shift.hours[1]}}
-            <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.thu[$index]">
-
-           </td>
-          </tr>
-          <tr >
-          <th>Fri</th>
-           <td ng-repeat = "shift in schedules[0].friday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
-              {{shift.hours[0]}} to {{shift.hours[1]}}
-            <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.fri[$index]">
-
-           </td>
-          </tr><tr >
-          <th>Sat</th>
-           <td ng-repeat = "shift in schedules[0].saturday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
-              {{shift.hours[0]}} to {{shift.hours[1]}}
-            <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sat[$index]">
-
-           </td>
-          </tr>
-          <tr >
-          <th>Sun</th>
-           <td ng-repeat = "shift in schedules[0].sunday" ng-show = "findShift(shift.role, user.type)"> <h4>{{returnRole(shift.role)}}:</h4>
-              {{shift.hours[0]}} to {{shift.hours[1]}}
-            <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sun[$index]">
-
-           </td>
-          </tr>
+         
         </table>
-        </div>
-
+          
         </div>
 
 
