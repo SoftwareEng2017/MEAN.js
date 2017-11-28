@@ -79,9 +79,6 @@ var UserSchema = new Schema({
   },
   //Type of employee
   type: { type: [Number] , default: [0,0,0], required: true },
-    //hours assigned
-
-  totalHours: { type: Number, default: 0 },
 
   username: {
     type: String,
@@ -91,10 +88,6 @@ var UserSchema = new Schema({
     trim: true
   },
   password: {
-    type: String,
-    default: ''
-  },
-  confirm_password: {
     type: String,
     default: ''
   },

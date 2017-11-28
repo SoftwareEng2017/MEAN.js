@@ -24,6 +24,7 @@
     vm.remove = remove;
     vm.save = save;
 
+
     function hasDuplicates(input , array) {
       for (var i = 0; i < array.length; ++i) {
         var value = array[i];
@@ -42,10 +43,10 @@
             return true;
           }
         }
-        
+
       }
       return false;
-      
+
     };
 
     // Remove existing Schedule
@@ -62,6 +63,7 @@
 
     $scope.addEmployee = function(shift, employee, day, array){
       var employeeName = employee.name;
+
         var index= null;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
@@ -69,6 +71,7 @@
   
           
       
+
       //update newAssigned based on the shift they were just assigned to.
       for (var i = 0; i<3; i++){
         if(shift.role[i]===1){
@@ -76,7 +79,7 @@
         }
       }
       //prep request.
-      
+
 
       //check for duplicates already in shift list
       if(!hasDuplicates(employee._id, shift.employees)){
@@ -87,12 +90,14 @@
           }
         }
         //create a new employee
+
         for (var i =0; i<array.length; i++){
             if (employee.name===array[i].name)
                 index=i;
 
         }
   
+
 
         var newEmployee = {
           name: employeeName,
@@ -102,48 +107,40 @@
         shift.employees.push(newEmployee);
         shift.available.splice(index,1);
         shift.required = (shift.required - 1);
-
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
-        
+
+
+
           console.log(response.message);
+
+
         // And redirect to the previous or home page
-        
+
         }).error(function (response) {
           $scope.error = response.message;
         });
       }
-      
+
       vm.save(true);
-  
-      
+
     };
 
     $scope.removeEmployee = function (shift, index, day, employee){
-     
+
       var employeeName = employee.name;
       //we know the day, the type of shift and which shift; we store employees without their assigned arrays
       //so we need to contact the server to make those changes with the above information.
       var newAssigned = employee.assigned;
-    
       var shift_num;
-
-
-      if (shift.role[0]===1)
-            employee.totalHours-=5;
-      if (shift.role[1]===1)
-            employee.totalHours-=5;
-        if (shift.role[2]===1)
-            employee.totalHours-=6;
-
       for (var i = 0; i<3; i++){
         if(shift.role[i]===1){
           shift_num = i*3;
         }
       }
-      
+
       for(var j = 0; j<3; j++){
         if(shift.whichShift[j] === 1){
           newAssigned[day][shift_num + j] = 0;
@@ -154,8 +151,12 @@
       var newEmployee = {
         name: employeeName,
         id: employee.id,
-        assigned: newAssigned,
-        totalHours: employee.totalHours
+
+        shift_day: day,
+        shift_role: shift.role,
+        which_shift: shift.whichShift,
+        value: 0
+
       };
       console.log(newEmployee);
       shift.available.push(employee);
@@ -164,20 +165,20 @@
 
       $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
-        
+
+
+
         console.log(response.message);
+
         // And redirect to the previous or home page
-        
+
       }).error(function (response) {
         $scope.error = response.message;
       });
 
 
       vm.save(true);
-      vm.$update();
-    
-     
-      
+
     };
     /*
     $scope.addShift = function(shiftArray, shift){
@@ -187,18 +188,15 @@
     */
     // Save Schedule
     function save(isValid) {
-
- 
       var newSchedule = {
         weekName: vm.schedule.weekName,
         users: $scope.users,
         requirements:{
           open: [1,1,1],
           close: [1,1,1],
-          full: [3,2,1] 
+          full: [3,2,1]
 
         }
-
       };
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.scheduleForm');
@@ -209,6 +207,7 @@
       if (vm.schedule._id) {
         vm.schedule.$update(successCallback, errorCallback);
       } else {
+        //test
         $http.post('http://localhost:3000/api/schedules', newSchedule).success(successCallback).error(errorCallback);
       }
 
@@ -224,4 +223,3 @@
     }
   }
 }());
-
