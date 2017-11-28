@@ -98,42 +98,18 @@ exports.changeProfilePicture = function (req, res) {
 exports.updateAssignments = function (req, res) {
   console.log(req.id);
   var test = req.body;
-  
-  console.log(test);
+  console.log(test.id);
   //when called, the req should contain the user id, and their new assigned array
   User.findById(test.id).exec(function(err, user) {
-    var shift_num = 0;
     if(err) {
       res.status(400).send(err);
     } else {
-      for (var i = 0; i<3; i++){
-        console.log(test.shift_role[i]);
-        if(test.shift_role[i]===1){
-          shift_num = i*3;
-          console.log("wtf");
-        }
-      }
-      console.log(shift_num);
-      console.log(test.shift_day);
-      console.log(user.assigned[test.shift_day]);
-      for(var j = 0; j<3; j++){
-        if(test.which_shift[j] === 1){
-          user.assigned[test.shift_day][shift_num + j] = test.value;
-        }
-      }
-      console.log(user.assigned[test.shift_day]);
-      user.save(function(err,news){
-        if(err){
-          console.log(err);
-        }
-        console.log("In save function");
-      });
-      user.markModified('assigned');
+      user.assigned = test.assigned;
+      user.save();
       res.status(200).send({
         message: 'updateAssignments Called!' + test.id
       });
     }
-    user.save();
   });
 };
 
