@@ -91,7 +91,7 @@ var UserSchema = new Schema({
     type: String,
     default: ''
   },
-    confirm_password: {
+  confirm_password: {
     type: String,
     default: ''
   },

@@ -13,10 +13,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     $scope.days = ['mon','tue','wed','thu','fri','sat','sun'];
     $scope.shifts = [0,1,2,3];
     $scope.employeeCredentials = {
-      confirm_password: '', 
+      confirm_password: '',
       username: '',
       password: '',
-      confirm_password: '', 
       availibility: {
         sun: [0,0,0,0,0,0,0,0,0],
         sat: [0,0,0,0,0,0,0,0,0],
@@ -54,14 +53,14 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       $http.post('/api/auth/signup', $scope.employeeCredentials).success(function (response) {
         // If successful we assign the response to the global user model
-        
+
 
         // And redirect to the previous or home page
         $state.go('home', $state.params);
       }).error(function (response) {
         $scope.error = response.message;
       });
-      
+
     };
 
     $scope.signin = function (isValid) {
@@ -98,7 +97,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
   //            alert("Passwords do not match.");
   //         return false;}
   //     else
-          
+
   //         return true;
 
 
@@ -111,60 +110,60 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 //             otherModelValue: "=compareTo"
 //         },
 //         link: function(scope, element, attributes, ngModel) {
-             
+
 //             ngModel.$validators.compareTo = function(modelValue) {
 //                 return modelValue == scope.otherModelValue;
 //             };
- 
+
 //             scope.$watch("otherModelValue", function() {
 //                 ngModel.$validate();
 //             });
 //         }
 //     };
 // };
- 
+
 // module.directive("compareTo", compareTo);
 
 
 
-angular.module('users')
-  .directive('passwordVerify', [function() {
-    return {
-      require: 'ngModel',
-      scope: {
-        passwordVerify: '='
-      },
-      link: function(scope, element, attrs, ngModel) {
-        var status = true;
-        scope.$watch(function() {
-          var combined;
-          if (scope.passwordVerify || ngModel) {
-            combined = scope.passwordVerify + '_' + ngModel;
-          }
-          return combined;
-        }, function(value) {
-          if (value) {
-            ngModel.$validators.passwordVerify = function (password) {
-              var origin = scope.passwordVerify;
-              return (origin !== password) ? false : true;
-            };
-          }
-        });
-      }
-    };
-  }]);
+    angular.module('users')
+    .directive('passwordVerify', [function() {
+      return {
+        require: 'ngModel',
+        scope: {
+          passwordVerify: '='
+        },
+        link: function(scope, element, attrs, ngModel) {
+          var status = true;
+          scope.$watch(function() {
+            var combined;
+            if (scope.passwordVerify || ngModel) {
+              combined = scope.passwordVerify + '_' + ngModel;
+            }
+            return combined;
+          }, function(value) {
+            if (value) {
+              ngModel.$validators.passwordVerify = function (password) {
+                var origin = scope.passwordVerify;
+                return (origin !== password) ? false : true;
+              };
+            }
+          });
+        }
+      };
+    }]);
 
 
 // app.directive('compareTo', function(){
 //     return {
 //         require: "ngModel",
-        
+
 //         link: function(scope, element, attributes, ngModel) {
-             
+
 //             ngModel.$validators.compareTo = function(modelValue) {
 //                 return modelValue == scope.otherModelValue;
 //             };
- 
+
 //             scope.$watch("otherModelValue", function() {
 //                 ngModel.$validate();
 //             });

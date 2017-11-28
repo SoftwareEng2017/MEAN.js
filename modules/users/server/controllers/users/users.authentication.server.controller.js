@@ -39,12 +39,12 @@ exports.signup = function (req, res) {
     } else {
       // Remove sensitive data before login
       user.password = undefined;
-            user.confirm_password = undefined;
+      user.confirm_password = undefined;
       user.salt = undefined;
       //Commenting out user login, should create user without loggin in.
-    
+
       res.json(user);
-        
+
     }
   });
 };
@@ -59,7 +59,7 @@ exports.signin = function (req, res, next) {
     } else {
       // Remove sensitive data before login
       user.password = undefined;
-         user.confirm_password = undefined;
+      user.confirm_password = undefined;
 
       user.salt = undefined;
 
