@@ -57,6 +57,10 @@ var scheduleSchema = new Schema({
   },
   otherWeek: {
     type: Number, default: 0
+  },
+  created: {
+    type: Date,
+    default: Date.now
   }
 });
 
