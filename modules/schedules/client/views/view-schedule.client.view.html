@@ -12,13 +12,15 @@
 
   </div>
 -->
+<tabset>
+  <tab heading = "monday">
 <!------Printing out shifts for each day------->
   <h1 ng-bind="vm.schedule.weekName"></h1>
   <div class="cookiefont">
 
     <!---------Monday--------->
 
-    <h2>Monday</h2>
+    
     <div class="cookierow">
       <!--------- Drivers --------->
       <div class="cookiecol">
@@ -32,7 +34,7 @@
             {{monday.whichShift}}
 
             <!--Printing all employees assigned to shift-->
-            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <h4 style ="padding: 10px;"> Assigned Employees </h4>
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
@@ -40,9 +42,24 @@
 
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-          <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee, 'mon', $index)">
-            {{employee.name}}
-          </a>
+
+
+      
+          <!-- <select ng-change= "addEmployee(monday, employee, 'mon', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
+          
+        <!--   <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
+            {{employee.name}} {{$index}}
+          </a> -->
+          <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name + ', Total Hours: '  for employee in monday.available"   >  
+
+          <option value="" > Add Employee </option>
+        
+          </select>
+            {{monday.avaiable}}
+                 
+
 
         </div>
       </div>
@@ -61,16 +78,27 @@
             {{monday.whichShift}}
 
             <!--Printing all employees assigned to shift-->
-            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <h4 style ="padding: 10px;"> Assigned Employees </h4>
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-          <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
-            {{employee.name}}
-          </a>
+
+          <!-- <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
+            {{employee.name}} {{$index}}
+          </a> -->
+
+           
+     <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name + ', Total Hours: '  for employee in monday.available"   >  
+
+          <option value="" > Add Employee </option>
+        
+          </select>
+
 
         </div>
       </div>
@@ -86,7 +114,7 @@
             {{monday.whichShift}}
 
             <!--Printing all employees assigned to shift-->
-            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <h4 style ="padding: 10px;"> Assigned Employees </h4>
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
@@ -94,17 +122,44 @@
 
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
-          <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee,'mon', $index)">
+         <!--  <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee,'mon', $index)">
             {{employee.name}}
-          </a>
+          </a> -->
+
+
+      
+
+              
+          <select  
+
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name + ', Total Hours: '  for employee in monday.available"   >  
+
+          <option value="" > Add Employee </option>
+        
+          </select>
 
         </div>
       </div>
 
     </div>
 
-  <!----------REST OF DAYS GO HEAR------->
+
 
   </div>
   <p class="lead" ng-bind="vm.schedule.content"></p>
+  </tab>
+  <tab heading = "tuesday">
+  </tab>
+  <tab heading = "wednesday">
+  </tab>
+  <tab heading = "thursday">
+  </tab>
+  <tab heading = "friday">
+  </tab>
+  <tab heading = "saturday">
+  </tab>
+  <tab heading = "sunday">
+  </tab>
+
+</tabset>
 </section>

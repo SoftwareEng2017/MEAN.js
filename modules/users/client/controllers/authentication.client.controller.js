@@ -13,6 +13,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     $scope.days = ['mon','tue','wed','thu','fri','sat','sun'];
     $scope.shifts = [0,1,2,3];
     $scope.employeeCredentials = {
+      confirm_password: '', 
       username: '',
       password: '',
       confirm_password: '', 
@@ -92,7 +93,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       // Effectively call OAuth authentication route:
       $window.location.href = url;
     };
-  // $scope.passwordVerification= function(pass, confirm){
+
   //     if (pass!==confirm){
   //            alert("Passwords do not match.");
   //         return false;}
@@ -172,5 +173,7 @@ angular.module('users')
 
 
 // })
-    }
+
+  }
+
 ]);

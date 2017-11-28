@@ -39,6 +39,7 @@ exports.signup = function (req, res) {
     } else {
       // Remove sensitive data before login
       user.password = undefined;
+            user.confirm_password = undefined;
       user.salt = undefined;
       //Commenting out user login, should create user without loggin in.
     
@@ -58,6 +59,8 @@ exports.signin = function (req, res, next) {
     } else {
       // Remove sensitive data before login
       user.password = undefined;
+         user.confirm_password = undefined;
+
       user.salt = undefined;
 
       req.login(user, function (err) {
