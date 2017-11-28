@@ -66,6 +66,11 @@ a:hover .header-profile-image {
   background-color: #662611 !important;
 }
 
+.cookie-divider{
+  border-bottom-style: inset;
+  border-bottom-color: #e1f3fa;
+}
+
 .cookiebutton{
     background-color: #662611 !important;
     border-radius: 15px;
@@ -95,6 +100,11 @@ a:hover .header-profile-image {
 }
 .jumbotron{
   font-family: 'Kalam', cursive;
+}
+.profilePage{
+  font-family: 'Kalem', cursive;
+  padding-top: 0;
+  margin-top: 0;
 }
 .cookiefont {
   font-family: 'Kalem', cursive;
@@ -156,5 +166,10 @@ a.ng-binding.ng-scope:hover{
 
 .cookiecol {
   width: 33%;
+  height: 100%;
+}
+
+.cookiecol2 {
+  width: 50%;
   height: 100%;
 }

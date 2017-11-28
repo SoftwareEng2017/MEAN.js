@@ -9,9 +9,9 @@
 
   function menuConfig(menuService) {
     menuService.addMenuItem('topbar', {
-      title: 'List ProfilePages',
+      title: 'Profile Page',
       state: 'profilepages.list',
-      roles: ['admin', 'user']
+      roles: ['user']
     });
     // Set top bar menu items
     // menuService.addMenuItem('topbar', {

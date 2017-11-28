@@ -1,7 +1,7 @@
 <section>
   <!----------- Edit Schedule and Delete Schedule Buttons--------->
   <div class="cookiefont">
-    <div class="pull-right">
+    <!--<div class="pull-right">
       <a class="btn cookiebutton" ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
         <i class="glyphicon glyphicon-edit"></i>
       </a>
@@ -9,11 +9,11 @@
         <i class="glyphicon glyphicon-trash"></i>
       </a>
     </div>
-    <h1 ng-bind="vm.schedule.weekName"></h1>
+
   </div>
-
+-->
 <!------Printing out shifts for each day------->
-
+  <h1 ng-bind="vm.schedule.weekName"></h1>
   <div class="cookiefont">
 
     <!---------Monday--------->
@@ -26,22 +26,24 @@
 
         <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
+
         ng-show = "monday.role[0]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? 'green' : 'red'}">
           <div class="pull-right" style = "padding-top : 5px">
             {{monday.whichShift}}
+
             <!--Printing all employees assigned to shift-->
-            <div ng-repeat="employee in monday.employees">
-              {{employee.name}} {{employee.id}}
-              <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
-                <i class="glyphicon glyphicon-trash"></i>
-              </a>
-            </div>
+            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
+              {{employee.name}}
+            </a>
           </div>
+
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
           <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee, 'mon', $index)">
             {{employee.name}}
           </a>
+
         </div>
       </div>
 
@@ -57,20 +59,19 @@
         ng-show = "monday.role[1]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? 'green' : 'red'}">
           <div class="pull-right" style = "padding-top : 5px">
             {{monday.whichShift}}
+
             <!--Printing all employees assigned to shift-->
-            <div ng-repeat="employee in monday.employees">
+            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
-              {{employee.id}}
-              <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
-                <i class="glyphicon glyphicon-trash"></i>
-              </a>
-            </div>
+            </a>
           </div>
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
           <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
             {{employee.name}}
           </a>
+
         </div>
       </div>
 
@@ -80,22 +81,23 @@
 
         <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
-        ng-show = "monday.role[2]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? 'green' : 'red'}">
+          ng-show = "monday.role[2]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? 'green' : 'red'}">
           <div class="pull-right" style = "padding-top : 5px">
             {{monday.whichShift}}
+
             <!--Printing all employees assigned to shift-->
-            <div ng-repeat="employee in monday.employees">
+            <h4 style ="padding: 10px;"> Assigned Employees <h4>
+            <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
-              <a class="btn cookiebutton" ng-click="removeEmployee(monday, $index, 'mon', monday.employees[$index])">
-                <i class="glyphicon glyphicon-trash"></i>
-              </a>
-            </div>
+            </a>
           </div>
+
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <!------Print out available employee ---->
           <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee,'mon', $index)">
             {{employee.name}}
           </a>
+
         </div>
       </div>
 

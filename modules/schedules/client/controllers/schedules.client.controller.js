@@ -23,6 +23,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    
 
     function hasDuplicates(input , array) {
       for (var i = 0; i < array.length; ++i) {
@@ -42,10 +43,10 @@
             return true;
           }
         }
-        
+
       }
       return false;
-      
+
     };
 
     // Remove existing Schedule
@@ -72,7 +73,7 @@
         }
       }
       //prep request.
-      
+
 
       //check for duplicates already in shift list
       if(!hasDuplicates(employee._id, shift.employees)){
@@ -98,21 +99,23 @@
         //make http request to server route defined in users.server.routes
         $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
-        
-          //console.log(response.message);
+
+
+          console.log(response.message);
+
         // And redirect to the previous or home page
-        
+
         }).error(function (response) {
           $scope.error = response.message;
         });
       }
-      
+
       vm.save(true);
       
     };
 
     $scope.removeEmployee = function (shift, index, day, employee){
-     
+
       var employeeName = employee.name;
       //we know the day, the type of shift and which shift; we store employees without their assigned arrays
       //so we need to contact the server to make those changes with the above information.
@@ -123,7 +126,7 @@
           shift_num = i*3;
         }
       }
-      
+
       for(var j = 0; j<3; j++){
         if(shift.whichShift[j] === 1){
           newAssigned[day][shift_num + j] = 0;
@@ -146,13 +149,16 @@
 
       $http.post('https://vast-tundra-19351.herokuapp.com/api/users/updateAssignment', newEmployee).success(function (response) {
         // If successful we assign the response to the global user model
-        
-        //console.log(response.message);
+
+
+        console.log(response.message);
+
         // And redirect to the previous or home page
-        
+
       }).error(function (response) {
         $scope.error = response.message;
       });
+
 
       vm.save(true);
      

@@ -17,7 +17,7 @@ var shiftSchema = new Schema({
 
     id: { type: String },
 
-    assigned: { 
+    assigned: {
       mon: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
       tue: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
       wed: { type: [Number], default: [0,0,0,0,0,0,0,0,0] },
@@ -66,8 +66,20 @@ var scheduleSchema = new Schema({
   thursday: [shiftSchema],
   friday: [shiftSchema],
   saturday: [shiftSchema],
-  sunday: [shiftSchema]
+  sunday: [shiftSchema],
 
+  nextWeek: {
+    type: Number, default: 0
+  },
+  thisWeek: {
+    type:Number, default: 0
+  },
+  otherWeek: {
+    type: Number, default: 0
+  },
+  weekStart: {
+    type: String
+  }
 });
 
 var Schedule = mongoose.model('Schedule', scheduleSchema);
