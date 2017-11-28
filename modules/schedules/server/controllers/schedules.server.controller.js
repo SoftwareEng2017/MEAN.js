@@ -23,19 +23,36 @@ Function to create a weekName based on what week it is.
 function newName() {
   var d = new Date();
   var today = d.getDay();
-  var date1 = new Date(d);
-  var date2 = new Date(d);
+  var date1 = new Date();
+  var date2 = new Date();
   if(today === 0){
-    date1.setDate(d.getDate() + 1);
+    date1.setDate(d.getDate() +1);
+    date2.setDate(d.getDate()+ 1 +6);
   }
   else if(today === 1){
-    date2.setDate(d.getDate() + 6);
+    date1.setDate(d.getDate() + 7);
+    date2.setDate(d.getDate() + 7 + 6);
   }
-  else{
-    date1.setDate(d.getDate() - (today - 1));
-    date2.setDate(d.getDate() - (today - 2));
+  else if(today ===2){
+    date1.setDate(d.getDate() + 6);
+    date2.setDate(d.getDate() + 6 + 6);
   }
-
+  else if(today ===3){
+    date1.setDate(d.getDate() + 5);
+    date2.setDate(d.getDate() + 5 + 6);
+  }
+  else if(today ===4){
+    date1.setDate(d.getDate() + 4);
+    date2.setDate(d.getDate() + 4 + 6);
+  }
+  else if(today ===5){
+    date1.setDate(d.getDate() + 3);
+    date2.setDate(d.getDate() + 3 + 6);
+  }
+  else if(today ===6){
+    date1.setDate(d.getDate() + 2);
+    date2.setDate(d.getDate() + 2 + 6);
+  }
   var day1 = date1.getUTCDate();
   var day2 = date2.getUTCDate();
   var month1 = date1.getUTCMonth() + 1;
@@ -47,6 +64,36 @@ function newName() {
   return weekName;
 }
 
+
+
+function firstDayOfWeek() {
+  var d = new Date();
+  var today = d.getDay();
+  var date1;
+  if(today === 0){
+    date1 = new Date(d.setTime(d.getTime() + 1*86400000));
+  }
+  else if(today === 1){
+    date1 = new Date(d.setTime(d.getTime() + 7*86400000));
+  }
+  else if(today === 2){
+    date1 = new Date(d.setTime(d.getTime() + 6*86400000));
+  }
+  else if(today === 3){
+    date1 = new Date(d.setTime(d.getTime() + 5*86400000));
+  }
+  else if(today === 4){
+    date1 = new Date(d.setTime(d.getTime() + 4*86400000));
+  }
+  else if(today === 5){
+    date1 = new Date(d.setTime(d.getTime() + 3*86400000));
+  }
+  else if(today === 6){
+    date1 = new Date(d.setTime(d.getTime() + 2*86400000));
+  }
+  return date1;
+}
+
 /**
  * Create a Schedule
  */
@@ -54,6 +101,8 @@ exports.create = function(req, res) {
 
   var schedule = new Schedule(req.body);
   schedule.weekName = newName();
+  schedule.weekStart = firstDayOfWeek();
+  schedule.nextWeek = 1;
   var Adriver1 = new Shift(req.body);
   var Adriver2 = new Shift(req.body);
   var Adriver3 = new Shift(req.body);
@@ -339,6 +388,23 @@ exports.read = function(req, res) {
 
   res.jsonp(schedule);
 };
+
+exports.updateWeek = function (req, res) {
+  var test = req.body;
+  console.log(test._id);
+  //when called, the req should contain the user id, and their new assigned array
+  Schedule.findById(test._id).exec(function(err, schedule) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      schedule.nextWeek = test.nextWeek;
+      schedule.thisWeek = test.thisWeek;
+      schedule.otherWeek = test.otherWeek;
+      schedule.save();
+    }
+  });
+};
+
 
 /**
  * Update a Schedule

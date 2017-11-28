@@ -1,6 +1,6 @@
 <section>
   <div ng-repeat = "schedule in vm.schedules">
-    <a ng-hide = "pushNextWeek(schedule.nextWeek)">
+    <a ng-hide = "pushNextWeek(schedule)">
     </a>
   </div>
 
@@ -12,7 +12,7 @@
   <div class="list-group cookiefont">
     <h3> Next Week Schedule </h3>
     <div ng-hide = "noWeek">
-      <a ng-repeat="schedule in vm.schedules" ng-show = "schedule.nextWeek"
+      <a ng-repeat="schedule in vm.schedules" ng-show = "isNextWeek(schedule)"
          ui-sref="schedules.view({ scheduleId: schedule._id })"
          class="list-group-item">
         <h4 class="list-group-item-heading" ng-bind="schedule.weekName"></h4>
@@ -23,14 +23,14 @@
       <a class = "btn cookiebutton"  ui-sref="schedules.create">Create a New Schedule!</a>
     </div>
     <h3> Current Week Schedule </h3>
-    <a ng-repeat="schedule in vm.schedules" ng-show = "schedule.thisWeek"
+    <a ng-repeat="schedule in vm.schedules" ng-show = "isThisWeek(schedule)"
        ui-sref="schedules.view({ scheduleId: schedule._id })"
        class="list-group-item">
       <h4 class="list-group-item-heading" ng-bind="schedule.weekName"></h4>
     </a>
 
     <h3> Other Weeks </h3>
-    <a ng-repeat="schedule in vm.schedules" ng-show = "schedule.otherWeek"
+    <a ng-repeat="schedule in vm.schedules" ng-show = "isOtherWeek(schedule)"
        ui-sref="schedules.view({ scheduleId: schedule._id })"
        class="list-group-item">
       <h4 class="list-group-item-heading" ng-bind="schedule.weekName"></h4>
