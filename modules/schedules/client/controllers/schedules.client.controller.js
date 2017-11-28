@@ -64,7 +64,7 @@
     $scope.addEmployee = function(shift, employee, day, array){
       var employeeName = employee.name;
 
-        var index= null;
+      var index= null;
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       var shift_num;
@@ -91,9 +91,9 @@
         }
         //create a new employee
 
-        for (var i =0; i<array.length; i++){
-            if (employee.name===array[i].name)
-                index=i;
+        for (var k = 0; k<array.length; k++){
+          if (employee.name===array[k].name)
+            index=k;
 
         }
   
