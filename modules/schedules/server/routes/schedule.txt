@@ -2,7 +2,7 @@
     "_id": {
         "$oid": "59f7add661d12eec3578ec57"
     },
-    "weekName": "Brenton and Jairo succcccccccccccccccccccc",
+    "weekName": "Anthony is weird!",
     "sunday": [
         {
             "_id": {

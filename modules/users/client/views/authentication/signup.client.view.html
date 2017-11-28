@@ -41,78 +41,22 @@
             <p class="help-block error-text" ng-message="required">Username is required.</p>
           </div>
         </div>
-        
-
         <div class="form-group" show-errors>
           <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" ng-model="employeeCredentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" 
-          
-            password-validator required>
-            
-         
-
+            <input type="password" id="password" name="password" class="form-control" ng-model="employeeCredentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
           <div ng-messages="userForm.password.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Password is required.</p>
             <div ng-repeat="passwordError in passwordErrors">
               <p class="help-block error-text" ng-show="userForm.password.$error.requirements">{{passwordError}}</p>
             </div>
-            
-
-           
-
-
-          </div>
-        
-
-
-        </div>
-
-<!-- <div class="form-group" show-errors>
-         
-            <label for="confirm_password">Confirm Password</label>
-            <input type="password" id="confirm_password" name="confirm_password" class="form-control" ng-model="employeeCredentials.confirm_password" placeholder="Confirm Password"  required 
-        compare-to="employeeCredentials.user.password">
-
-
-     
-               <div ng-messages="userForm.confirm_password.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Confirm password is required.</p>
-          </div>
-
-              <div ng-messages="userForm.confirm_password.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Enter the password again to verify.</p>
-            <p class="help-block error-text" ng-show=userForm.confirm_password.$error.passwordVerify>Passwords do not match.</p>
-          </div>
-
-
-          </div> -->
-
-<!-- <div class="form-group" show-errors>
-          <label for="verifyPassword">Verify Password</label>
-          <input type="password" id="verifyPassword" name="verifyPassword" class="form-control" ng-model="passwordDetails.verifyPassword" placeholder="Verify Password" password-verify="passwordDetails.newPassword" required>
-          <div ng-messages="userForm.verifyPassword.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Verify your new password.</p>
-            <p class="help-block error-text" ng-show=userForm.verifyPassword.$error.passwordVerify>Passwords do not match.</p>
-          </div>
-        </div> -->
-
-        <div class="form-group" show-errors>
-          <label for="confirm_password">Confirm Password</label>
-          <input type="password" id="confirm_password" name="confirm_password" class="form-control" ng-model="employeeCredentials.confirm_password" placeholder="Confirm Password" password-verify= "employeeCredentials.password" required>
-          <div ng-messages="userForm.confirm_password.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Confirm password.</p>
-            <p class="help-block error-text" ng-show=userForm.confirm_password.$error.passwordVerify>Passwords do not match.</p>
           </div>
         </div>
-
-
-
         <div class="form-group" ng-show="!userForm.password.$error.required">
           <label>Password Requirements</label>
           <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>
         </div>
         <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary"  >Sign up</button>
+          <button type="submit" class="btn btn-primary">Sign up</button>
           &nbsp; or&nbsp;
         </div>
         <div ng-show="error" class="text-center text-danger">

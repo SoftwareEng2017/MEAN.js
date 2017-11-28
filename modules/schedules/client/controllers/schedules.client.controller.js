@@ -62,20 +62,9 @@
 
     $scope.addEmployee = function(shift, employee, day, index){
       var employeeName = employee.name;
-
       //set new assigned to current employee assigned.
       var newAssigned = employee.assigned;
       var shift_num;
-
-      if (shift.role[0]===1)
-            employee.totalHours+=5;
-      if (shift.role[1]===1)
-            employee.totalHours+=5;
-        if (shift.role[2]===1)
-            employee.totalHours+=6;
-          
-          
-      
       //update newAssigned based on the shift they were just assigned to.
       for (var i = 0; i<3; i++){
         if(shift.role[i]===1){
@@ -94,9 +83,6 @@
           }
         }
         //create a new employee
-
-  
-
         var newEmployee = {
           name: employeeName,
           id: employee.id,
@@ -108,7 +94,6 @@
         shift.employees.push(newEmployee);
         shift.available.splice(index,1);
         shift.required = (shift.required - 1);
-
         console.log(newEmployee);
         //make http request to server route defined in users.server.routes
         $http.post('http://localhost:3000/api/users/updateAssignment', newEmployee).success(function (response) {
@@ -132,17 +117,7 @@
       //we know the day, the type of shift and which shift; we store employees without their assigned arrays
       //so we need to contact the server to make those changes with the above information.
       var newAssigned = employee.assigned;
-    
       var shift_num;
-
-
-      if (shift.role[0]===1)
-            employee.totalHours-=5;
-      if (shift.role[1]===1)
-            employee.totalHours-=5;
-        if (shift.role[2]===1)
-            employee.totalHours-=6;
-
       for (var i = 0; i<3; i++){
         if(shift.role[i]===1){
           shift_num = i*3;
@@ -163,7 +138,6 @@
         shift_role: shift.role,
         which_shift: shift.whichShift,
         value: 0
-
       };
       console.log(newEmployee);
       shift.available.push(newEmployee);
@@ -180,7 +154,6 @@
         $scope.error = response.message;
       });
 
-
       vm.save(true);
      
     
@@ -195,8 +168,6 @@
     */
     // Save Schedule
     function save(isValid) {
-
- 
       var newSchedule = {
         weekName: vm.schedule.weekName,
         users: $scope.users,
@@ -206,7 +177,6 @@
           full: [3,2,1] 
 
         }
-
       };
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.scheduleForm');
@@ -232,4 +202,3 @@
     }
   }
 }());
-
