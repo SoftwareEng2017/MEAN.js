@@ -11,6 +11,8 @@
   function ProfilepagesController ($scope, $state, $window, Authentication, $http){//, profilepage) {
 
     var vm = this;
+    $scope.hours = {};
+    
 
     vm.authentication = Authentication;
     vm.profilepage ={};// profilepage;
@@ -38,9 +40,13 @@
 
     $scope.getHours = function(){
       $http.get('http://localhost:3000/api/scheduleHours').success(function(response){
-        console.log(response);
+        console.log(response.data);
+        $scope.hours = response.data;
       });
+      
     };
+
+    $scope.getHours();
 
     $scope.tabIndex= 0;
 
