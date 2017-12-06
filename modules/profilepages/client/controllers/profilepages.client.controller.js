@@ -37,6 +37,7 @@
         tagName: "Person"
       }
     ];
+    
 
     $scope.getHours = function(){
       $http.get('http://localhost:3000/api/scheduleHours').success(function(response){

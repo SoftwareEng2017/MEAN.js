@@ -530,9 +530,8 @@ exports.getScheduleHours = function(req,res){
 
     } else {
       console.log('getScheduleHours called!');
-      res.data = schedule.hours;
-      console.log(res.data);
-      res.send();
+      res.jsonp(schedule.hours);
+     
     }
   });
 };
