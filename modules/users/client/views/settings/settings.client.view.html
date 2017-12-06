@@ -1,7 +1,26 @@
 <section ng-controller="SettingsController">
-  <div class="page-header cookiefont">
-    <h1 style= "text-align: center">Update Account Info/Availablity</h1>
-
+  <div class="page-header cookiefont cookierow">
+    <div class = "cookiecol2">
+      <h1>Update Account Info/Availablity</h1>
+    </div>
+    <div class = "f-right cookiecol2">
+      <nav class = "f-right">
+        <ul class="nav f-right">
+          <li>
+            <a class = "btn cookiebutton" ui-sref="settings.profile">Update Account Info/Availablity</a>
+          </li>
+          <!-- <li ui-sref-active="active">
+            <a ui-sref="settings.picture">Change Profile Picture</a>
+          </li> -->
+          <li ng-show="user.provider === 'local'">
+            <a class = "btn cookiebutton" ui-sref="settings.password">Change Password</a>
+          </li>
+         <!--  <li ui-sref-active="active">
+            <a ui-sref="settings.accounts">Manage Social Accounts</a>
+          </li> -->
+        </ul>
+      </nav>
+    </div>
   </div>
 
 

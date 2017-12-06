@@ -1,14 +1,14 @@
 <div class = "cookiefont" ng-controller="AuthenticationController">
-  <h1 style= "text-align: center; padding: 20px;" class="col-md-12 text-center">Register Employee</h1>
+  <h3 class="col-md-12 text-center">Register Employee</h3>
   <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
     <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
 
 
-      <div class="cookierow form-group" style="width: 100%" required>
-        <div class="cookiecol"><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[0]'>Driver</div>
-        <div class="cookiecol"><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[1]'>Kitchen</div>
-        <div class="cookiecol"><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[2]'>Front</div>
+      <div class="form-group" required>
+        <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[0]'>Driver</div>
+        <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[1]'>Kitchen</div>
+        <div><input type = 'checkbox' ng-true-value = '1' ng-false-value = '0' ng-model = 'employeeCredentials.type[2]'>Front</div>
       </div>
 
 

@@ -6,9 +6,9 @@
     .module('profilepages')
     .controller('ProfilepagesController', ProfilepagesController);
 
-  ProfilepagesController.$inject = ['$scope', '$state', '$window', 'Authentication', '$http'];//, 'profilepageResolve'];
+  ProfilepagesController.$inject = ['$scope', '$state', '$window', 'Authentication'];//, 'profilepageResolve'];
 
-  function ProfilepagesController ($scope, $state, $window, Authentication, $http){//, profilepage) {
+  function ProfilepagesController ($scope, $state, $window, Authentication){//, profilepage) {
 
     var vm = this;
 
@@ -35,12 +35,6 @@
         tagName: "Person"
       }
     ];
-
-    $scope.getHours = function(){
-      $http.get('http://localhost:3000/api/scheduleHours').success(function(response){
-        console.log(response);
-      });
-    };
 
     $scope.tabIndex= 0;
 

@@ -523,17 +523,6 @@ exports.list = function(req, res) {
   });
 };
 
-exports.getScheduleHours = function(req,res){
-  Schedule.find({ "thisWeek" : 1 }).exec(function(err, schedule) {
-    if(err) {
-      res.status(400).send(err);
-
-    } else {
-      res.jsonp(schedule.hours);
-    }
-  });
-};
-
 /**
  * Schedule middleware
  */

@@ -12,9 +12,6 @@ module.exports = function(app) {
     .get(schedules.list)
     .post(schedules.create);
 
-  app.route('/api/scheduleHours')
-    .get(schedules.getScheduleHours);
-
   app.route('/api/schedules/:scheduleId').all(schedulesPolicy.isAllowed)
     .get(schedules.read)
     .put(schedules.update)

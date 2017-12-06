@@ -46,14 +46,6 @@ a:hover .header-profile-image {
 
 /*==========Jairo's Design========*/
 
-li.fontcolorbrown{
-  background-color: white !important;
-}
-li.fontcolorbrown:hover{
-    background-color: white !important;
-}
-
-
 .white {
   min-height: 100px;
   background-color: white;
@@ -70,30 +62,6 @@ li.fontcolorbrown:hover{
   margin-top: 25px;
 }
 
-.marginsides0{
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.paddingsides0{
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.paddingtb0{
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.paddingtop10{
-  padding-top: 10px;
-}
-
-.paddingsides50{
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
 .inputCenter{
   width: 50%;
   margin-left: 25%;
@@ -103,9 +71,6 @@ li.fontcolorbrown:hover{
   float: right;
 }
 
-.f-left{
-  float: left;
-}
 .noMarginLeft{
   margin-left: 0;
   padding-left: 0;
@@ -119,7 +84,7 @@ li.fontcolorbrown:hover{
   border-bottom-style: inset;
   border-bottom-color: #e1f3fa;
 }
-/*-----Buttons----*/
+
 .cookiebutton{
     background-color: #662611 !important;
     border-radius: 15px;
@@ -136,6 +101,7 @@ li.fontcolorbrown:hover{
   background-color: #00aad7 !important;
   border-color: #00aad7 !important;
 }
+
 .icon-bar{
   min-width: 50px;
   min-height:5px;
@@ -147,60 +113,25 @@ li.fontcolorbrown:hover{
   background-color: white ;
 }
 .jumbotron{
-  /*font-family: 'Kalam', cursive;*/
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Kalam', cursive;
 }
 .profilePage{
-  /*font-family: 'Kalem', cursive;*/
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Kalem', cursive;
   padding-top: 0;
   margin-top: 0;
 }
-/*-----Table ----*/
-.testborder{
-  border: 2px solid black;
-  border-radius: 5px;
-}
-/*------- FONT --------*/
 .cookiefont {
-  /*font-family: 'Kalem', cursive;
-  font-family: 'Architects Daughter', cursive;
-  font-family: 'Bree Serif', serif;
-  font-family: 'Gabriela', serif;*/
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 120% !important;
-}
-
-select{
-  width:100%;
-}
-
-option{
-  font-size: 80%;
-}
-
-strong{
-  font-size: 120%;
-  color: #662611;
+  font-family: 'Kalem', cursive;
 }
 
 .fontcolorbrown{
   color: #662611 !important;
-  z-index: 2;
   font-weight: bold;
 }
 
 .fontcolorbrown:hover {
   color: #00aad7 !important;
 }
-
-/*------color-----*/
-.cookieblue{
-  background-color:#00aad7;
-  color: white;
-  font-size: 120%;
-}
-
 
 li.dropdown.open>a {
   background: white !important;
@@ -260,10 +191,4 @@ a.ng-binding.ng-scope:hover{
 .cookiecol2 {
   width: 50%;
   height: 100%;
-}
-
-/*---------Media --------*/
-.responsive_image{
-    max-width:100%;
-    height: auto;
 }
