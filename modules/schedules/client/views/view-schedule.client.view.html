@@ -11,7 +11,13 @@
     </div>
   </div>
 -->
+<<<<<<< HEAD
 <h1 ng-bind="vm.schedule.weekName"></h1>
+=======
+<div class="page-header cookiefont">
+  <h1 ng-bind="vm.schedule.weekName" style = "text-align: center;"></h1>
+</div>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 <tabset justified="true">
   <tab class = "fontcolorbrown" heading = "Monday">
 <!------Printing out shifts for each day------->
@@ -19,15 +25,27 @@
     <!---------Monday--------->
     <div class="cookierow">
       <!--------- Drivers --------->
+<<<<<<< HEAD
       <div class="cookiecol col-md-4 col-sm-12">
         <h4 class="margintop25">Driver</h2>
         <!-----Printing out all shifts for monday ---->
 
         <div ng-repeat="monday in vm.schedule.monday" ng-show = "monday.role[0]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+=======
+      <div class="cookiecol">
+        <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;">Driver</h2>
+        <!-----Printing out all shifts for monday ---->
+        <div ng-repeat="monday in vm.schedule.monday" ng-show = "monday.role[0]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? '#aaff72' : 'white'} " style = "border-radius: 5px;">
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <div class = "divider"></div>
+          <select
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name for employee in monday.available">
+          <option value="" > Add Employee </option>
+        </select>
           <div style = "padding-top : 5px; width:100%;">
             <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
             <h4 style ="padding: 5px;"> Assigned Employees
               <!--moved add employee next to assigned-->
               <select
@@ -35,6 +53,9 @@
                 <option value="" > Add Employee </option>
               </select>
             </h4>
+=======
+            <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
@@ -54,13 +75,19 @@
       <!--------- Kitchen //we now have a required value for each shift
         //when an employee is added, this required value needs to be subtracted or added to
         //if shift.required = 0, turn the element green. --------->
+<<<<<<< HEAD
       <div class="cookiecol col-md-4 col-sm-12">
         <h4 class="margintop25">Kitchen</h2>
+=======
+      <div class="cookiecol">
+        <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;">Kitchen</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
         <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
-        ng-show = "monday.role[1]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+        ng-show = "monday.role[1]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <div class = "divider"></div>
+<<<<<<< HEAD
           <div style = "padding-top : 5px; width:100%;" class="row">
             <!--Printing all employees assigned to shift-->
 
@@ -74,11 +101,23 @@
 
 
 
+=======
+          <select
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name for employee in monday.available"   >
+          <option value="" > Add Employee </option>
+        </select>
+          <div style = "padding-top : 5px; width:100%;">
+            <!--Printing all employees assigned to shift-->
+            <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
           </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
           <!------Print out available employee ---->
 
           <!-- <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday,employee,'mon', $index)">
@@ -88,16 +127,26 @@
       </div>
 
       <!--------- Front --------->
+<<<<<<< HEAD
       <div class="cookiecol col-md-4 col-sm-12">
         <h4 class="margintop25">Front</h4>
+=======
+      <div class="cookiecol">
+        <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Front</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
         <!-----Printing out all shifts for monday ---->
         <div ng-repeat="monday in vm.schedule.monday"
-          ng-show = "monday.role[2]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+          ng-show = "monday.role[2]" class="list-group-item" ng-style = "{'background-color': monday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
           <h4 class="list-group-item-heading"style = "padding : 10px">{{monday.hours[0]}} to {{monday.hours[1]}} </h4>
           <div class = "divider"></div>
+          <select
+          ng-model="thisEmployee" ng-change="addEmployee(monday, thisEmployee,'mon', monday.available)" ng-options=" employee.name for employee in monday.available"   >
+          <option value="" > Add Employee </option>
+        </select>
           <div style = "padding-top : 5px; width:100%;">
             <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
             <h4 style ="padding: 5px;"> Assigned Employees
               <!--moved add employee to assigned -->
               <select
@@ -105,11 +154,17 @@
                 <option value="" > Add Employee </option>
               </select>
             </h4>
+=======
+            <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <a ng-repeat="employee in monday.employees" class="btn" ng-click="removeEmployee(monday, $index, 'mon',  monday.employees[$index])">
               {{employee.name}}
             </a>
           </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
           <!------Print out available employee ---->
          <!--  <a class = "btn" ng-repeat = "employee in monday.available" ng-click= "addEmployee(monday, employee,'mon', $index)">
             {{employee.name}}
@@ -127,14 +182,24 @@
         <!---------Tuesday--------->
         <div class="cookierow">
           <!--------- Drivers --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12 ">
             <h4 class="margintop25">Driver</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Driver</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for tuesday ---->
-            <div ng-repeat="tuesday in vm.schedule.tuesday" ng-show = "tuesday.role[0]" class="list-group-item" ng-style = "{'background-color': tuesday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            <div ng-repeat="tuesday in vm.schedule.tuesday" ng-show = "tuesday.role[0]" class="list-group-item" ng-style = "{'background-color': tuesday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{tuesday.hours[0]}} to {{tuesday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(tuesday, thisEmployee,'tue', tuesday.available)" ng-options=" employee.name for employee in tuesday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -143,10 +208,17 @@
                   </select>
 
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in tuesday.employees" class="btn" ng-click="removeEmployee(tuesday, $index, 'tue',  tuesday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
 
               <!-- <select ng-change= "addEmployee(tuesday, employee, 'tue', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
@@ -160,15 +232,25 @@
           <!--------- Kitchen //we now have a required value for each shift
             //when an employee is added, this required value needs to be subtracted or added to
             //if shift.required = 0, turn the element green. --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Kitchen</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Kitchen</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for tuesday ---->
             <div ng-repeat="tuesday in vm.schedule.tuesday"
-            ng-show = "tuesday.role[1]" class="list-group-item" ng-style = "{'background-color': tuesday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            ng-show = "tuesday.role[1]" class="list-group-item" ng-style = "{'background-color': tuesday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{tuesday.hours[0]}} to {{tuesday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(tuesday, thisEmployee,'tue', tuesday.available)" ng-options=" employee.name for employee in tuesday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -177,6 +259,9 @@
                   </select>
 
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in tuesday.employees" class="btn" ng-click="removeEmployee(tuesday, $index, 'tue',  tuesday.employees[$index])">
                   {{employee.name}}
                 </a>
@@ -190,16 +275,26 @@
           </div>
 
           <!--------- Front --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Front</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Front</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
             <!-----Printing out all shifts for tuesday ---->
             <div ng-repeat="tuesday in vm.schedule.tuesday"
-              ng-show = "tuesday.role[2]" class="list-group-item" ng-style = "{'background-color': tuesday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+              ng-show = "tuesday.role[2]" class="list-group-item" ng-style = "{'background-color': tuesday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{tuesday.hours[0]}} to {{tuesday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(tuesday, thisEmployee,'tue', tuesday.available)" ng-options=" employee.name for employee in tuesday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -208,6 +303,9 @@
                   </select>
 
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in tuesday.employees" class="btn" ng-click="removeEmployee(tuesday, $index, 'tue',  tuesday.employees[$index])">
                   {{employee.name}}
                 </a>
@@ -229,14 +327,24 @@
         <!---------wednesday--------->
         <div class="cookierow">
           <!--------- Drivers --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Driver</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Driver</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for wednesday ---->
-            <div ng-repeat="wednesday in vm.schedule.wednesday" ng-show = "wednesday.role[0]" class="list-group-item" ng-style = "{'background-color': wednesday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            <div ng-repeat="wednesday in vm.schedule.wednesday" ng-show = "wednesday.role[0]" class="list-group-item" ng-style = "{'background-color': wednesday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{wednesday.hours[0]}} to {{wednesday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(wednesday, thisEmployee,'wed', wednesday.available)" ng-options=" employee.name for employee in wednesday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
 
                   <!------Print out available employee ---->
@@ -245,10 +353,17 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in wednesday.employees" class="btn" ng-click="removeEmployee(wednesday, $index, 'wed',  wednesday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
 
               <!-- <select ng-change= "addEmployee(wednesday, employee, 'wed', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
@@ -262,15 +377,25 @@
           <!--------- Kitchen //we now have a required value for each shift
             //when an employee is added, this required value needs to be subtracted or added to
             //if shift.required = 0, turn the element green. --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Kitchen</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Kitchen</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for wednesday ---->
             <div ng-repeat="wednesday in vm.schedule.wednesday"
-            ng-show = "wednesday.role[1]" class="list-group-item" ng-style = "{'background-color': wednesday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            ng-show = "wednesday.role[1]" class="list-group-item" ng-style = "{'background-color': wednesday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{wednesday.hours[0]}} to {{wednesday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(wednesday, thisEmployee,'wed', wednesday.available)" ng-options=" employee.name for employee in wednesday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
 
                   <!------Print out available employee ---->
@@ -279,11 +404,17 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in wednesday.employees" class="btn" ng-click="removeEmployee(wednesday, $index, 'wed',  wednesday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
               <!------Print out available employee ---->
 
               <!-- <a class = "btn" ng-repeat = "employee in wednesday.available" ng-click= "addEmployee(wednesday,employee,'wed', $index)">
@@ -293,16 +424,26 @@
           </div>
 
           <!--------- Front --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Front</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Front</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
             <!-----Printing out all shifts for wednesday ---->
             <div ng-repeat="wednesday in vm.schedule.wednesday"
-              ng-show = "wednesday.role[2]" class="list-group-item" ng-style = "{'background-color': wednesday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+              ng-show = "wednesday.role[2]" class="list-group-item" ng-style = "{'background-color': wednesday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{wednesday.hours[0]}} to {{wednesday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(wednesday, thisEmployee,'wed', wednesday.available)" ng-options=" employee.name for employee in wednesday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
 
                   <!------Print out available employee ---->
@@ -311,6 +452,9 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in wednesday.employees" class="btn" ng-click="removeEmployee(wednesday, $index, 'wed',  wednesday.employees[$index])">
                   {{employee.name}}
                 </a>
@@ -332,14 +476,24 @@
         <!---------thursday--------->
         <div class="cookierow">
           <!--------- Drivers --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Driver</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Driver</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for thursday ---->
-            <div ng-repeat="thursday in vm.schedule.thursday" ng-show = "thursday.role[0]" class="list-group-item" ng-style = "{'background-color': thursday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            <div ng-repeat="thursday in vm.schedule.thursday" ng-show = "thursday.role[0]" class="list-group-item" ng-style = "{'background-color': thursday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{thursday.hours[0]}} to {{thursday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(thursday, thisEmployee,'thu', thursday.available)" ng-options=" employee.name for employee in thursday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -347,11 +501,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in thursday.employees" class="btn" ng-click="removeEmployee(thursday, $index, 'thu',  thursday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
 
               <!-- <select ng-change= "addEmployee(thursday, employee, 'thu', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
@@ -365,15 +526,25 @@
           <!--------- Kitchen //we now have a required value for each shift
             //when an employee is added, this required value needs to be subtracted or added to
             //if shift.required = 0, turn the element green. --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Kitchen</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Kitchen</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for thursday ---->
             <div ng-repeat="thursday in vm.schedule.thursday"
-            ng-show = "thursday.role[1]" class="list-group-item" ng-style = "{'background-color': thursday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            ng-show = "thursday.role[1]" class="list-group-item" ng-style = "{'background-color': thursday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{thursday.hours[0]}} to {{thursday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(thursday, thisEmployee,'thu', thursday.available)" ng-options=" employee.name for employee in thursday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -381,10 +552,17 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in thursday.employees" class="btn" ng-click="removeEmployee(thursday, $index, 'thu',  thursday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
               <!-- <a class = "btn" ng-repeat = "employee in thursday.available" ng-click= "addEmployee(thursday,employee,'thu', $index)">
                 {{employee.name}} {{$index}}
@@ -393,16 +571,26 @@
           </div>
 
           <!--------- Front --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Front</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Front</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
             <!-----Printing out all shifts for thursday ---->
             <div ng-repeat="thursday in vm.schedule.thursday"
-              ng-show = "thursday.role[2]" class="list-group-item" ng-style = "{'background-color': thursday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+              ng-show = "thursday.role[2]" class="list-group-item" ng-style = "{'background-color': thursday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{thursday.hours[0]}} to {{thursday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(thursday, thisEmployee,'thu', thursday.available)" ng-options=" employee.name for employee in thursday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -410,11 +598,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in thursday.employees" class="btn" ng-click="removeEmployee(thursday, $index, 'thu',  thursday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
              <!--  <a class = "btn" ng-repeat = "employee in thursday.available" ng-click= "addEmployee(thursday, employee,'thu', $index)">
                 {{employee.name}}
               </a> -->
@@ -431,14 +626,24 @@
         <!---------friday--------->
         <div class="cookierow">
           <!--------- Drivers --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Driver</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Driver</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for friday ---->
-            <div ng-repeat="friday in vm.schedule.friday" ng-show = "friday.role[0]" class="list-group-item" ng-style = "{'background-color': friday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            <div ng-repeat="friday in vm.schedule.friday" ng-show = "friday.role[0]" class="list-group-item" ng-style = "{'background-color': friday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{friday.hours[0]}} to {{friday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(friday, thisEmployee,'fri', friday.available)" ng-options=" employee.name for employee in friday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -446,11 +651,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in friday.employees" class="btn" ng-click="removeEmployee(friday, $index, 'fri',  friday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
 
               <!-- <select ng-change= "addEmployee(friday, employee, 'fri', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
@@ -464,15 +676,25 @@
           <!--------- Kitchen //we now have a required value for each shift
             //when an employee is added, this required value needs to be subtracted or added to
             //if shift.required = 0, turn the element green. --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Kitchen</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Kitchen</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for friday ---->
             <div ng-repeat="friday in vm.schedule.friday"
-            ng-show = "friday.role[1]" class="list-group-item" ng-style = "{'background-color': friday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            ng-show = "friday.role[1]" class="list-group-item" ng-style = "{'background-color': friday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{friday.hours[0]}} to {{friday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(friday, thisEmployee,'fri', friday.available)" ng-options=" employee.name for employee in friday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -480,10 +702,17 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in friday.employees" class="btn" ng-click="removeEmployee(friday, $index, 'fri',  friday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
               <!-- <a class = "btn" ng-repeat = "employee in friday.available" ng-click= "addEmployee(friday,employee,'fri', $index)">
                 {{employee.name}} {{$index}}
@@ -492,16 +721,26 @@
           </div>
 
           <!--------- Front --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Front</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Front</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
             <!-----Printing out all shifts for friday ---->
             <div ng-repeat="friday in vm.schedule.friday"
-              ng-show = "friday.role[2]" class="list-group-item" ng-style = "{'background-color': friday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+              ng-show = "friday.role[2]" class="list-group-item" ng-style = "{'background-color': friday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{friday.hours[0]}} to {{friday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(friday, thisEmployee,'fri', friday.available)" ng-options=" employee.name for employee in friday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -509,11 +748,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in friday.employees" class="btn" ng-click="removeEmployee(friday, $index, 'fri',  friday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
              <!--  <a class = "btn" ng-repeat = "employee in friday.available" ng-click= "addEmployee(friday, employee,'fri', $index)">
                 {{employee.name}}
               </a> -->
@@ -530,14 +776,24 @@
         <!---------saturday--------->
         <div class="cookierow">
           <!--------- Drivers --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Driver</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;" style = "border-radius: 5px;">Driver</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for saturday ---->
-            <div ng-repeat="saturday in vm.schedule.saturday" ng-show = "saturday.role[0]" class="list-group-item" ng-style = "{'background-color': saturday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            <div ng-repeat="saturday in vm.schedule.saturday" ng-show = "saturday.role[0]" class="list-group-item" ng-style = "{'background-color': saturday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{saturday.hours[0]}} to {{saturday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(saturday, thisEmployee,'sat', saturday.available)" ng-options=" employee.name for employee in saturday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -545,11 +801,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in saturday.employees" class="btn" ng-click="removeEmployee(saturday, $index, 'sat',  saturday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
 
               <!-- <select ng-change= "addEmployee(saturday, employee, 'sat', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
@@ -563,15 +826,25 @@
           <!--------- Kitchen //we now have a required value for each shift
             //when an employee is added, this required value needs to be subtracted or added to
             //if shift.required = 0, turn the element green. --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Kitchen</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;">Kitchen</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for saturday ---->
             <div ng-repeat="saturday in vm.schedule.saturday"
-            ng-show = "saturday.role[1]" class="list-group-item" ng-style = "{'background-color': saturday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            ng-show = "saturday.role[1]" class="list-group-item" ng-style = "{'background-color': saturday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{saturday.hours[0]}} to {{saturday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(saturday, thisEmployee,'sat', saturday.available)" ng-options=" employee.name for employee in saturday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -579,11 +852,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in saturday.employees" class="btn" ng-click="removeEmployee(saturday, $index, 'mon',  saturday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
               <!-- <a class = "btn" ng-repeat = "employee in saturday.available" ng-click= "addEmployee(saturday,employee,'sat', $index)">
                 {{employee.name}} {{$index}}
@@ -592,16 +872,26 @@
           </div>
 
           <!--------- Front --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Front</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;">Front</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
             <!-----Printing out all shifts for saturday ---->
             <div ng-repeat="saturday in vm.schedule.saturday"
-              ng-show = "saturday.role[2]" class="list-group-item" ng-style = "{'background-color': saturday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+              ng-show = "saturday.role[2]" class="list-group-item" ng-style = "{'background-color': saturday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{saturday.hours[0]}} to {{saturday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(saturday, thisEmployee,'sat', saturday.available)" ng-options=" employee.name for employee in saturday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -609,11 +899,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in saturday.employees" class="btn" ng-click="removeEmployee(saturday, $index, 'sat',  saturday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
              <!--  <a class = "btn" ng-repeat = "employee in saturday.available" ng-click= "addEmployee(saturday, employee,'sat', $index)">
                 {{employee.name}}
               </a> -->
@@ -630,14 +927,24 @@
         <!---------sunday--------->
         <div class="cookierow">
           <!--------- Drivers --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Driver</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;">Driver</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for sunday ---->
-            <div ng-repeat="sunday in vm.schedule.sunday" ng-show = "sunday.role[0]" class="list-group-item" ng-style = "{'background-color': sunday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            <div ng-repeat="sunday in vm.schedule.sunday" ng-show = "sunday.role[0]" class="list-group-item" ng-style = "{'background-color': sunday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{sunday.hours[0]}} to {{sunday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(sunday, thisEmployee,'sun', sunday.available)" ng-options=" employee.name for employee in sunday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -645,11 +952,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in sunday.employees" class="btn" ng-click="removeEmployee(sunday, $index, 'sun',  sunday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
 
               <!-- <select ng-change= "addEmployee(sunday, employee, 'sun', $index)" ng-model="thisEmployee" ng-options= "employee.firstName + ' ' + employee.hours for employee in users "> </select -->
@@ -663,15 +977,25 @@
           <!--------- Kitchen //we now have a required value for each shift
             //when an employee is added, this required value needs to be subtracted or added to
             //if shift.required = 0, turn the element green. --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Kitchen</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;">Kitchen</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
             <!-----Printing out all shifts for sunday ---->
             <div ng-repeat="sunday in vm.schedule.sunday"
-            ng-show = "sunday.role[1]" class="list-group-item" ng-style = "{'background-color': sunday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+            ng-show = "sunday.role[1]" class="list-group-item" ng-style = "{'background-color': sunday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{sunday.hours[0]}} to {{sunday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(sunday, thisEmployee,'sun', sunday.available)" ng-options=" employee.name for employee in sunday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -679,11 +1003,18 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in sunday.employees" class="btn" ng-click="removeEmployee(sunday, $index, 'sun',  sunday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
 
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
               <!-- <a class = "btn" ng-repeat = "employee in sunday.available" ng-click= "addEmployee(sunday,employee,'sun', $index)">
                 {{employee.name}} {{$index}}
@@ -692,16 +1023,26 @@
           </div>
 
           <!--------- Front --------->
+<<<<<<< HEAD
           <div class="cookiecol col-md-4 col-sm-12">
             <h4 class="margintop25">Front</h2>
+=======
+          <div class="cookiecol">
+            <h4 class="margintop25 cookieblue" style = "text-align: center; border-radius: 5px;">Front</h2>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
 
             <!-----Printing out all shifts for sunday ---->
             <div ng-repeat="sunday in vm.schedule.sunday"
-              ng-show = "sunday.role[2]" class="list-group-item" ng-style = "{'background-color': sunday.required <= 0 ? '#74F96C' : '#e1f3fa'}">
+              ng-show = "sunday.role[2]" class="list-group-item" ng-style = "{'background-color': sunday.required <= 0 ? '#aaff72' : 'white'}" style = "border-radius: 5px;">
               <h4 class="list-group-item-heading"style = "padding : 10px">{{sunday.hours[0]}} to {{sunday.hours[1]}} </h4>
               <div class = "divider"></div>
+              <select
+              ng-model="thisEmployee" ng-change="addEmployee(sunday, thisEmployee,'sun', sunday.available)" ng-options=" employee.name for employee in sunday.available"   >
+              <option value="" > Add Employee </option>
+            </select>
               <div style = "padding-top : 5px; width:100%;">
                 <!--Printing all employees assigned to shift-->
+<<<<<<< HEAD
                 <h4 style ="padding: 5px;"> Assigned Employees
                   <!------Print out available employee ---->
                   <select
@@ -709,10 +1050,17 @@
                     <option value="" > Add Employee </option>
                   </select>
                 </h4>
+=======
+                <h4 style ="padding: 5px; text-align:center; color: #00aad7; "> Assigned Employees </h4>
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
                 <a ng-repeat="employee in sunday.employees" class="btn" ng-click="removeEmployee(sunday, $index, 'sun',  sunday.employees[$index])">
                   {{employee.name}}
                 </a>
               </div>
+<<<<<<< HEAD
+=======
+              <!------Print out available employee ---->
+>>>>>>> e7b1dbc64b4e4dd36fc3b90adc05f876f5c7ac4e
              <!--  <a class = "btn" ng-repeat = "employee in sunday.available" ng-click= "addEmployee(sunday, employee,'sun', $index)">
                 {{employee.name}}
               </a> -->
