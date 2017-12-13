@@ -11,6 +11,12 @@ module.exports = function(app) {
   app.route('/api/schedules').all(schedulesPolicy.isAllowed)
     .get(schedules.list)
     .post(schedules.create);
+    
+  app.route('/api/scheduleHours')
+    .get(schedules.getScheduleHours);
+
+  app.route('/api/scheduleWeek')
+    .put(schedules.setWeekBit);
 
   app.route('/api/schedules/:scheduleId').all(schedulesPolicy.isAllowed)
     .get(schedules.read)

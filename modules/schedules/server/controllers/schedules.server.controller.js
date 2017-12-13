@@ -523,6 +523,34 @@ exports.list = function(req, res) {
   });
 };
 
+
+exports.getScheduleHours = function(req,res){
+  Schedule.find({ "thisWeek" : 1 }).exec(function(err, schedule) {
+    if(err) {
+      res.status(400).send(err);
+
+    } else {
+      res.jsonp(schedule.hours);
+    }
+  });
+};
+
+exports.setWeekBit = function(req, res, id){
+
+    Schedule.findById(id).exec(function(err, schedule) {
+      if(err){
+        res.status(400).send(err);
+      }else{
+          schedule.nextWeek = 0;
+          schedule.thisWeek = 1;
+          schedule.save();
+          res.status(200).send({
+            message: 'setWeekBitcalled'  
+          });
+      }
+    });
+};
+
 /**
  * Schedule middleware
  */

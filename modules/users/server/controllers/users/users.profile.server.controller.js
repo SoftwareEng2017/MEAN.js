@@ -11,7 +11,6 @@ var _ = require('lodash'),
   multer = require('multer'),
   config = require(path.resolve('./config/config')),
   User = mongoose.model('User');
-
 /**
  * Update user details
  */
