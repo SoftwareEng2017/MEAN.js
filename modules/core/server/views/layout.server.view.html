@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -37,12 +37,13 @@
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 
   <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Bree+Serif|Gabriela|Josefin+Sans" rel="stylesheet">
 </head>
 
 <body class="ng-cloak">
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="p-0 m-0 navbar navbar-fixed-top navbar-inverse white"></header>
   <section class="content page">
-    <section class="container">
+    <section class="paddingsides50 marginsides0">
       {% block content %}{% endblock %}
     </section>
   </section>

@@ -7,10 +7,10 @@
   <div ng-hide = "noNextWeek()">
   </div>
   <div class="page-header cookiefont">
-    <h1>Schedules</h1>
+    <h1 style="text-align: center;">Schedules</h1>
   </div>
   <div class="list-group cookiefont">
-    <h3> Next Week Schedule </h3>
+    <h3> Next Week's Schedule </h3>
     <div ng-hide = "noWeek">
       <a ng-repeat="schedule in vm.schedules" ng-show = "isNextWeek(schedule)"
          ui-sref="schedules.view({ scheduleId: schedule._id })"
@@ -21,7 +21,7 @@
     <div ng-show = "noWeek">
       <a class = "btn cookiebutton"  ui-sref="schedules.create">Create a New Schedule!</a>
     </div>
-    <h3> Current Week Schedule </h3>
+    <h3> Current Week's Schedule </h3>
     <a ng-repeat="schedule in vm.schedules" ng-show = "isThisWeek(schedule)"
        ui-sref="schedules.view({ scheduleId: schedule._id })"
        class="list-group-item">

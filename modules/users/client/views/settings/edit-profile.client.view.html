@@ -1,9 +1,115 @@
-<section class="row" ng-controller="EditProfileController">
+<section class="row cookiefont" ng-controller="EditProfileController">
   <div style = "width: 100%"class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4 noMarginLeft" ng-init = "getSchedules()">
     <form name="userForm" ng-submit="updateUserProfile(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
         <tabset justified="true">
-          <tab class = "fontcolorbrown cookiefont" heading="Edit User Info">
+          <tab class = "cookiefont fontcolorbrown" heading="Edit Availability">
+            <div class="form-group">
+              <p ng-show = "compareArray(user.type, [0,0,0])">
+                This employee doesn't have any roles! Ask your manager to update your role.
+              </p>
+              <p ng-show ="schedules.length == 0">
+                No schedules available at this time.
+              </p>
+              <div class = "testborder" ng-hide ="schedules.length == 0">
+                <table width= "100%;" ng-show ="!compareArray(user.type, [0,0,0])" >
+                  <tr>
+                    <th class = "testborder cookieblue">Mon</th>
+                    <td class = "testborder" ng-repeat = "shift in schedules[0].monday" ng-show = "findShift(shift.role, user.type)">
+                      <div class = "cookiecol2 f-left paddingsides0 marginsides0">
+                      <strong>{{returnRole(shift.role)}}:</strong>
+                      {{shift.hours[0]}} to {{shift.hours[1]}}
+                      </div>
+                      <div class = "paddingtop10 cookiecol2 f-right">
+                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.mon[$index]">
+                    </div>
+                    </td>
+                  </tr>
+                  <tr >
+                    <th  class = "testborder cookieblue">Tue</th>
+                    <td class = "testborder"ng-repeat = "shift in schedules[0].tuesday" ng-show = "findShift(shift.role, user.type)">
+                      <div class = "cookiecol2 f-left paddingsides0 marginsides0"><strong>{{returnRole(shift.role)}}:</strong>
+                      {{shift.hours[0]}} to {{shift.hours[1]}}
+                    </div>
+                    <div class = "paddingtop10 cookiecol2 f-right">
+                      <input type="checkbox" id="availibility" name="availibility" class="form-control paddingsides0 marginsides0" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.tue[$index]">
+                    </div>
+                    </td>
+                  </tr>
+                  <tr >
+                    <th class = "testborder cookieblue">Wed</th>
+                      <td class = "testborder" ng-repeat = "shift in schedules[0].wednesday" ng-show = "findShift(shift.role, user.type)">
+                        <div class = "cookiecol2 f-left paddingsides0 marginsides0">
+                        <strong>{{returnRole(shift.role)}}:</strong>
+                        {{shift.hours[0]}} to {{shift.hours[1]}}
+                        </div>
+                        <div class = "paddingtop10 cookiecol2 f-right">
+                        <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.wed[$index]">
+                        </div>
+                      </td>
+                  </tr>
+                  <tr >
+                    <th class = "testborder cookieblue">Thu</th>
+                    <td class = "testborder"ng-repeat = "shift in schedules[0].thursday" ng-show = "findShift(shift.role, user.type)">
+                      <div class = "cookiecol2 f-left paddingsides0 marginsides0">
+                      <strong>{{returnRole(shift.role)}}:</strong>
+                      {{shift.hours[0]}} to {{shift.hours[1]}}
+                      </div>
+                      <div class = "paddingtop10 cookiecol2 f-right">
+                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.thu[$index]">
+                    </div>
+                    </td>
+                  </tr>
+                  <tr >
+                    <th class = "testborder cookieblue">Fri</th>
+                    <td class = "testborder" ng-repeat = "shift in schedules[0].friday" ng-show = "findShift(shift.role, user.type)">
+                      <div class = "cookiecol2 f-left paddingsides0 marginsides0">
+                      <strong>{{returnRole(shift.role)}}:</strong>
+                      {{shift.hours[0]}} to {{shift.hours[1]}}
+                      </div>
+                      <div class = "paddingtop10 cookiecol2 f-right">
+                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.fri[$index]">
+                    </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class = "testborder cookieblue">Sat</th>
+                    <td class = "testborder" ng-repeat = "shift in schedules[0].saturday" ng-show = "findShift(shift.role, user.type)">
+                      <div class = "cookiecol2 f-left paddingsides0 marginsides0">
+                      <strong>{{returnRole(shift.role)}}:</strong>
+                      {{shift.hours[0]}} to {{shift.hours[1]}}
+                      </div>
+                      <div class = "paddingtop10 cookiecol2 f-right">
+                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sat[$index]">
+                    </div>
+                    </td>
+                  </tr>
+                  <tr >
+                    <th class = "testborder cookieblue">Sun</th>
+                    <td class = "testborder" ng-repeat = "shift in schedules[0].sunday" ng-show = "findShift(shift.role, user.type)">
+                      <div class = "cookiecol2 f-left paddingsides0 marginsides0">
+                      <strong>{{returnRole(shift.role)}}:</strong>
+                      {{shift.hours[0]}} to {{shift.hours[1]}}
+                      </div>
+                      <div class = "paddingtop10 cookiecol2 f-right">
+                    <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sun[$index]">
+                  </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="text-center form-group">
+              <button type="submit" class="btn cookiebutton">Save Profile</button>
+            </div>
+            <div ng-show="success" class="text-center text-success">
+              <strong>Profile Saved Successfully</strong>
+            </div>
+            <div ng-show="error" class="text-center text-danger">
+              <strong ng-bind="error"></strong>
+            </div>
+          </tab>
+          <tab class = "fontcolorbrown cookiefont" heading="Edit Account Info">
             <div class="form-group" show-errors>
               <label class = "inputCenter" for="firstName">First Name</label>
               <input type="text" id="firstName" name="firstName" class="form-control inputCenter" ng-model="user.firstName" placeholder="First Name" required>
@@ -34,71 +140,6 @@
             </div>
             <div ng-show="error" class="text-center text-danger">
               <strong ng-bind="error"></strong>
-            </div>
-          </tab>
-          <tab class = "cookiefont fontcolorbrown" heading="Edit Availablity">
-            <div class="form-group" >
-              <p ng-show = "compareArray(user.type, [0,0,0])">
-                This employee doesn't have any roles! Ask your manager to update your role.
-              </p>
-              <p ng-show ="schedules.length == 0">
-                No schedules available at this time.
-              </p>
-              <div ng-hide ="schedules.length == 0">
-                <table border = "1" style = "width:100%" ng-show ="!compareArray(user.type, [0,0,0])" >
-                  <tr>
-                    <th>Mon</th>
-                    <td ng-repeat = "shift in schedules[0].monday" ng-show = "findShift(shift.role, user.type)">
-                      <strong>{{returnRole(shift.role)}}:</strong>
-                      {{shift.hours[0]}} to {{shift.hours[1]}}
-                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.mon[$index]">
-                    </td>
-                  </tr>
-                  <tr >
-                    <th>Tue</th>
-                    <td ng-repeat = "shift in schedules[0].tuesday" ng-show = "findShift(shift.role, user.type)"> <strong>{{returnRole(shift.role)}}:</strong>
-                      {{shift.hours[0]}} to {{shift.hours[1]}}
-                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.tue[$index]">
-                    </td>
-                  </tr>
-                  <tr >
-                    <th>Wed</th>
-                      <td ng-repeat = "shift in schedules[0].wednesday" ng-show = "findShift(shift.role, user.type)"> <strong>{{returnRole(shift.role)}}:</strong>
-                        {{shift.hours[0]}} to {{shift.hours[1]}}
-                        <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.wed[$index]">
-                      </td>
-                  </tr>
-                  <tr >
-                    <th>Thu</th>
-                    <td ng-repeat = "shift in schedules[0].thursday" ng-show = "findShift(shift.role, user.type)"> <strong>{{returnRole(shift.role)}}:</strong>
-                      {{shift.hours[0]}} to {{shift.hours[1]}}
-                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.thu[$index]">
-
-                    </td>
-                  </tr>
-                  <tr >
-                    <th>Fri</th>
-                    <td ng-repeat = "shift in schedules[0].friday" ng-show = "findShift(shift.role, user.type)"> <strong>{{returnRole(shift.role)}}:</strong>
-                      {{shift.hours[0]}} to {{shift.hours[1]}}
-                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.fri[$index]">
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Sat</th>
-                    <td ng-repeat = "shift in schedules[0].saturday" ng-show = "findShift(shift.role, user.type)"> <strong>{{returnRole(shift.role)}}:</strong>
-                      {{shift.hours[0]}} to {{shift.hours[1]}}
-                      <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sat[$index]">
-                    </td>
-                  </tr>
-                  <tr >
-                    <th>Sun</th>
-                    <td ng-repeat = "shift in schedules[0].sunday" ng-show = "findShift(shift.role, user.type)"> <strong>{{returnRole(shift.role)}}:</strong>
-                      {{shift.hours[0]}} to {{shift.hours[1]}}
-                    <input type="checkbox" id="availibility" name="availibility" class="form-control" ng-true-value = '1' ng-false-value = '0' ng-model="user.availibility.sun[$index]">
-                    </td>
-                  </tr>
-                </table>
-              </div>
             </div>
           </tab>
         </tabset>
